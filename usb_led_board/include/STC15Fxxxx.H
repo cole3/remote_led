@@ -286,7 +286,7 @@ sbit ET0  = IE^1;	//∂® ±÷–∂œ0‘ –Ìøÿ÷∆Œª
 sbit EX0  = IE^0;	//Õ‚≤ø÷–∂œ0‘ –Ìøÿ÷∆Œª
 
 
-/*  IP   */ 
+/*  IP   */
 /*
 sbit PPCA = IP^7;	//PCA ÷–∂œ ”≈œ»º∂…Ë∂®Œª
 sbit PLVD = IP^6; 	//µÕ—π÷–∂œ ”≈œ»º∂…Ë∂®Œª
@@ -318,7 +318,7 @@ sbit B7 = B^7;
 
 
 //							7     6     5    4    3    2    1     0    Reset Value
-//sfr IE2       = 0xAF;		-     -     -    -    -    -   ESPI  ES2   0000,0000B	//Auxiliary Interrupt   
+//sfr IE2       = 0xAF;		-     -     -    -    -    -   ESPI  ES2   0000,0000B	//Auxiliary Interrupt
 #define		SPI_INT_ENABLE()		IE2 |=  2	//‘ –ÌSPI÷–∂œ
 #define		SPI_INT_DISABLE()		IE2 &= ~2	//‘ –ÌSPI÷–∂œ
 #define		UART2_INT_ENABLE()		IE2 |=  1	//‘ –Ì¥Æø⁄2÷–∂œ
@@ -430,7 +430,7 @@ sbit PX0	= IP^0;	//Õ‚≤ø÷–∂œ0”≈œ»º∂…Ë∂®Œª
 
 
 //						   7     6       5      4     3      2      1      0    Reset Value
-//sfr AUXR  = 0x8E;		T0x12 T1x12 UART_M0x6  BRTR S2SMOD BRTx12 EXTRAM S1BRS  0000,0000	//Auxiliary Register 
+//sfr AUXR  = 0x8E;		T0x12 T1x12 UART_M0x6  BRTR S2SMOD BRTx12 EXTRAM S1BRS  0000,0000	//Auxiliary Register
 
 #define 	Timer0_1T()					AUXR |=  (1<<7)	//Timer0 clodk = fo
 #define 	Timer0_12T()				AUXR &= ~(1<<7)	//Timer0 clodk = fo/12	12∑÷∆µ,	default
@@ -490,7 +490,7 @@ sbit PX0	= IP^0;	//Õ‚≤ø÷–∂œ0”≈œ»º∂…Ë∂®Œª
 
 
 //						  7     6      5    4     3      2    1     0     Reset Value
-//sfr PCON   = 0x87;	SMOD  SMOD0  LVDF  POF   GF1    GF0   PD   IDL    0001,0000	 //Power Control 
+//sfr PCON   = 0x87;	SMOD  SMOD0  LVDF  POF   GF1    GF0   PD   IDL    0001,0000	 //Power Control
 //SMOD		//¥Æø⁄À´±∂ÀŸ
 //SMOD0
 #define		LVDF		(1<<5)	//P4.6µÕ—πºÏ≤‚±Í÷æ
@@ -549,8 +549,8 @@ sbit PX0	= IP^0;	//Õ‚≤ø÷–∂œ0”≈œ»º∂…Ë∂®Œª
 
 /* ADC Register */
 //								7       6      5       4         3      2    1    0   Reset Value
-//sfr ADC_CONTR = 0xBC;		ADC_POWER SPEED1 SPEED0 ADC_FLAG ADC_START CHS2 CHS1 CHS0 0000,0000	//AD ◊™ªªøÿ÷∆ºƒ¥Ê∆˜ 
-//sfr ADC_RES  = 0xBD;		ADCV.9 ADCV.8 ADCV.7 ADCV.6 ADCV.5 ADCV.4 ADCV.3 ADCV.2	  0000,0000	//A/D ◊™ªªΩ·π˚∏ﬂ8Œª 
+//sfr ADC_CONTR = 0xBC;		ADC_POWER SPEED1 SPEED0 ADC_FLAG ADC_START CHS2 CHS1 CHS0 0000,0000	//AD ◊™ªªøÿ÷∆ºƒ¥Ê∆˜
+//sfr ADC_RES  = 0xBD;		ADCV.9 ADCV.8 ADCV.7 ADCV.6 ADCV.5 ADCV.4 ADCV.3 ADCV.2	  0000,0000	//A/D ◊™ªªΩ·π˚∏ﬂ8Œª
 //sfr ADC_RESL = 0xBE;												  ADCV.1 ADCV.0	  0000,0000	//A/D ◊™ªªΩ·π˚µÕ2Œª
 //sfr ADC_CONTR  = 0xBC;	//÷±Ω””√MOV≤Ÿ◊˜£¨≤ª“™”√”ÎªÚ
 
@@ -569,8 +569,8 @@ sbit PX0	= IP^0;	//Õ‚≤ø÷–∂œ0”≈œ»º∂…Ë∂®Œª
 #define	SPI_Slave()			SPCTL &= ~(1<<4)		//0: …ËŒ™¥”ª˙
 #define	SPI_SCLK_NormalH()	SPCTL |=  (1<<3)		//1: ø’œ– ±SCLKŒ™∏ﬂµÁ∆Ω
 #define	SPI_SCLK_NormalL()	SPCTL &= ~(1<<3)		//0: ø’œ– ±SCLKŒ™µÕµÁ∆Ω
-#define	SPI_PhaseH()		SPCTL |=  (1<<2)		//1: 
-#define	SPI_PhaseL()		SPCTL &= ~(1<<2)		//0: 
+#define	SPI_PhaseH()		SPCTL |=  (1<<2)		//1:
+#define	SPI_PhaseL()		SPCTL &= ~(1<<2)		//0:
 #define	SPI_Speed(n)		SPCTL = (SPCTL & ~3) | (n)	//…Ë÷√ÀŸ∂», 0 -- fosc/4, 1 -- fosc/16, 2 -- fosc/64, 3 -- fosc/128
 
 //sfr SPDAT  = 0xCF; //SPI Data Register                                                     0000,0000
@@ -640,7 +640,7 @@ sbit CF    = CCON^7;	//PCAº∆ ˝∆˜“Á≥ˆ£®CH£¨CL”…FFFFH±‰Œ™0000H£©±Í÷æ°£PCAº∆ ˝∆˜“Á≥
 
 
 /*									7     6      5      4     3     2     1     0     Reset Value
-//sfr CCAPM0 = 0xDA;	PWM ºƒ¥Ê∆˜  -   ECOM0  CAPP0  CAPN0  MAT0  TOG0  PWM0  ECCF0   x000,0000	//PCA ƒ£øÈ0 
+//sfr CCAPM0 = 0xDA;	PWM ºƒ¥Ê∆˜  -   ECOM0  CAPP0  CAPN0  MAT0  TOG0  PWM0  ECCF0   x000,0000	//PCA ƒ£øÈ0
 //sfr CCAPM1 = 0xDB;	PWM ºƒ¥Ê∆˜  -   ECOM1  CAPP1  CAPN1  MAT1  TOG1  PWM1  ECCF1   x000,0000	//PCA ƒ£øÈ1
 //sfr CCAPM2 = 0xDC;	PWM ºƒ¥Ê∆˜  -   ECOM2  CAPP2  CAPN2  MAT2  TOG2  PWM2  ECCF2   x000,0000	//PCA ƒ£øÈ2
 ;ECOMn = 1:	‘ –Ì±»Ωœπ¶ƒ‹°£
@@ -747,7 +747,7 @@ typedef 	unsigned long	u32;
 #define NOP38() NOP37(),NOP1()
 #define NOP39() NOP38(),NOP1()
 #define NOP40() NOP39(),NOP1()
-#define NOP(N)  NOP##N()
+//#define NOP(N)  NOP##N()
 
 
 /**********************************************/

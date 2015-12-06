@@ -43,7 +43,8 @@ u8	Timer_Inilize(u8 TIM, TIM_InitTypeDef *TIMx)
 {
     if(TIM > Timer2)	return 1;	//空操作
 
-    if(TIM == Timer0) {
+    if(TIM == Timer0)
+    {
         TR0 = 0;		//停止计数
         timer0_isr = TIMx->TIM_Isr;
         if(TIMx->TIM_Interrupt == ENABLE)		ET0 = 1;	//允许中断
@@ -65,7 +66,8 @@ u8	Timer_Inilize(u8 TIM, TIM_InitTypeDef *TIMx)
         return	0;		//成功
     }
 
-    if(TIM == Timer1) {
+    if(TIM == Timer1)
+    {
         TR1 = 0;		//停止计数
         timer1_isr = TIMx->TIM_Isr;
         if(TIMx->TIM_Interrupt == ENABLE)		ET1 = 1;	//允许中断
@@ -87,7 +89,8 @@ u8	Timer_Inilize(u8 TIM, TIM_InitTypeDef *TIMx)
         return	0;		//成功
     }
 
-    if(TIM == Timer2) {	//Timer2,固定为16位自动重装, 中断无优先级
+    if(TIM == Timer2)		//Timer2,固定为16位自动重装, 中断无优先级
+    {
         AUXR &= ~(1<<4);	//停止计数
         if(TIMx->TIM_Interrupt == ENABLE)			IE2  |=  (1<<2);	//允许中断
         else										IE2  &= ~(1<<2);	//禁止中断

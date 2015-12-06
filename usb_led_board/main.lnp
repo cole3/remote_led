@@ -1,0 +1,11 @@
+"delay.obj",
+"Exti.obj",
+"GPIO.obj",
+"Soft_uart.obj",
+"timer.obj",
+"main.obj",
+"ir.obj",
+"C:\Keil\C51\LIB\C51S.LIB" 
+TO "main" 
+PAGEWIDTH (79) 
+PAGELENGTH (66) 

@@ -1,0 +1,1 @@
+"source\main.c" INCDIR(include) DEBUG OBJECTEXTEND PRINT(.\main.lst) PAGEWIDTH (79) PAGELENGTH (66) OBJECT(main.obj)

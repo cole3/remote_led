@@ -1,0 +1,150 @@
+C51 COMPILER V7.08   TIMER                        12/06/2015 11:23:58 PAGE 1   
+
+
+C51 COMPILER V7.08, COMPILATION OF MODULE TIMER
+OBJECT MODULE PLACED IN timer.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE source\timer.c INCDIR(include) DEB
+                    -UG OBJECTEXTEND PRINT(.\timer.lst) PAGEWIDTH(79) PAGELENGTH(66) OBJECT(timer.ob
+                    -j)
+
+line level    source
+
+   1          
+   2          /*************  ¹¦ÄÜËµÃ÷        **************
+   3          
+   4          ±¾ÎÄ¼þÎªSTC15xxxÏµÁÐµÄ¶¨Ê±Æ÷³õÊ¼»¯ºÍÖÐ¶Ï³ÌÐò,ÓÃ»§¿ÉÒÔÔÚÕâ¸öÎÄ¼þÖÐ
+             -ÐÞ¸Ä×Ô¼ºÐèÒªµÄÖÐ¶Ï³ÌÐò.
+   5          
+   6          
+   7          ******************************************/
+   8          
+   9          
+  10          
+  11          #include        "timer.h"
+  12          
+  13          static void (* timer0_isr)(void);
+  14          static void (* timer1_isr)(void);
+  15          
+  16          /********************* Timer0ÖÐ¶Ïº¯Êý************************/
+  17          void timer0_int (void) interrupt TIMER0_VECTOR
+  18          {
+  19   1              if (timer0_isr) timer0_isr();
+  20   1      }
+  21          
+  22          /********************* Timer1ÖÐ¶Ïº¯Êý************************/
+  23          void timer1_int (void) interrupt TIMER1_VECTOR
+  24          {
+  25   1              if (timer1_isr) timer1_isr();
+  26   1      }
+  27          
+  28          /********************* Timer2ÖÐ¶Ïº¯Êý************************/
+  29          void timer2_int (void) interrupt TIMER2_VECTOR
+  30          {
+  31   1      
+  32   1      }
+  33          
+  34          
+  35          //===============================================================
+             -=========
+  36          // º¯Êý: u8     Timer_Inilize(u8 TIM, TIM_InitTypeDef *TIMx)
+  37          // ÃèÊö: ¶¨Ê±Æ÷³õÊ¼»¯³ÌÐò.
+  38          // ²ÎÊý: TIMx: ½á¹¹²ÎÊý,Çë²Î¿¼timer.hÀïµÄ¶¨Òå.
+  39          // ·µ»Ø: ³É¹¦·µ»Ø0, ¿Õ²Ù×÷·µ»Ø1,´íÎó·µ»Ø2.
+  40          // °æ±¾: V1.0, 2012-10-22
+  41          //===============================================================
+             -=========
+  42          u8      Timer_Inilize(u8 TIM, TIM_InitTypeDef *TIMx)
+  43          {
+  44   1              if(TIM > Timer2)        return 1;       //¿Õ²Ù×÷
+  45   1      
+  46   1              if(TIM == Timer0)
+  47   1              {
+  48   2                      TR0 = 0;                //Í£Ö¹¼ÆÊý
+  49   2                      timer0_isr = TIMx->TIM_Isr;
+  50   2                      if(TIMx->TIM_Interrupt == ENABLE)               ET0 = 1;        //ÔÊÐíÖÐ¶Ï
+  51   2                      else                                                                    ET0 = 0;        //½ûÖ¹ÖÐ¶Ï
+  52   2                      if(TIMx->TIM_Polity == PolityHigh)              PT0 = 1;        //¸ßÓÅÏÈ¼¶ÖÐ¶Ï
+C51 COMPILER V7.08   TIMER                        12/06/2015 11:23:58 PAGE 2   
+
+  53   2                      else                                                                    PT0 = 0;        //µÍÓÅÏÈ¼¶ÖÐ¶Ï
+  54   2                      if(TIMx->TIM_Mode >  TIM_16BitAutoReloadNoMask) return 2;       //´íÎ
+             -ó
+  55   2                      TMOD = (TMOD & ~0x03) | TIMx->TIM_Mode; //¹¤×÷Ä£Ê½,0: 16Î»×Ô¶¯Ö
+             -Ø×°, 1: 16Î»¶¨Ê±/¼ÆÊý, 2: 8Î»×Ô¶¯ÖØ×°, 3: 16Î»×Ô¶¯ÖØ×°, ²»¿ÉÆÁ±ÎÖÐ¶Ï
+  56   2                      if(TIMx->TIM_ClkSource == TIM_CLOCK_12T)        AUXR &= ~0x80;  //12T
+  57   2                      if(TIMx->TIM_ClkSource == TIM_CLOCK_1T)         AUXR |=  0x80;  //1T
+  58   2                      if(TIMx->TIM_ClkSource == TIM_CLOCK_Ext)        TMOD |=  0x04;  //¶ÔÍâ¼
+             -ÆÊý»ò·ÖÆµ
+  59   2                      else                                                                            TMOD &= ~0x04;  //¶¨Ê±
+  60   2                      if(TIMx->TIM_ClkOut == ENABLE)  INT_CLKO |=  0x01;      //Êä³öÊ±ÖÓ
+  61   2                      else                                                    INT_CLKO &= ~0x01;      //²»Êä³öÊ±ÖÓ
+  62   2                      
+  63   2                      TH0 = (u8)(TIMx->TIM_Value >> 8);
+  64   2                      TL0 = (u8)TIMx->TIM_Value;
+  65   2                      if(TIMx->TIM_Run == ENABLE)     TR0 = 1;        //¿ªÊ¼ÔËÐÐ
+  66   2                      return  0;              //³É¹¦
+  67   2              }
+  68   1      
+  69   1              if(TIM == Timer1)
+  70   1              {
+  71   2                      TR1 = 0;                //Í£Ö¹¼ÆÊý
+  72   2                      timer1_isr = TIMx->TIM_Isr;
+  73   2                      if(TIMx->TIM_Interrupt == ENABLE)               ET1 = 1;        //ÔÊÐíÖÐ¶Ï
+  74   2                      else                                                                    ET1 = 0;        //½ûÖ¹ÖÐ¶Ï
+  75   2                      if(TIMx->TIM_Polity == PolityHigh)              PT1 = 1;        //¸ßÓÅÏÈ¼¶ÖÐ¶Ï
+  76   2                      else                                                                    PT1 = 0;        //µÍÓÅÏÈ¼¶ÖÐ¶Ï
+  77   2                      if(TIMx->TIM_Mode >= TIM_16BitAutoReloadNoMask) return 2;       //´íÎ
+             -ó
+  78   2                      TMOD = (TMOD & ~0x30) | TIMx->TIM_Mode; //¹¤×÷Ä£Ê½,0: 16Î»×Ô¶¯Ö
+             -Ø×°, 1: 16Î»¶¨Ê±/¼ÆÊý, 2: 8Î»×Ô¶¯ÖØ×°
+  79   2                      if(TIMx->TIM_ClkSource == TIM_CLOCK_12T)        AUXR &= ~0x40;  //12T
+  80   2                      if(TIMx->TIM_ClkSource == TIM_CLOCK_1T)         AUXR |=  0x40;  //1T
+  81   2                      if(TIMx->TIM_ClkSource == TIM_CLOCK_Ext)        TMOD |=  0x40;  //¶ÔÍâ¼
+             -ÆÊý»ò·ÖÆµ
+  82   2                      else                                                                            TMOD &= ~0x40;  //¶¨Ê±
+  83   2                      if(TIMx->TIM_ClkOut == ENABLE)  INT_CLKO |=  0x02;      //Êä³öÊ±ÖÓ
+  84   2                      else                                                    INT_CLKO &= ~0x02;      //²»Êä³öÊ±ÖÓ
+  85   2                      
+  86   2                      TH1 = (u8)(TIMx->TIM_Value >> 8);
+  87   2                      TL1 = (u8)TIMx->TIM_Value;
+  88   2                      if(TIMx->TIM_Run == ENABLE)     TR1 = 1;        //¿ªÊ¼ÔËÐÐ
+  89   2                      return  0;              //³É¹¦
+  90   2              }
+  91   1      
+  92   1              if(TIM == Timer2)               //Timer2,¹Ì¶¨Îª16Î»×Ô¶¯ÖØ×°, ÖÐ¶ÏÎÞÓÅÏÈ¼¶
+  93   1              {
+  94   2                      AUXR &= ~(1<<4);        //Í£Ö¹¼ÆÊý
+  95   2                      if(TIMx->TIM_Interrupt == ENABLE)                       IE2  |=  (1<<2);        //ÔÊÐíÖÐ¶Ï
+  96   2                      else                                                                            IE2  &= ~(1<<2);        //½ûÖ¹ÖÐ¶Ï
+  97   2                      if(TIMx->TIM_ClkSource >  TIM_CLOCK_Ext)        return 2;
+  98   2                      if(TIMx->TIM_ClkSource == TIM_CLOCK_12T)        AUXR &= ~(1<<2);        //12T
+  99   2                      if(TIMx->TIM_ClkSource == TIM_CLOCK_1T)         AUXR |=  (1<<2);        //1T
+ 100   2                      if(TIMx->TIM_ClkSource == TIM_CLOCK_Ext)        AUXR |=  (1<<3);        //¶ÔÍ
+             -â¼ÆÊý»ò·ÖÆµ
+ 101   2                      else                                                                            AUXR &= ~(1<<3);        //¶¨Ê±
+ 102   2                      if(TIMx->TIM_ClkOut == ENABLE)  INT_CLKO |=  0x04;      //Êä³öÊ±ÖÓ
+ 103   2                      else                                                    INT_CLKO &= ~0x04;      //²»Êä³öÊ±ÖÓ
+ 104   2      
+ 105   2                      TH2 = (u8)(TIMx->TIM_Value >> 8);
+ 106   2                      TL2 = (u8)TIMx->TIM_Value;
+ 107   2                      if(TIMx->TIM_Run == ENABLE)     AUXR |=  (1<<4);        //¿ªÊ¼ÔËÐÐ
+ 108   2                      return  0;              //³É¹¦
+ 109   2              }
+C51 COMPILER V7.08   TIMER                        12/06/2015 11:23:58 PAGE 3   
+
+ 110   1              return 2;       //´íÎó
+ 111   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    642    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      6       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

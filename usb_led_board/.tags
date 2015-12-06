@@ -1,0 +1,717 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AC	.\include\STC15Fxxxx.H	/^sbit AC   = PSW^6;$/;"	v
+ACC	.\include\STC15Fxxxx.H	/^sfr ACC    = 0xE0;$/;"	v
+ACC0	.\include\STC15Fxxxx.H	/^sbit ACC0 = ACC^0;$/;"	v
+ACC1	.\include\STC15Fxxxx.H	/^sbit ACC1 = ACC^1;$/;"	v
+ACC2	.\include\STC15Fxxxx.H	/^sbit ACC2 = ACC^2;$/;"	v
+ACC3	.\include\STC15Fxxxx.H	/^sbit ACC3 = ACC^3;$/;"	v
+ACC4	.\include\STC15Fxxxx.H	/^sbit ACC4 = ACC^4;$/;"	v
+ACC5	.\include\STC15Fxxxx.H	/^sbit ACC5 = ACC^5;$/;"	v
+ACC6	.\include\STC15Fxxxx.H	/^sbit ACC6 = ACC^6;$/;"	v
+ACC7	.\include\STC15Fxxxx.H	/^sbit ACC7 = ACC^7;$/;"	v
+ADC_CONTR	.\include\STC15Fxxxx.H	/^sfr ADC_CONTR = 0xBC;	\/\/带AD系列$/;"	v
+ADC_InterruptFirst	.\include\STC15Fxxxx.H	354;"	d
+ADC_RES	.\include\STC15Fxxxx.H	/^sfr ADC_RES   = 0xBD;	\/\/带AD系列$/;"	v
+ADC_RESL	.\include\STC15Fxxxx.H	/^sfr ADC_RESL  = 0xBE;	\/\/带AD系列$/;"	v
+ADC_VECTOR	.\include\STC15Fxxxx.H	815;"	d
+AUXR	.\include\STC15Fxxxx.H	/^sfr	AUXR = 0x8E;$/;"	v
+AUXR1	.\include\STC15Fxxxx.H	/^sfr AUXR1 = 0xA2;$/;"	v
+AUXR2	.\include\STC15Fxxxx.H	/^sfr	AUXR2    = 0x8F;$/;"	v
+B	.\include\STC15Fxxxx.H	/^sfr B      = 0xF0;$/;"	v
+B0	.\include\STC15Fxxxx.H	/^sbit B0 = B^0;$/;"	v
+B1	.\include\STC15Fxxxx.H	/^sbit B1 = B^1;$/;"	v
+B2	.\include\STC15Fxxxx.H	/^sbit B2 = B^2;$/;"	v
+B3	.\include\STC15Fxxxx.H	/^sbit B3 = B^3;$/;"	v
+B4	.\include\STC15Fxxxx.H	/^sbit B4 = B^4;$/;"	v
+B5	.\include\STC15Fxxxx.H	/^sbit B5 = B^5;$/;"	v
+B6	.\include\STC15Fxxxx.H	/^sbit B6 = B^6;$/;"	v
+B7	.\include\STC15Fxxxx.H	/^sbit B7 = B^7;$/;"	v
+BUS_SPEED	.\include\STC15Fxxxx.H	/^sfr BUS_SPEED = 0xA1;$/;"	v
+BUS_SPEED_1T	.\include\STC15Fxxxx.H	804;"	d
+BUS_SPEED_2T	.\include\STC15Fxxxx.H	805;"	d
+BUS_SPEED_4T	.\include\STC15Fxxxx.H	806;"	d
+BUS_SPEED_8T	.\include\STC15Fxxxx.H	807;"	d
+BaudRate	.\source\Soft_uart.c	18;"	d	file:
+CCAP0H	.\include\STC15Fxxxx.H	/^sfr CCAP0H = 0xFA;		\/\/PCA模块0的捕捉\/比较寄存器高8位。$/;"	v
+CCAP0L	.\include\STC15Fxxxx.H	/^sfr CCAP0L = 0xEA;	\/\/PCA模块0的捕捉\/比较寄存器低8位。$/;"	v
+CCAP1H	.\include\STC15Fxxxx.H	/^sfr CCAP1H = 0xFB;		\/\/PCA模块1的捕捉\/比较寄存器高8位。$/;"	v
+CCAP1L	.\include\STC15Fxxxx.H	/^sfr CCAP1L = 0xEB;	\/\/PCA模块1的捕捉\/比较寄存器低8位。$/;"	v
+CCAP2H	.\include\STC15Fxxxx.H	/^sfr CCAP2H = 0xFC;		\/\/PCA模块2的捕捉\/比较寄存器高8位。$/;"	v
+CCAP2L	.\include\STC15Fxxxx.H	/^sfr CCAP2L = 0xEC;	\/\/PCA模块2的捕捉\/比较寄存器低8位。$/;"	v
+CCAPM0	.\include\STC15Fxxxx.H	/^sfr CCAPM0 = 0xDA;	\/\/PCA模块0的工作模式寄存器。$/;"	v
+CCAPM1	.\include\STC15Fxxxx.H	/^sfr CCAPM1 = 0xDB;	\/\/PCA模块1的工作模式寄存器。$/;"	v
+CCAPM2	.\include\STC15Fxxxx.H	/^sfr CCAPM2 = 0xDC;	\/\/PCA模块2的工作模式寄存器。$/;"	v
+CCF0	.\include\STC15Fxxxx.H	/^sbit CCF0  = CCON^0;	\/\/PCA 模块0中断标志，由硬件置位，必须由软件清0。$/;"	v
+CCF1	.\include\STC15Fxxxx.H	/^sbit CCF1  = CCON^1;	\/\/PCA 模块1中断标志，由硬件置位，必须由软件清0。$/;"	v
+CCF2	.\include\STC15Fxxxx.H	/^sbit CCF2  = CCON^2;	\/\/PCA 模块2中断标志，由硬件置位，必须由软件清0。$/;"	v
+CCON	.\include\STC15Fxxxx.H	/^sfr CCON = 0xD8;	\/\/$/;"	v
+CCP0	.\include\STC15Fxxxx.H	/^sbit  CCP0      = P1^1;$/;"	v
+CCP1	.\include\STC15Fxxxx.H	/^sbit  CCP1      = P1^0;$/;"	v
+CCP2	.\include\STC15Fxxxx.H	/^sbit CCP2  = P3^7;$/;"	v
+CF	.\include\STC15Fxxxx.H	/^sbit CF    = CCON^7;	\/\/PCA计数器溢出（CH，CL由FFFFH变为0000H）标志。PCA计数器溢出后由硬件置位，必须由软件清0。$/;"	v
+CH	.\include\STC15Fxxxx.H	/^sfr CH     = 0xF9;$/;"	v
+CL	.\include\STC15Fxxxx.H	/^sfr CL     = 0xE9;	\/\/$/;"	v
+CLKOUT0	.\include\STC15Fxxxx.H	/^sbit CLKOUT0   = P3^5;$/;"	v
+CLKOUT1	.\include\STC15Fxxxx.H	/^sbit CLKOUT1   = P3^4;$/;"	v
+CLK_DIV	.\include\STC15Fxxxx.H	/^sfr CLK_DIV = 0x97;$/;"	v
+CLR_RI2	.\include\STC15Fxxxx.H	392;"	d
+CLR_TI2	.\include\STC15Fxxxx.H	391;"	d
+CMOD	.\include\STC15Fxxxx.H	/^sfr CMOD = 0xD9;	\/\/$/;"	v
+COLOR_LED	.\include\config.h	27;"	d
+CR	.\include\STC15Fxxxx.H	/^sbit CR    = CCON^6;	\/\/1: 允许PCA计数器计数，必须由软件清0。$/;"	v
+CY	.\include\STC15Fxxxx.H	/^sbit CY   = PSW^7;$/;"	v
+DISABLE	.\include\STC15Fxxxx.H	848;"	d
+DPH	.\include\STC15Fxxxx.H	/^sfr DPH  = 0x83;$/;"	v
+DPL	.\include\STC15Fxxxx.H	/^sfr DPL  = 0x82;$/;"	v
+DPS_SEL0	.\include\STC15Fxxxx.H	639;"	d
+DPS_SEL1	.\include\STC15Fxxxx.H	638;"	d
+D_CLR_WDT	.\include\STC15Fxxxx.H	478;"	d
+D_EN_WDT	.\include\STC15Fxxxx.H	477;"	d
+D_IDLE_WDT	.\include\STC15Fxxxx.H	479;"	d
+D_RxBitLenth	.\source\Soft_uart.c	20;"	d	file:
+D_TxBitLenth	.\source\Soft_uart.c	21;"	d	file:
+D_WDT_FLAG	.\include\STC15Fxxxx.H	476;"	d
+D_WDT_SCALE_128	.\include\STC15Fxxxx.H	486;"	d
+D_WDT_SCALE_16	.\include\STC15Fxxxx.H	483;"	d
+D_WDT_SCALE_2	.\include\STC15Fxxxx.H	480;"	d
+D_WDT_SCALE_256	.\include\STC15Fxxxx.H	487;"	d
+D_WDT_SCALE_32	.\include\STC15Fxxxx.H	484;"	d
+D_WDT_SCALE_4	.\include\STC15Fxxxx.H	481;"	d
+D_WDT_SCALE_64	.\include\STC15Fxxxx.H	485;"	d
+D_WDT_SCALE_8	.\include\STC15Fxxxx.H	482;"	d
+EA	.\include\STC15Fxxxx.H	/^sbit EA   = IE^7;	\/\/中断允许总控制位$/;"	v
+EADC	.\include\STC15Fxxxx.H	/^sbit EADC = IE^5;	\/\/ADC 中断 允许位$/;"	v
+ELVD	.\include\STC15Fxxxx.H	/^sbit ELVD = IE^6;	\/\/低压监测中断允许位$/;"	v
+ENABLE	.\include\STC15Fxxxx.H	847;"	d
+ES	.\include\STC15Fxxxx.H	/^sbit ES   = IE^4;	\/\/串行中断 允许控制位$/;"	v
+ET0	.\include\STC15Fxxxx.H	/^sbit ET0  = IE^1;	\/\/定时中断0允许控制位$/;"	v
+ET1	.\include\STC15Fxxxx.H	/^sbit ET1  = IE^3;	\/\/定时中断1允许控制位$/;"	v
+EX0	.\include\STC15Fxxxx.H	/^sbit EX0  = IE^0;	\/\/外部中断0允许控制位$/;"	v
+EX1	.\include\STC15Fxxxx.H	/^sbit EX1  = IE^2;	\/\/外部中断1允许控制位$/;"	v
+EXTI_InitTypeDef	.\include\Exti.h	/^} EXTI_InitTypeDef;$/;"	t	typeref:struct:__anon1
+EXTI_Interrupt	.\include\Exti.h	/^	u8	EXTI_Interrupt;		\/\/中断允许		ENABLE,DISABLE$/;"	m	struct:__anon1
+EXTI_Mode	.\include\Exti.h	/^	u8	EXTI_Mode;			\/\/中断模式,  	EXT_MODE_RiseFall, EXT_MODE_Fall$/;"	m	struct:__anon1
+EXTI_Polity	.\include\Exti.h	/^	u8	EXTI_Polity;		\/\/优先级设置	PolityHigh,PolityLow$/;"	m	struct:__anon1
+EXT_INT0	.\include\Exti.h	7;"	d
+EXT_INT1	.\include\Exti.h	8;"	d
+EXT_INT2	.\include\Exti.h	9;"	d
+EXT_INT3	.\include\Exti.h	10;"	d
+EXT_INT4	.\include\Exti.h	11;"	d
+EXT_MODE_Fall	.\include\Exti.h	14;"	d
+EXT_MODE_RiseFall	.\include\Exti.h	13;"	d
+Ext_Inilize	.\source\Exti.c	/^u8	Ext_Inilize(u8 EXT, EXTI_InitTypeDef *INTx)$/;"	f
+ExternalRAM_enable	.\include\STC15Fxxxx.H	450;"	d
+F0	.\include\STC15Fxxxx.H	/^sbit F0   = PSW^5;$/;"	v
+F1	.\include\STC15Fxxxx.H	/^sbit F1   = PSW^1;$/;"	v
+FALSE	.\include\STC15Fxxxx.H	831;"	d
+GPIO_HighZ	.\include\GPIO.h	8;"	d
+GPIO_Inilize	.\source\GPIO.c	/^u8	GPIO_Inilize(u8 GPIO, GPIO_InitTypeDef *GPIOx)$/;"	f
+GPIO_InitTypeDef	.\include\GPIO.h	/^} GPIO_InitTypeDef;$/;"	t	typeref:struct:__anon2
+GPIO_OUT_OD	.\include\GPIO.h	9;"	d
+GPIO_OUT_PP	.\include\GPIO.h	10;"	d
+GPIO_P0	.\include\GPIO.h	22;"	d
+GPIO_P1	.\include\GPIO.h	23;"	d
+GPIO_P2	.\include\GPIO.h	24;"	d
+GPIO_P3	.\include\GPIO.h	25;"	d
+GPIO_P4	.\include\GPIO.h	26;"	d
+GPIO_P5	.\include\GPIO.h	27;"	d
+GPIO_Pin_0	.\include\GPIO.h	12;"	d
+GPIO_Pin_1	.\include\GPIO.h	13;"	d
+GPIO_Pin_2	.\include\GPIO.h	14;"	d
+GPIO_Pin_3	.\include\GPIO.h	15;"	d
+GPIO_Pin_4	.\include\GPIO.h	16;"	d
+GPIO_Pin_5	.\include\GPIO.h	17;"	d
+GPIO_Pin_6	.\include\GPIO.h	18;"	d
+GPIO_Pin_7	.\include\GPIO.h	19;"	d
+GPIO_Pin_All	.\include\GPIO.h	20;"	d
+GPIO_PullUp	.\include\GPIO.h	7;"	d
+IAP15F_L2K61S2	.\include\STC15Fxxxx.H	858;"	d
+IAP_ADDRH	.\include\STC15Fxxxx.H	/^sfr IAP_ADDRH = 0xC3;$/;"	v
+IAP_ADDRL	.\include\STC15Fxxxx.H	/^sfr IAP_ADDRL = 0xC4;$/;"	v
+IAP_CMD	.\include\STC15Fxxxx.H	/^sfr IAP_CMD   = 0xC5;$/;"	v
+IAP_CONTR	.\include\STC15Fxxxx.H	/^sfr IAP_CONTR = 0xC7;$/;"	v
+IAP_DATA	.\include\STC15Fxxxx.H	/^sfr IAP_DATA  = 0xC2;$/;"	v
+IAP_TRIG	.\include\STC15Fxxxx.H	/^sfr IAP_TRIG  = 0xC6;$/;"	v
+IE	.\include\STC15Fxxxx.H	/^sfr IE    = 0xA8;$/;"	v
+IE0	.\include\STC15Fxxxx.H	/^sbit IE0  = TCON^1;	\/\/外中断0标志位$/;"	v
+IE1	.\include\STC15Fxxxx.H	/^sbit IE1  = TCON^3;	\/\/外中断1标志位$/;"	v
+IE2	.\include\STC15Fxxxx.H	/^sfr IE2   = 0xAF;	\/\/STC12C5A60S2系列$/;"	v
+INT0	.\include\STC15Fxxxx.H	/^sbit INT0 = P3^2;$/;"	v
+INT0_InterruptFirst	.\include\STC15Fxxxx.H	359;"	d
+INT0_VECTOR	.\include\STC15Fxxxx.H	810;"	d
+INT1	.\include\STC15Fxxxx.H	/^sbit INT1 = P3^3;$/;"	v
+INT1_InterruptFirst	.\include\STC15Fxxxx.H	357;"	d
+INT1_VECTOR	.\include\STC15Fxxxx.H	812;"	d
+INT2_VECTOR	.\include\STC15Fxxxx.H	820;"	d
+INT3_VECTOR	.\include\STC15Fxxxx.H	821;"	d
+INT4_VECTOR	.\include\STC15Fxxxx.H	823;"	d
+INTER_MS	.\source\main.c	44;"	d	file:
+INT_CLKO	.\include\STC15Fxxxx.H	/^sfr INT_CLKO = 0x8F;$/;"	v
+IP	.\include\STC15Fxxxx.H	/^sfr IP        = 0xB8;$/;"	v
+IP2	.\include\STC15Fxxxx.H	/^sfr IP2   = 0xB5;	\/\/STC12C5A60S2系列$/;"	v
+IPH	.\include\STC15Fxxxx.H	/^sfr IPH   = 0xB7;$/;"	v
+IPH2	.\include\STC15Fxxxx.H	/^sfr IPH2  = 0xB6;	\/\/STC12C5A60S2系列$/;"	v
+IR_REV	.\include\config.h	29;"	d
+IR_SEND	.\include\config.h	28;"	d
+ISP_ADDRH	.\include\STC15Fxxxx.H	/^sfr ISP_ADDRH = 0xC3;$/;"	v
+ISP_ADDRL	.\include\STC15Fxxxx.H	/^sfr ISP_ADDRL = 0xC4;$/;"	v
+ISP_CMD	.\include\STC15Fxxxx.H	/^sfr ISP_CMD   = 0xC5;$/;"	v
+ISP_CMD_FAIL	.\include\STC15Fxxxx.H	520;"	d
+ISP_CONTR	.\include\STC15Fxxxx.H	/^sfr ISP_CONTR = 0xC7;$/;"	v
+ISP_DATA	.\include\STC15Fxxxx.H	/^sfr ISP_DATA  = 0xC2;$/;"	v
+ISP_EN	.\include\STC15Fxxxx.H	517;"	d
+ISP_ERASE	.\include\STC15Fxxxx.H	510;"	d
+ISP_READ	.\include\STC15Fxxxx.H	508;"	d
+ISP_STANDBY	.\include\STC15Fxxxx.H	507;"	d
+ISP_SWBS	.\include\STC15Fxxxx.H	518;"	d
+ISP_SWRST	.\include\STC15Fxxxx.H	519;"	d
+ISP_TRIG	.\include\STC15Fxxxx.H	/^sfr ISP_TRIG  = 0xC6;$/;"	v
+ISP_TRIG	.\include\STC15Fxxxx.H	513;"	d
+ISP_WAIT_12MHZ	.\include\STC15Fxxxx.H	525;"	d
+ISP_WAIT_1MHZ	.\include\STC15Fxxxx.H	521;"	d
+ISP_WAIT_20MHZ	.\include\STC15Fxxxx.H	526;"	d
+ISP_WAIT_24MHZ	.\include\STC15Fxxxx.H	527;"	d
+ISP_WAIT_2MHZ	.\include\STC15Fxxxx.H	522;"	d
+ISP_WAIT_30MHZ	.\include\STC15Fxxxx.H	528;"	d
+ISP_WAIT_3MHZ	.\include\STC15Fxxxx.H	523;"	d
+ISP_WAIT_6MHZ	.\include\STC15Fxxxx.H	524;"	d
+ISP_WAIT_FREQUENCY	.\include\STC15Fxxxx.H	531;"	d
+ISP_WAIT_FREQUENCY	.\include\STC15Fxxxx.H	533;"	d
+ISP_WAIT_FREQUENCY	.\include\STC15Fxxxx.H	535;"	d
+ISP_WAIT_FREQUENCY	.\include\STC15Fxxxx.H	537;"	d
+ISP_WAIT_FREQUENCY	.\include\STC15Fxxxx.H	539;"	d
+ISP_WAIT_FREQUENCY	.\include\STC15Fxxxx.H	541;"	d
+ISP_WAIT_FREQUENCY	.\include\STC15Fxxxx.H	543;"	d
+ISP_WAIT_FREQUENCY	.\include\STC15Fxxxx.H	545;"	d
+ISP_WRITE	.\include\STC15Fxxxx.H	509;"	d
+IT0	.\include\STC15Fxxxx.H	/^sbit IT0  = TCON^0;	\/\/外中断0信号方式控制位，1：下降沿中断，0：上升下降均中断。$/;"	v
+IT1	.\include\STC15Fxxxx.H	/^sbit IT1  = TCON^2;	\/\/外中断1信号方式控制位，1：下降沿中断，0：上升下降均中断。$/;"	v
+InternalRAM_enable	.\include\STC15Fxxxx.H	451;"	d
+Ir_Buf	.\source\main.c	/^unsigned char Ir_Buf[4]; \/\/鐢ㄤ簬淇濆瓨瑙ｇ爜缁撴灉$/;"	v
+Ir_Get_High	.\source\ir.c	/^static unsigned int Ir_Get_High()$/;"	f	file:
+Ir_Get_Low	.\source\ir.c	/^static unsigned int Ir_Get_Low()$/;"	f	file:
+LVDF	.\include\STC15Fxxxx.H	496;"	d
+LVD_InterruptDisable	.\include\STC15Fxxxx.H	772;"	d
+LVD_InterruptEnable	.\include\STC15Fxxxx.H	771;"	d
+LVD_InterruptFirst	.\include\STC15Fxxxx.H	353;"	d
+LVD_VECTOR	.\include\STC15Fxxxx.H	816;"	d
+MAIN_Fosc	.\include\config.h	10;"	d
+MCLKO_DIV1	.\include\STC15Fxxxx.H	843;"	d
+MCLKO_DIV2	.\include\STC15Fxxxx.H	844;"	d
+MCLKO_DIV4	.\include\STC15Fxxxx.H	845;"	d
+MCLKO_None	.\include\STC15Fxxxx.H	842;"	d
+MCLKO_P34_DIV1	.\include\STC15Fxxxx.H	799;"	d
+MCLKO_P34_DIV2	.\include\STC15Fxxxx.H	800;"	d
+MCLKO_P34_DIV4	.\include\STC15Fxxxx.H	801;"	d
+MCLKO_P34_None	.\include\STC15Fxxxx.H	798;"	d
+MCLKO_P54_DIV1	.\include\STC15Fxxxx.H	794;"	d
+MCLKO_P54_DIV2	.\include\STC15Fxxxx.H	795;"	d
+MCLKO_P54_DIV4	.\include\STC15Fxxxx.H	796;"	d
+MCLKO_P54_None	.\include\STC15Fxxxx.H	793;"	d
+MCU_IDLE	.\include\STC15Fxxxx.H	502;"	d
+MCU_POWER_DOWN	.\include\STC15Fxxxx.H	503;"	d
+Main_Fosc_KHZ	.\include\config.h	22;"	d
+Mode	.\include\GPIO.h	/^	u8	Mode;		\/\/IO模式,  		GPIO_PullUp,GPIO_HighZ,GPIO_OUT_OD,GPIO_OUT_PP$/;"	m	struct:__anon2
+NOP	.\include\STC15Fxxxx.H	750;"	d
+NOP1	.\include\STC15Fxxxx.H	710;"	d
+NOP10	.\include\STC15Fxxxx.H	719;"	d
+NOP11	.\include\STC15Fxxxx.H	720;"	d
+NOP12	.\include\STC15Fxxxx.H	721;"	d
+NOP13	.\include\STC15Fxxxx.H	722;"	d
+NOP14	.\include\STC15Fxxxx.H	723;"	d
+NOP15	.\include\STC15Fxxxx.H	724;"	d
+NOP16	.\include\STC15Fxxxx.H	725;"	d
+NOP17	.\include\STC15Fxxxx.H	726;"	d
+NOP18	.\include\STC15Fxxxx.H	727;"	d
+NOP19	.\include\STC15Fxxxx.H	728;"	d
+NOP2	.\include\STC15Fxxxx.H	711;"	d
+NOP20	.\include\STC15Fxxxx.H	729;"	d
+NOP21	.\include\STC15Fxxxx.H	730;"	d
+NOP22	.\include\STC15Fxxxx.H	731;"	d
+NOP23	.\include\STC15Fxxxx.H	732;"	d
+NOP24	.\include\STC15Fxxxx.H	733;"	d
+NOP25	.\include\STC15Fxxxx.H	734;"	d
+NOP26	.\include\STC15Fxxxx.H	735;"	d
+NOP27	.\include\STC15Fxxxx.H	736;"	d
+NOP28	.\include\STC15Fxxxx.H	737;"	d
+NOP29	.\include\STC15Fxxxx.H	738;"	d
+NOP3	.\include\STC15Fxxxx.H	712;"	d
+NOP30	.\include\STC15Fxxxx.H	739;"	d
+NOP31	.\include\STC15Fxxxx.H	740;"	d
+NOP32	.\include\STC15Fxxxx.H	741;"	d
+NOP33	.\include\STC15Fxxxx.H	742;"	d
+NOP34	.\include\STC15Fxxxx.H	743;"	d
+NOP35	.\include\STC15Fxxxx.H	744;"	d
+NOP36	.\include\STC15Fxxxx.H	745;"	d
+NOP37	.\include\STC15Fxxxx.H	746;"	d
+NOP38	.\include\STC15Fxxxx.H	747;"	d
+NOP39	.\include\STC15Fxxxx.H	748;"	d
+NOP4	.\include\STC15Fxxxx.H	713;"	d
+NOP40	.\include\STC15Fxxxx.H	749;"	d
+NOP5	.\include\STC15Fxxxx.H	714;"	d
+NOP6	.\include\STC15Fxxxx.H	715;"	d
+NOP7	.\include\STC15Fxxxx.H	716;"	d
+NOP8	.\include\STC15Fxxxx.H	717;"	d
+NOP9	.\include\STC15Fxxxx.H	718;"	d
+OV	.\include\STC15Fxxxx.H	/^sbit OV   = PSW^2;$/;"	v
+P	.\include\STC15Fxxxx.H	/^sbit P    = PSW^0;$/;"	v
+P0	.\include\STC15Fxxxx.H	/^sfr P0   = 0x80;$/;"	v
+P00	.\include\STC15Fxxxx.H	/^sbit  P00 = P0^0;$/;"	v
+P01	.\include\STC15Fxxxx.H	/^sbit  P01 = P0^1;$/;"	v
+P02	.\include\STC15Fxxxx.H	/^sbit  P02 = P0^2;$/;"	v
+P03	.\include\STC15Fxxxx.H	/^sbit  P03 = P0^3;$/;"	v
+P04	.\include\STC15Fxxxx.H	/^sbit  P04 = P0^4;$/;"	v
+P05	.\include\STC15Fxxxx.H	/^sbit  P05 = P0^5;$/;"	v
+P06	.\include\STC15Fxxxx.H	/^sbit  P06 = P0^6;$/;"	v
+P07	.\include\STC15Fxxxx.H	/^sbit  P07 = P0^7;$/;"	v
+P0M0	.\include\STC15Fxxxx.H	/^sfr P0M0 = 0x94;	\/\/					=10--->pure input,	11--->open drain$/;"	v
+P0M1	.\include\STC15Fxxxx.H	/^sfr P0M1 = 0x93;	\/\/P0M1.n,P0M0.n 	=00--->Standard,	01--->push-pull$/;"	v
+P1	.\include\STC15Fxxxx.H	/^sfr P1   = 0x90;$/;"	v
+P10	.\include\STC15Fxxxx.H	/^sbit  P10 = P1^0;$/;"	v
+P11	.\include\STC15Fxxxx.H	/^sbit  P11 = P1^1;$/;"	v
+P12	.\include\STC15Fxxxx.H	/^sbit  P12 = P1^2;$/;"	v
+P13	.\include\STC15Fxxxx.H	/^sbit  P13 = P1^3;$/;"	v
+P14	.\include\STC15Fxxxx.H	/^sbit  P14 = P1^4;$/;"	v
+P15	.\include\STC15Fxxxx.H	/^sbit  P15 = P1^5;$/;"	v
+P16	.\include\STC15Fxxxx.H	/^sbit  P16 = P1^6;$/;"	v
+P17	.\include\STC15Fxxxx.H	/^sbit  P17 = P1^7;$/;"	v
+P1ASF	.\include\STC15Fxxxx.H	/^sfr P1ASF = 0x9D;	\/\/只写，模拟输入(AD或LVD)选择$/;"	v
+P1M0	.\include\STC15Fxxxx.H	/^sfr P1M0 = 0x92;	\/\/					=10--->pure input,	11--->open drain$/;"	v
+P1M1	.\include\STC15Fxxxx.H	/^sfr P1M1 = 0x91;	\/\/P1M1.n,P1M0.n 	=00--->Standard,	01--->push-pull		实际上1T的都一样$/;"	v
+P2	.\include\STC15Fxxxx.H	/^sfr P2    = 0xA0;$/;"	v
+P20	.\include\STC15Fxxxx.H	/^sbit  P20 = P2^0;$/;"	v
+P21	.\include\STC15Fxxxx.H	/^sbit  P21 = P2^1;$/;"	v
+P22	.\include\STC15Fxxxx.H	/^sbit  P22 = P2^2;$/;"	v
+P23	.\include\STC15Fxxxx.H	/^sbit  P23 = P2^3;$/;"	v
+P24	.\include\STC15Fxxxx.H	/^sbit  P24 = P2^4;$/;"	v
+P25	.\include\STC15Fxxxx.H	/^sbit  P25 = P2^5;$/;"	v
+P26	.\include\STC15Fxxxx.H	/^sbit  P26 = P2^6;$/;"	v
+P27	.\include\STC15Fxxxx.H	/^sbit  P27 = P2^7;$/;"	v
+P2M0	.\include\STC15Fxxxx.H	/^sfr P2M0 = 0x96;	\/\/					=10--->pure input,	11--->open drain$/;"	v
+P2M1	.\include\STC15Fxxxx.H	/^sfr P2M1 = 0x95;	\/\/P2M1.n,P2M0.n 	=00--->Standard,	01--->push-pull$/;"	v
+P3	.\include\STC15Fxxxx.H	/^sfr P3    = 0xB0;$/;"	v
+P30	.\include\STC15Fxxxx.H	/^sbit  P30 = P3^0;$/;"	v
+P31	.\include\STC15Fxxxx.H	/^sbit  P31 = P3^1;$/;"	v
+P32	.\include\STC15Fxxxx.H	/^sbit  P32 = P3^2;$/;"	v
+P33	.\include\STC15Fxxxx.H	/^sbit  P33 = P3^3;$/;"	v
+P34	.\include\STC15Fxxxx.H	/^sbit  P34 = P3^4;$/;"	v
+P35	.\include\STC15Fxxxx.H	/^sbit  P35 = P3^5;$/;"	v
+P36	.\include\STC15Fxxxx.H	/^sbit  P36 = P3^6;$/;"	v
+P37	.\include\STC15Fxxxx.H	/^sbit  P37 = P3^7;$/;"	v
+P3M0	.\include\STC15Fxxxx.H	/^sfr P3M0  = 0xB2;	\/\/					=10--->pure input,	11--->open drain$/;"	v
+P3M1	.\include\STC15Fxxxx.H	/^sfr P3M1  = 0xB1;	\/\/P3M1.n,P3M0.n 	=00--->Standard,	01--->push-pull$/;"	v
+P4	.\include\STC15Fxxxx.H	/^sfr P4        = 0xC0;$/;"	v
+P40	.\include\STC15Fxxxx.H	/^sbit  P40 = P4^0;$/;"	v
+P41	.\include\STC15Fxxxx.H	/^sbit  P41 = P4^1;$/;"	v
+P42	.\include\STC15Fxxxx.H	/^sbit  P42 = P4^2;$/;"	v
+P43	.\include\STC15Fxxxx.H	/^sbit  P43 = P4^3;$/;"	v
+P44	.\include\STC15Fxxxx.H	/^sbit  P44 = P4^4;$/;"	v
+P45	.\include\STC15Fxxxx.H	/^sbit  P45 = P4^5;$/;"	v
+P46	.\include\STC15Fxxxx.H	/^sbit  P46 = P4^6;$/;"	v
+P47	.\include\STC15Fxxxx.H	/^sbit  P47 = P4^7;$/;"	v
+P4M0	.\include\STC15Fxxxx.H	/^sfr P4M0  = 0xB4;	\/\/					=10--->pure input,	11--->open drain$/;"	v
+P4M1	.\include\STC15Fxxxx.H	/^sfr P4M1  = 0xB3;	\/\/P4M1.n,P4M0.n 	=00--->Standard,	01--->push-pull$/;"	v
+P5	.\include\STC15Fxxxx.H	/^sfr P5     = 0xC8;	\/\/$/;"	v
+P50	.\include\STC15Fxxxx.H	/^sbit  P50 = P5^0;$/;"	v
+P51	.\include\STC15Fxxxx.H	/^sbit  P51 = P5^1;$/;"	v
+P52	.\include\STC15Fxxxx.H	/^sbit  P52 = P5^2;$/;"	v
+P53	.\include\STC15Fxxxx.H	/^sbit  P53 = P5^3;$/;"	v
+P54	.\include\STC15Fxxxx.H	/^sbit  P54 = P5^4;$/;"	v
+P55	.\include\STC15Fxxxx.H	/^sbit  P55 = P5^5;$/;"	v
+P56	.\include\STC15Fxxxx.H	/^sbit  P56 = P5^6;$/;"	v
+P57	.\include\STC15Fxxxx.H	/^sbit  P57 = P5^7;$/;"	v
+P5M0	.\include\STC15Fxxxx.H	/^sfr P5M0   = 0xCA;	\/\/					=10--->pure input,	11--->open drain$/;"	v
+P5M1	.\include\STC15Fxxxx.H	/^sfr P5M1   = 0xC9;	\/\/	P5M1.n,P5M0.n 	=00--->Standard,	01--->push-pull$/;"	v
+P6	.\include\STC15Fxxxx.H	/^sfr	P6     = 0xE8;$/;"	v
+P6M0	.\include\STC15Fxxxx.H	/^sfr P6M0   = 0xCC;	\/\/					=10--->pure input,	11--->open drain$/;"	v
+P6M1	.\include\STC15Fxxxx.H	/^sfr P6M1   = 0xCB;	\/\/	P5M1.n,P5M0.n 	=00--->Standard,	01--->push-pull$/;"	v
+P7	.\include\STC15Fxxxx.H	/^sfr	P7     = 0xF8;$/;"	v
+P7M0	.\include\STC15Fxxxx.H	/^sfr	P7M0   = 0xE2;$/;"	v
+P7M1	.\include\STC15Fxxxx.H	/^sfr	P7M1   = 0xE1;$/;"	v
+PADC	.\include\STC15Fxxxx.H	/^sbit PADC	= IP^5;	\/\/ADC 中断优先级$/;"	v
+PADCH	.\include\STC15Fxxxx.H	345;"	d
+PCA0_16bit_Timer	.\include\STC15Fxxxx.H	674;"	d
+PCA0_High_Pulse	.\include\STC15Fxxxx.H	675;"	d
+PCA0_PWM	.\include\STC15Fxxxx.H	667;"	d
+PCA0_PWM_edge_int	.\include\STC15Fxxxx.H	670;"	d
+PCA0_PWM_fall_int	.\include\STC15Fxxxx.H	669;"	d
+PCA0_PWM_rise_int	.\include\STC15Fxxxx.H	668;"	d
+PCA0_capture_edge	.\include\STC15Fxxxx.H	673;"	d
+PCA0_capture_fall	.\include\STC15Fxxxx.H	672;"	d
+PCA0_capture_rise	.\include\STC15Fxxxx.H	671;"	d
+PCA0_none	.\include\STC15Fxxxx.H	666;"	d
+PCA1_16bit_Timer	.\include\STC15Fxxxx.H	685;"	d
+PCA1_High_Pulse	.\include\STC15Fxxxx.H	686;"	d
+PCA1_PWM	.\include\STC15Fxxxx.H	678;"	d
+PCA1_PWM_edge_int	.\include\STC15Fxxxx.H	681;"	d
+PCA1_PWM_fall_int	.\include\STC15Fxxxx.H	680;"	d
+PCA1_PWM_rise_int	.\include\STC15Fxxxx.H	679;"	d
+PCA1_capture_edge	.\include\STC15Fxxxx.H	684;"	d
+PCA1_capture_fall	.\include\STC15Fxxxx.H	683;"	d
+PCA1_capture_rise	.\include\STC15Fxxxx.H	682;"	d
+PCA1_none	.\include\STC15Fxxxx.H	677;"	d
+PCA2_16bit_Timer	.\include\STC15Fxxxx.H	696;"	d
+PCA2_High_Pulse	.\include\STC15Fxxxx.H	697;"	d
+PCA2_PWM	.\include\STC15Fxxxx.H	689;"	d
+PCA2_PWM_edge_int	.\include\STC15Fxxxx.H	692;"	d
+PCA2_PWM_fall_int	.\include\STC15Fxxxx.H	691;"	d
+PCA2_PWM_rise_int	.\include\STC15Fxxxx.H	690;"	d
+PCA2_capture_edge	.\include\STC15Fxxxx.H	695;"	d
+PCA2_capture_fall	.\include\STC15Fxxxx.H	694;"	d
+PCA2_capture_rise	.\include\STC15Fxxxx.H	693;"	d
+PCA2_none	.\include\STC15Fxxxx.H	688;"	d
+PCA_CLK_12T	.\include\STC15Fxxxx.H	620;"	d
+PCA_CLK_1T	.\include\STC15Fxxxx.H	624;"	d
+PCA_CLK_2T	.\include\STC15Fxxxx.H	621;"	d
+PCA_CLK_4T	.\include\STC15Fxxxx.H	625;"	d
+PCA_CLK_6T	.\include\STC15Fxxxx.H	626;"	d
+PCA_CLK_8T	.\include\STC15Fxxxx.H	627;"	d
+PCA_CLK_ECI	.\include\STC15Fxxxx.H	623;"	d
+PCA_CLK_T0	.\include\STC15Fxxxx.H	622;"	d
+PCA_IDLE_OFF	.\include\STC15Fxxxx.H	618;"	d
+PCA_IDLE_ON	.\include\STC15Fxxxx.H	619;"	d
+PCA_INT_DISABLE	.\include\STC15Fxxxx.H	629;"	d
+PCA_INT_ENABLE	.\include\STC15Fxxxx.H	628;"	d
+PCA_InterruptFirst	.\include\STC15Fxxxx.H	352;"	d
+PCA_PWM0	.\include\STC15Fxxxx.H	/^sfr PCA_PWM0 = 0xF2;	\/\/PCA模块0 PWM寄存器。$/;"	v
+PCA_PWM1	.\include\STC15Fxxxx.H	/^sfr PCA_PWM1 = 0xF3;	\/\/PCA模块1 PWM寄存器。$/;"	v
+PCA_PWM2	.\include\STC15Fxxxx.H	/^sfr PCA_PWM2 = 0xF4;	\/\/PCA模块2 PWM寄存器。$/;"	v
+PCA_USE_P12P11P10P37	.\include\STC15Fxxxx.H	634;"	d
+PCA_USE_P24P25P26P27	.\include\STC15Fxxxx.H	636;"	d
+PCA_USE_P34P35P36P37	.\include\STC15Fxxxx.H	635;"	d
+PCA_VECTOR	.\include\STC15Fxxxx.H	817;"	d
+PCON	.\include\STC15Fxxxx.H	/^sfr PCON = 0x87;$/;"	v
+PCON2	.\include\STC15Fxxxx.H	/^sfr PCON2   = 0x97;$/;"	v
+PLVD	.\include\STC15Fxxxx.H	/^sbit PLVD	= IP^6;	\/\/低压监测中断优先级$/;"	v
+PLVDH	.\include\STC15Fxxxx.H	344;"	d
+PPCA	.\include\STC15Fxxxx.H	/^sbit PPCA	= IP^7;	\/\/PCA 模块中断优先级$/;"	v
+PPCAH	.\include\STC15Fxxxx.H	343;"	d
+PS	.\include\STC15Fxxxx.H	/^sbit PS   	= IP^4;	\/\/串行中断0优先级设定位$/;"	v
+PSH	.\include\STC15Fxxxx.H	346;"	d
+PSW	.\include\STC15Fxxxx.H	/^sfr PSW  = 0xD0;$/;"	v
+PT0	.\include\STC15Fxxxx.H	/^sbit PT0	= IP^1;	\/\/定时中断0优先级设定位$/;"	v
+PT0H	.\include\STC15Fxxxx.H	349;"	d
+PT1	.\include\STC15Fxxxx.H	/^sbit PT1	= IP^3;	\/\/定时中断1优先级设定位$/;"	v
+PT1H	.\include\STC15Fxxxx.H	347;"	d
+PWM0_NORMAL	.\include\STC15Fxxxx.H	595;"	d
+PWM0_OUT_0	.\include\STC15Fxxxx.H	596;"	d
+PWM0_OUT_1	.\include\STC15Fxxxx.H	597;"	d
+PWM1_NORMAL	.\include\STC15Fxxxx.H	599;"	d
+PWM1_OUT_0	.\include\STC15Fxxxx.H	600;"	d
+PWM1_OUT_1	.\include\STC15Fxxxx.H	601;"	d
+PWM2_NORMAL	.\include\STC15Fxxxx.H	603;"	d
+PWM2_OUT_0	.\include\STC15Fxxxx.H	604;"	d
+PWM2_OUT_1	.\include\STC15Fxxxx.H	605;"	d
+PX0	.\include\STC15Fxxxx.H	/^sbit PX0	= IP^0;	\/\/外部中断0优先级设定位$/;"	v
+PX0H	.\include\STC15Fxxxx.H	350;"	d
+PX1	.\include\STC15Fxxxx.H	/^sbit PX1	= IP^2;	\/\/外部中断1优先级设定位$/;"	v
+PX1H	.\include\STC15Fxxxx.H	348;"	d
+P_SW1	.\include\STC15Fxxxx.H	/^sfr P_SW1 = 0xA2;$/;"	v
+P_SW2	.\include\STC15Fxxxx.H	/^sfr	P_SW2     = 0xBA;$/;"	v
+Pin	.\include\GPIO.h	/^	u8	Pin;		\/\/要设置的端口	$/;"	m	struct:__anon2
+PolityHigh	.\include\STC15Fxxxx.H	838;"	d
+PolityLow	.\include\STC15Fxxxx.H	837;"	d
+RB8	.\include\STC15Fxxxx.H	/^sbit RB8  = SCON^2;	\/\/接收数据第8位$/;"	v
+RBIT	.\source\Soft_uart.c	/^static unsigned char TBIT,RBIT;	\/\/发送和接收的数据计数器$/;"	v	file:
+RBUF	.\source\Soft_uart.c	/^static unsigned char TBUF,RBUF;$/;"	v	file:
+RCNT	.\source\Soft_uart.c	/^static unsigned char TCNT,RCNT;	\/\/发送和接收检测 计数器(3倍速率检测)$/;"	v	file:
+RD	.\include\STC15Fxxxx.H	/^sbit RD   = P3^7;$/;"	v
+REN	.\include\STC15Fxxxx.H	/^sbit REN  = SCON^4;	\/\/接收允许$/;"	v
+RI	.\include\STC15Fxxxx.H	/^sbit RI   = SCON^0;	\/\/接收中断标志位$/;"	v
+RI2	.\include\STC15Fxxxx.H	389;"	d
+RING	.\source\Soft_uart.c	/^static bit TING,RING;	\/\/正在发送或接收一个字节$/;"	v	file:
+RL_T2H	.\include\STC15Fxxxx.H	/^sfr	RL_T2H  = 0xD6;$/;"	v
+RL_T2L	.\include\STC15Fxxxx.H	/^sfr	RL_T2L  = 0xD7;$/;"	v
+RL_T3H	.\include\STC15Fxxxx.H	/^sfr	RL_T3H  = 0xD4;$/;"	v
+RL_T3L	.\include\STC15Fxxxx.H	/^sfr	RL_T3L  = 0xD5;$/;"	v
+RL_T4H	.\include\STC15Fxxxx.H	/^sfr	RL_T4H  = 0xD2;$/;"	v
+RL_T4L	.\include\STC15Fxxxx.H	/^sfr	RL_T4L  = 0xD3;$/;"	v
+RL_TH0	.\include\STC15Fxxxx.H	/^sfr RL_TH0  = 0x8C;$/;"	v
+RL_TH1	.\include\STC15Fxxxx.H	/^sfr RL_TH1  = 0x8D;$/;"	v
+RL_TL0	.\include\STC15Fxxxx.H	/^sfr RL_TL0  = 0x8A;$/;"	v
+RL_TL1	.\include\STC15Fxxxx.H	/^sfr RL_TL1  = 0x8B;$/;"	v
+RS0	.\include\STC15Fxxxx.H	/^sbit RS0  = PSW^3;$/;"	v
+RS1	.\include\STC15Fxxxx.H	/^sbit RS1  = PSW^4;$/;"	v
+RXB	.\source\Soft_uart.c	/^sbit RXB = P3^0;                \/\/define UART TX\/RX port$/;"	v
+RXD	.\include\STC15Fxxxx.H	/^sbit RXD  = P3^0;$/;"	v
+RXD2	.\include\STC15Fxxxx.H	/^sbit  RXD2      = P1^0;$/;"	v
+RxBitLenth	.\source\Soft_uart.c	35;"	d	file:
+S1_8bit	.\include\STC15Fxxxx.H	366;"	d
+S1_9bit	.\include\STC15Fxxxx.H	367;"	d
+S1_BRT_UseTimer1	.\include\STC15Fxxxx.H	375;"	d
+S1_BRT_UseTimer2	.\include\STC15Fxxxx.H	374;"	d
+S1_DoubleRate	.\include\STC15Fxxxx.H	364;"	d
+S1_M0x1	.\include\STC15Fxxxx.H	440;"	d
+S1_M0x6	.\include\STC15Fxxxx.H	439;"	d
+S1_RX_Enable	.\include\STC15Fxxxx.H	368;"	d
+S1_SHIFT	.\include\STC15Fxxxx.H	365;"	d
+S1_TXD_RXD_OPEN	.\include\STC15Fxxxx.H	373;"	d
+S1_TXD_RXD_SHORT	.\include\STC15Fxxxx.H	372;"	d
+S1_USE_P16P17	.\include\STC15Fxxxx.H	371;"	d
+S1_USE_P30P31	.\include\STC15Fxxxx.H	369;"	d
+S1_USE_P36P37	.\include\STC15Fxxxx.H	370;"	d
+S2BUF	.\include\STC15Fxxxx.H	/^sfr S2BUF = 0x9B;	\/\/$/;"	v
+S2CON	.\include\STC15Fxxxx.H	/^sfr S2CON = 0x9A;	\/\/$/;"	v
+S2TB8_CLR	.\include\STC15Fxxxx.H	394;"	d
+S2TB8_SET	.\include\STC15Fxxxx.H	393;"	d
+S2_8bit	.\include\STC15Fxxxx.H	380;"	d
+S2_9bit	.\include\STC15Fxxxx.H	381;"	d
+S2_Int_en	.\include\STC15Fxxxx.H	395;"	d
+S2_MODE0	.\include\STC15Fxxxx.H	384;"	d
+S2_MODE1	.\include\STC15Fxxxx.H	385;"	d
+S2_RX_Disable	.\include\STC15Fxxxx.H	387;"	d
+S2_RX_EN	.\include\STC15Fxxxx.H	386;"	d
+S2_RX_Enable	.\include\STC15Fxxxx.H	382;"	d
+S2_USE_P10P11	.\include\STC15Fxxxx.H	396;"	d
+S2_USE_P46P47	.\include\STC15Fxxxx.H	397;"	d
+S3BUF	.\include\STC15Fxxxx.H	/^sfr S3BUF = 0xAD;$/;"	v
+S3CON	.\include\STC15Fxxxx.H	/^sfr	S3CON = 0xAC;$/;"	v
+S3_USE_P00P01	.\include\STC15Fxxxx.H	399;"	d
+S3_USE_P50P51	.\include\STC15Fxxxx.H	400;"	d
+S4BUF	.\include\STC15Fxxxx.H	/^sfr	S4BUF = 0x85;$/;"	v
+S4CON	.\include\STC15Fxxxx.H	/^sfr	S4CON = 0x84;$/;"	v
+S4_USE_P02P03	.\include\STC15Fxxxx.H	401;"	d
+S4_USE_P52P53	.\include\STC15Fxxxx.H	402;"	d
+SADDR	.\include\STC15Fxxxx.H	/^sfr SADDR = 0xA9;$/;"	v
+SADEN	.\include\STC15Fxxxx.H	/^sfr SADEN     = 0xB9;$/;"	v
+SBUF	.\include\STC15Fxxxx.H	/^sfr SBUF  = 0x99;$/;"	v
+SCON	.\include\STC15Fxxxx.H	/^sfr SCON  = 0x98;$/;"	v
+SET_TI2	.\include\STC15Fxxxx.H	390;"	d
+SM0	.\include\STC15Fxxxx.H	/^sbit SM0  = SCON^7;	\/\/SM0\/FE		SM0 SM1 = 00 ~ 11: 方式0~3$/;"	v
+SM1	.\include\STC15Fxxxx.H	/^sbit SM1  = SCON^6;	\/\/$/;"	v
+SM2	.\include\STC15Fxxxx.H	/^sbit SM2  = SCON^5;	\/\/多机通讯$/;"	v
+SP	.\include\STC15Fxxxx.H	/^sfr SP   = 0x81;$/;"	v
+SPCTL	.\include\STC15Fxxxx.H	/^sfr SPCTL  = 0xCE;	\/\/$/;"	v
+SPDAT	.\include\STC15Fxxxx.H	/^sfr SPDAT  = 0xCF;	\/\/$/;"	v
+SPIF	.\include\STC15Fxxxx.H	580;"	d
+SPI_Disable	.\include\STC15Fxxxx.H	565;"	d
+SPI_Enable	.\include\STC15Fxxxx.H	564;"	d
+SPI_INT_DISABLE	.\include\STC15Fxxxx.H	323;"	d
+SPI_INT_ENABLE	.\include\STC15Fxxxx.H	322;"	d
+SPI_LSB_First	.\include\STC15Fxxxx.H	566;"	d
+SPI_MISO	.\include\STC15Fxxxx.H	/^sbit  SPI_MISO  = P1^4;$/;"	v
+SPI_MISO_2	.\include\STC15Fxxxx.H	/^sbit  SPI_MISO_2  = P2^2;$/;"	v
+SPI_MISO_3	.\include\STC15Fxxxx.H	/^sbit  SPI_MISO_3  = P4^1;$/;"	v
+SPI_MOSI	.\include\STC15Fxxxx.H	/^sbit  SPI_MOSI  = P1^3;$/;"	v
+SPI_MOSI_2	.\include\STC15Fxxxx.H	/^sbit  SPI_MOSI_2  = P2^3;$/;"	v
+SPI_MOSI_3	.\include\STC15Fxxxx.H	/^sbit  SPI_MOSI_3  = P4^0;$/;"	v
+SPI_MSB_First	.\include\STC15Fxxxx.H	567;"	d
+SPI_Master	.\include\STC15Fxxxx.H	568;"	d
+SPI_PhaseH	.\include\STC15Fxxxx.H	572;"	d
+SPI_PhaseL	.\include\STC15Fxxxx.H	573;"	d
+SPI_SCLK	.\include\STC15Fxxxx.H	/^sbit  SPI_SCLK  = P1^5;$/;"	v
+SPI_SCLK_2	.\include\STC15Fxxxx.H	/^sbit  SPI_SCLK_2  = P2^1;$/;"	v
+SPI_SCLK_3	.\include\STC15Fxxxx.H	/^sbit  SPI_SCLK_3  = P4^3;$/;"	v
+SPI_SCLK_NormalH	.\include\STC15Fxxxx.H	570;"	d
+SPI_SCLK_NormalL	.\include\STC15Fxxxx.H	571;"	d
+SPI_SS	.\include\STC15Fxxxx.H	/^sbit  SPI_SS    = P1^2;$/;"	v
+SPI_SSIG_Enable	.\include\STC15Fxxxx.H	563;"	d
+SPI_SSIG_None	.\include\STC15Fxxxx.H	562;"	d
+SPI_SS_2	.\include\STC15Fxxxx.H	/^sbit  SPI_SS_2    = P2^4;$/;"	v
+SPI_SS_3	.\include\STC15Fxxxx.H	/^sbit  SPI_SS_3    = P5^4;$/;"	v
+SPI_Slave	.\include\STC15Fxxxx.H	569;"	d
+SPI_Speed	.\include\STC15Fxxxx.H	574;"	d
+SPI_USE_P12P13P14P15	.\include\STC15Fxxxx.H	583;"	d
+SPI_USE_P24P23P22P21	.\include\STC15Fxxxx.H	584;"	d
+SPI_USE_P54P40P41P43	.\include\STC15Fxxxx.H	585;"	d
+SPI_VECTOR	.\include\STC15Fxxxx.H	819;"	d
+SPSTAT	.\include\STC15Fxxxx.H	/^sfr SPSTAT = 0xCD;	\/\/$/;"	v
+STC15F_L2K08S2	.\include\STC15Fxxxx.H	850;"	d
+STC15F_L2K16S2	.\include\STC15Fxxxx.H	851;"	d
+STC15F_L2K24S2	.\include\STC15Fxxxx.H	852;"	d
+STC15F_L2K32S2	.\include\STC15Fxxxx.H	853;"	d
+STC15F_L2K40S2	.\include\STC15Fxxxx.H	854;"	d
+STC15F_L2K48S2	.\include\STC15Fxxxx.H	855;"	d
+STC15F_L2K56S2	.\include\STC15Fxxxx.H	856;"	d
+STC15F_L2K60S2	.\include\STC15Fxxxx.H	857;"	d
+SYSTEM_CLK_128T	.\include\STC15Fxxxx.H	791;"	d
+SYSTEM_CLK_16T	.\include\STC15Fxxxx.H	788;"	d
+SYSTEM_CLK_1T	.\include\STC15Fxxxx.H	784;"	d
+SYSTEM_CLK_2T	.\include\STC15Fxxxx.H	785;"	d
+SYSTEM_CLK_32T	.\include\STC15Fxxxx.H	789;"	d
+SYSTEM_CLK_4T	.\include\STC15Fxxxx.H	786;"	d
+SYSTEM_CLK_64T	.\include\STC15Fxxxx.H	790;"	d
+SYSTEM_CLK_8T	.\include\STC15Fxxxx.H	787;"	d
+T0	.\include\STC15Fxxxx.H	/^sbit T0   = P3^4;$/;"	v
+T0_pulseP34_disable	.\include\STC15Fxxxx.H	454;"	d
+T0_pulseP34_enable	.\include\STC15Fxxxx.H	453;"	d
+T0_pulseP35	.\include\STC15Fxxxx.H	460;"	d
+T1	.\include\STC15Fxxxx.H	/^sbit T1   = P3^5;$/;"	v
+T1_pulseP34	.\include\STC15Fxxxx.H	461;"	d
+T1_pulseP35_disable	.\include\STC15Fxxxx.H	456;"	d
+T1_pulseP35_enable	.\include\STC15Fxxxx.H	455;"	d
+T2H	.\include\STC15Fxxxx.H	/^sfr	T2H  = 0xD6;$/;"	v
+T2L	.\include\STC15Fxxxx.H	/^sfr	T2L  = 0xD7;$/;"	v
+T2_pulseP30	.\include\STC15Fxxxx.H	462;"	d
+T2_pulseP30_disable	.\include\STC15Fxxxx.H	458;"	d
+T2_pulseP30_enable	.\include\STC15Fxxxx.H	457;"	d
+T3H	.\include\STC15Fxxxx.H	/^sfr	T3H  = 0xD4;$/;"	v
+T3L	.\include\STC15Fxxxx.H	/^sfr	T3L  = 0xD5;$/;"	v
+T4H	.\include\STC15Fxxxx.H	/^sfr	T4H  = 0xD2;$/;"	v
+T4L	.\include\STC15Fxxxx.H	/^sfr	T4L  = 0xD3;$/;"	v
+T4T3M	.\include\STC15Fxxxx.H	/^sfr	T4T3M = 0xD1;$/;"	v
+TB8	.\include\STC15Fxxxx.H	/^sbit TB8  = SCON^3;	\/\/发送数据第8位$/;"	v
+TBIT	.\source\Soft_uart.c	/^static unsigned char TBIT,RBIT;	\/\/发送和接收的数据计数器$/;"	v	file:
+TBUF	.\source\Soft_uart.c	/^static unsigned char TBUF,RBUF;$/;"	v	file:
+TCNT	.\source\Soft_uart.c	/^static unsigned char TCNT,RCNT;	\/\/发送和接收检测 计数器(3倍速率检测)$/;"	v	file:
+TCON	.\include\STC15Fxxxx.H	/^sfr TCON = 0x88;$/;"	v
+TF0	.\include\STC15Fxxxx.H	/^sbit TF0  = TCON^5;	\/\/定时器0溢出中断标志位$/;"	v
+TF1	.\include\STC15Fxxxx.H	/^sbit TF1  = TCON^7;	\/\/定时器1溢出中断标志位$/;"	v
+TH0	.\include\STC15Fxxxx.H	/^sfr TH0  = 0x8C;$/;"	v
+TH1	.\include\STC15Fxxxx.H	/^sfr TH1  = 0x8D;$/;"	v
+TH2	.\include\STC15Fxxxx.H	/^sfr	TH2  = 0xD6;$/;"	v
+TH3	.\include\STC15Fxxxx.H	/^sfr	TH3  = 0xD4;$/;"	v
+TH4	.\include\STC15Fxxxx.H	/^sfr	TH4  = 0xD2;$/;"	v
+TI	.\include\STC15Fxxxx.H	/^sbit TI   = SCON^1;	\/\/发送中断标志位$/;"	v
+TI2	.\include\STC15Fxxxx.H	388;"	d
+TIMER0_VECTOR	.\include\STC15Fxxxx.H	811;"	d
+TIMER1_VECTOR	.\include\STC15Fxxxx.H	813;"	d
+TIMER2_VECTOR	.\include\STC15Fxxxx.H	822;"	d
+TIMER3_VECTOR	.\include\STC15Fxxxx.H	826;"	d
+TIMER4_VECTOR	.\include\STC15Fxxxx.H	827;"	d
+TIM_16Bit	.\include\timer.h	14;"	d
+TIM_16BitAutoReload	.\include\timer.h	13;"	d
+TIM_16BitAutoReloadNoMask	.\include\timer.h	16;"	d
+TIM_8BitAutoReload	.\include\timer.h	15;"	d
+TIM_CLOCK_12T	.\include\timer.h	19;"	d
+TIM_CLOCK_1T	.\include\timer.h	18;"	d
+TIM_CLOCK_Ext	.\include\timer.h	20;"	d
+TIM_ClkOut	.\include\timer.h	/^	u8	TIM_ClkOut;		\/\/可编程时钟输出,	ENABLE,DISABLE$/;"	m	struct:__anon3
+TIM_ClkSource	.\include\timer.h	/^	u8	TIM_ClkSource;	\/\/时钟源		TIM_CLOCK_1T,TIM_CLOCK_12T,TIM_CLOCK_Ext$/;"	m	struct:__anon3
+TIM_InitTypeDef	.\include\timer.h	/^} TIM_InitTypeDef;$/;"	t	typeref:struct:__anon3
+TIM_Interrupt	.\include\timer.h	/^	u8	TIM_Interrupt;	\/\/中断允许		ENABLE,DISABLE$/;"	m	struct:__anon3
+TIM_Isr	.\include\timer.h	/^	void (* TIM_Isr)(void);$/;"	m	struct:__anon3
+TIM_Mode	.\include\timer.h	/^	u8	TIM_Mode;		\/\/工作模式,  	TIM_16BitAutoReload,TIM_16Bit,TIM_8BitAutoReload,TIM_16BitAutoReloadNoMask$/;"	m	struct:__anon3
+TIM_Polity	.\include\timer.h	/^	u8	TIM_Polity;		\/\/优先级设置	PolityHigh,PolityLow$/;"	m	struct:__anon3
+TIM_Run	.\include\timer.h	/^	u8	TIM_Run;		\/\/是否运行		ENABLE,DISABLE$/;"	m	struct:__anon3
+TIM_Value	.\include\timer.h	/^	u16	TIM_Value;		\/\/装载初值$/;"	m	struct:__anon3
+TING	.\source\Soft_uart.c	/^static bit TING,RING;	\/\/正在发送或接收一个字节$/;"	v	file:
+TL0	.\include\STC15Fxxxx.H	/^sfr TL0  = 0x8A;$/;"	v
+TL1	.\include\STC15Fxxxx.H	/^sfr TL1  = 0x8B;$/;"	v
+TL2	.\include\STC15Fxxxx.H	/^sfr	TL2  = 0xD7;$/;"	v
+TL3	.\include\STC15Fxxxx.H	/^sfr	TL3  = 0xD5;$/;"	v
+TL4	.\include\STC15Fxxxx.H	/^sfr	TL4  = 0xD3;$/;"	v
+TMOD	.\include\STC15Fxxxx.H	/^sfr TMOD = 0x89;$/;"	v
+TR0	.\include\STC15Fxxxx.H	/^sbit TR0  = TCON^4;	\/\/定时器0运行控制位$/;"	v
+TR1	.\include\STC15Fxxxx.H	/^sbit TR1  = TCON^6;	\/\/定时器1运行控制位$/;"	v
+TRUE	.\include\STC15Fxxxx.H	830;"	d
+TXB	.\source\Soft_uart.c	/^sbit TXB = P3^1;$/;"	v
+TXD	.\include\STC15Fxxxx.H	/^sbit TXD  = P3^1;$/;"	v
+TXD2	.\include\STC15Fxxxx.H	/^sbit  TXD2      = P1^1;$/;"	v
+Timer0	.\include\timer.h	7;"	d
+Timer0_12T	.\include\STC15Fxxxx.H	436;"	d
+Timer0_16bit	.\include\STC15Fxxxx.H	408;"	d
+Timer0_16bitAutoRL_NoMask	.\include\STC15Fxxxx.H	410;"	d
+Timer0_16bitAutoReload	.\include\STC15Fxxxx.H	407;"	d
+Timer0_1T	.\include\STC15Fxxxx.H	435;"	d
+Timer0_8bitAutoReload	.\include\STC15Fxxxx.H	409;"	d
+Timer0_AsCounterP32	.\include\STC15Fxxxx.H	411;"	d
+Timer0_AsTimer	.\include\STC15Fxxxx.H	412;"	d
+Timer0_ExtControlP34	.\include\STC15Fxxxx.H	413;"	d
+Timer0_InterruptDisable	.\include\STC15Fxxxx.H	417;"	d
+Timer0_InterruptEnable	.\include\STC15Fxxxx.H	416;"	d
+Timer0_InterruptFirst	.\include\STC15Fxxxx.H	358;"	d
+Timer0_Load	.\include\STC15Fxxxx.H	464;"	d
+Timer0_Load_us	.\include\STC15Fxxxx.H	468;"	d
+Timer0_Reload	.\source\Soft_uart.c	19;"	d	file:
+Timer0_Run	.\include\STC15Fxxxx.H	414;"	d
+Timer0_Stop	.\include\STC15Fxxxx.H	415;"	d
+Timer1	.\include\timer.h	8;"	d
+Timer1_12T	.\include\STC15Fxxxx.H	438;"	d
+Timer1_16bit	.\include\STC15Fxxxx.H	420;"	d
+Timer1_16bitAutoRL_NoMask	.\include\STC15Fxxxx.H	422;"	d
+Timer1_16bitAutoReload	.\include\STC15Fxxxx.H	419;"	d
+Timer1_1T	.\include\STC15Fxxxx.H	437;"	d
+Timer1_8bitAutoReload	.\include\STC15Fxxxx.H	421;"	d
+Timer1_AsCounterP33	.\include\STC15Fxxxx.H	423;"	d
+Timer1_AsTimer	.\include\STC15Fxxxx.H	424;"	d
+Timer1_ExtControlP35	.\include\STC15Fxxxx.H	425;"	d
+Timer1_InterruptDisable	.\include\STC15Fxxxx.H	429;"	d
+Timer1_InterruptEnable	.\include\STC15Fxxxx.H	428;"	d
+Timer1_InterruptFirst	.\include\STC15Fxxxx.H	356;"	d
+Timer1_Load	.\include\STC15Fxxxx.H	465;"	d
+Timer1_Load_us	.\include\STC15Fxxxx.H	469;"	d
+Timer1_Run	.\include\STC15Fxxxx.H	426;"	d
+Timer1_Stop	.\include\STC15Fxxxx.H	427;"	d
+Timer2	.\include\timer.h	9;"	d
+Timer2_12T	.\include\STC15Fxxxx.H	446;"	d
+Timer2_1T	.\include\STC15Fxxxx.H	445;"	d
+Timer2_AsCounterP31	.\include\STC15Fxxxx.H	443;"	d
+Timer2_AsTimer	.\include\STC15Fxxxx.H	444;"	d
+Timer2_InterruptDisable	.\include\STC15Fxxxx.H	448;"	d
+Timer2_InterruptEnable	.\include\STC15Fxxxx.H	447;"	d
+Timer2_Load	.\include\STC15Fxxxx.H	466;"	d
+Timer2_Load_us	.\include\STC15Fxxxx.H	470;"	d
+Timer2_Run	.\include\STC15Fxxxx.H	441;"	d
+Timer2_Stop	.\include\STC15Fxxxx.H	442;"	d
+Timer3	.\include\timer.h	10;"	d
+Timer4	.\include\timer.h	11;"	d
+Timer_Inilize	.\source\timer.c	/^u8	Timer_Inilize(u8 TIM, TIM_InitTypeDef *TIMx)$/;"	f
+TxBitLenth	.\source\Soft_uart.c	36;"	d	file:
+UART1_InterruptFirst	.\include\STC15Fxxxx.H	355;"	d
+UART1_VECTOR	.\include\STC15Fxxxx.H	814;"	d
+UART2_INT_DISABLE	.\include\STC15Fxxxx.H	325;"	d
+UART2_INT_ENABLE	.\include\STC15Fxxxx.H	324;"	d
+UART2_VECTOR	.\include\STC15Fxxxx.H	818;"	d
+UART3_VECTOR	.\include\STC15Fxxxx.H	824;"	d
+UART4_VECTOR	.\include\STC15Fxxxx.H	825;"	d
+WAKE_CLKO	.\include\STC15Fxxxx.H	/^sfr WAKE_CLKO = 0x8F;$/;"	v
+WCOL	.\include\STC15Fxxxx.H	581;"	d
+WDT_CONTR	.\include\STC15Fxxxx.H	/^sfr WDT_CONTR = 0xC1;$/;"	v
+WDT_reset	.\include\STC15Fxxxx.H	489;"	d
+WHITE_LED	.\include\config.h	26;"	d
+WKTCH	.\include\STC15Fxxxx.H	/^sfr WKTCH = 0xAB;	\/\/唤醒定时器高字节$/;"	v
+WKTCL	.\include\STC15Fxxxx.H	/^sfr WKTCL = 0xAA;	\/\/唤醒定时器低字节$/;"	v
+WR	.\include\STC15Fxxxx.H	/^sbit WR   = P3^6;$/;"	v
+WakeTimerDisable	.\include\STC15Fxxxx.H	779;"	d
+WakeTimerSet	.\include\STC15Fxxxx.H	780;"	d
+_STC15Fxxxx_H	.\include\STC15Fxxxx.H	4;"	d
+__CONFIG_H	.\include\config.h	3;"	d
+__DELAY_H	.\include\delay.h	3;"	d
+__EXTI_H	.\include\Exti.h	3;"	d
+__GPIO_H	.\include\GPIO.h	3;"	d
+__IR_H	.\include\ir.h	3;"	d
+__SOFT_UART_H	.\include\soft_uart.h	3;"	d
+__TIMER_H	.\include\timer.h	3;"	d
+breath_led	.\source\main.c	/^void breath_led(void)$/;"	f
+buf	.\source\Soft_uart.c	/^static unsigned char buf[16];$/;"	v	file:
+c	.\source\main.c	/^char c=0;$/;"	v
+check_ir_loop	.\source\ir.c	/^bit check_ir_loop(void)$/;"	f
+delay_ms	.\source\delay.c	/^void  delay_ms(unsigned int ms)$/;"	f
+get_cnt	.\source\Soft_uart.c	/^static unsigned char rcv_cnt, get_cnt;$/;"	v	file:
+gpio_init	.\source\main.c	/^void gpio_init(void)$/;"	f
+i	.\source\main.c	/^char i;$/;"	v
+init	.\source\Soft_uart.c	/^static bit init;$/;"	v	file:
+ir_cnt	.\source\ir.c	/^static unsigned char ir_cnt;$/;"	v	file:
+ir_out	.\source\ir.c	/^static bit ir_out;$/;"	v	file:
+ir_rcv	.\source\ir.c	/^bit ir_rcv(unsigned char *key)$/;"	f
+ir_rcv_deinit	.\source\ir.c	/^void ir_rcv_deinit(void)$/;"	f
+ir_rcv_init	.\source\ir.c	/^void ir_rcv_init(void)$/;"	f
+ir_rcv_int	.\source\ir.c	/^static bit ir_rcv_int = 0;$/;"	v	file:
+ir_rcv_isr	.\source\ir.c	/^void ir_rcv_isr(void)$/;"	f
+ir_rcv_t0_timer_cfg	.\source\ir.c	/^void ir_rcv_t0_timer_cfg(void)$/;"	f
+ir_rcv_t1_timer_cfg	.\source\ir.c	/^void ir_rcv_t1_timer_cfg(bit enable)$/;"	f
+ir_send	.\source\ir.c	/^bit ir_send(unsigned char *key)$/;"	f
+ir_send_deinit	.\source\ir.c	/^void ir_send_deinit(void)$/;"	f
+ir_send_init	.\source\ir.c	/^void ir_send_init(void)$/;"	f
+ir_send_isr	.\source\ir.c	/^void ir_send_isr(void)$/;"	f
+ir_send_t0_timer_cfg	.\source\ir.c	/^void ir_send_t0_timer_cfg(bit enable)$/;"	f
+main	.\source\main.c	/^main()$/;"	f
+print	.\source\Soft_uart.c	/^void print(unsigned char code *str)$/;"	f
+rcv_cnt	.\source\Soft_uart.c	/^static unsigned char rcv_cnt, get_cnt;$/;"	v	file:
+slow_led	.\source\main.c	/^void slow_led(bit on, unsigned int sec)$/;"	f
+timer0_isr	.\source\timer.c	/^static void (* timer0_isr)(void);$/;"	v	file:
+timer1_isr	.\source\timer.c	/^static void (* timer1_isr)(void);$/;"	v	file:
+u16	.\include\STC15Fxxxx.H	/^typedef 	unsigned int	u16;$/;"	t
+u32	.\include\STC15Fxxxx.H	/^typedef 	unsigned long	u32;$/;"	t
+u8	.\include\STC15Fxxxx.H	/^typedef 	unsigned char	u8;$/;"	t
+uart_deinit	.\source\Soft_uart.c	/^void uart_deinit(void)$/;"	f
+uart_init	.\source\Soft_uart.c	/^void uart_init(void)$/;"	f
+uart_isr	.\source\Soft_uart.c	/^void uart_isr(void)$/;"	f
+uart_rev	.\source\Soft_uart.c	/^bit uart_rev(unsigned char *dat)$/;"	f
+uart_send	.\source\Soft_uart.c	/^bit uart_send(unsigned char dat)$/;"	f

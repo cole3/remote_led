@@ -92,12 +92,15 @@ static bit nec_decode(unsigned char *key)
     char i,j;
 
     temp = Ir_Get_High();
-    if ((temp < 3686) || (temp > 4608)) {
+    if ((temp < 3686) || (temp > 4608))
+    {
         return 0;
     }
 
-    for (i=0; i<4; i++) {
-        for (j=0; j<8; j++) {
+    for (i=0; i<4; i++)
+    {
+        for (j=0; j<8; j++)
+        {
             temp = Ir_Get_Low();
             if ((temp < 184) || (temp > 737)) //200~800us
                 return 0;
@@ -122,13 +125,15 @@ static bit rc5_decode(unsigned char *key)
     bit state = 1;
     char i = 0, j;
 
-    while (1) { //13 bit
+    while (1) //13 bit
+    {
         temp = Ir_Get_High();
         test[2] = temp;
         if ((temp < 300) || (temp > 900)) //200~800us
             goto err;
 
-        if (temp > 600) {
+        if (temp > 600)
+        {
             state = !state;
             i++;
         }
@@ -141,7 +146,8 @@ static bit rc5_decode(unsigned char *key)
         if ((temp < 300) || (temp > 900)) //200~800us
             goto err;
 
-        if (temp > 600) {
+        if (temp > 600)
+        {
             state = !state;
             i++;
         }
@@ -161,18 +167,21 @@ bit ir_rcv(unsigned char *key)
     bit ret = 0;
     char i,j;
 
-    if (!ir_rcv_int) {
+    if (!ir_rcv_int)
+    {
         return 0;
     }
 
     ir_rcv_t0_timer_cfg();
 
     temp = Ir_Get_Low();
-    if (temp > 3000 && temp < 8755) {
+    if (temp > 3000 && temp < 8755)
+    {
         ret = nec_decode(key);
     }
 #ifdef CONFIG_RC3_CODE
-    else if (temp <= 3000) {
+    else if (temp <= 3000)
+    {
         ret = rc5_decode(key);
     }
 #endif
@@ -202,11 +211,13 @@ static unsigned char ir_cnt;
 
 void ir_send_isr(void)
 {
-    if (ir_out) {
+    if (ir_out)
+    {
         IR_SEND = !IR_SEND;
     }
 
-    if (ir_cnt) {
+    if (ir_cnt)
+    {
         ir_cnt--;
     }
 }
@@ -257,7 +268,8 @@ bit check_ir_loop(void)
     ir_send_init();
 
     do {
-        if (ir_rcv_int) {
+        if (ir_rcv_int)
+        {
             break;
         }
         ir_cnt = 10;
@@ -265,7 +277,8 @@ bit check_ir_loop(void)
         while (ir_cnt);
         ir_out = 0;
 
-        if (!ir_rcv_int) {
+        if (!ir_rcv_int)
+        {
             break;
         }
         ir_rcv_int = 0;

@@ -1,0 +1,800 @@
+; .\Soft_uart.SRC generated from: source\Soft_uart.c
+; COMPILER INVOKED BY:
+;        C:\Keil\C51\BIN\C51.EXE source\Soft_uart.c INCDIR(include) DEBUG OBJECTEXTEND PRINT(.\Soft_uart.lst) PAGEWIDTH(79) PAGELENGTH(66) SRC(.\Soft_uart.SRC)
+
+$NOMOD51
+
+NAME	SOFT_UART
+
+CCF2	BIT	0D8H.2
+ACC7	BIT	0E0H.7
+P0M1	DATA	093H
+P1M0	DATA	092H
+P2M0	DATA	096H
+P1M1	DATA	091H
+P0	DATA	080H
+P3M0	DATA	0B2H
+P2M1	DATA	095H
+P1	DATA	090H
+P4M0	DATA	0B4H
+P3M1	DATA	0B1H
+P2	DATA	0A0H
+P5M0	DATA	0CAH
+P4M1	DATA	0B3H
+P3	DATA	0B0H
+WKTCH	DATA	0ABH
+T0	BIT	0B0H.4
+AC	BIT	0D0H.6
+P6M0	DATA	0CCH
+P5M1	DATA	0C9H
+P4	DATA	0C0H
+CLKOUT0	BIT	0B0H.5
+T1	BIT	0B0H.5
+P7M0	DATA	0E2H
+P6M1	DATA	0CBH
+P5	DATA	0C8H
+ISP_TRIG	DATA	0C6H
+EA	BIT	0A8H.7
+CLKOUT1	BIT	0B0H.4
+SPI_SS_2	BIT	0A0H.4
+P6	DATA	0E8H
+P7M1	DATA	0E1H
+SPI_SS_3	BIT	0C8H.4
+SPI_MISO	BIT	090H.4
+SPI_MOSI	BIT	090H.3
+CCP0	BIT	090H.1
+P7	DATA	0F8H
+WKTCL	DATA	0AAH
+CCP1	BIT	090H.0
+SPCTL	DATA	0CEH
+CF	BIT	0D8H.7
+CCP2	BIT	0B0H.7
+CH	DATA	0F9H
+P_SW1	DATA	0A2H
+P_SW2	DATA	0BAH
+EADC	BIT	0A8H.5
+SPI_SCLK_2	BIT	0A0H.1
+IE	DATA	0A8H
+SPI_SCLK_3	BIT	0C0H.3
+CL	DATA	0E9H
+IAP_CMD	DATA	0C5H
+CCAP0H	DATA	0FAH
+CCAP1H	DATA	0FBH
+CCAP2H	DATA	0FCH
+ADC_RES	DATA	0BDH
+IPH2	DATA	0B6H
+CR	BIT	0D8H.6
+CCAP0L	DATA	0EAH
+RD	BIT	0B0H.7
+CCAP1L	DATA	0EBH
+CCAPM0	DATA	0DAH
+CCAP2L	DATA	0ECH
+CCAPM1	DATA	0DBH
+ES	BIT	0A8H.4
+CCAPM2	DATA	0DCH
+PADC	BIT	0B8H.5
+SPI_MISO_2	BIT	0A0H.2
+SPI_MOSI_2	BIT	0A0H.3
+IP	DATA	0B8H
+SPI_MISO_3	BIT	0C0H.1
+SPI_MOSI_3	BIT	0C0H.0
+RI	BIT	098H.0
+INT0	BIT	0B0H.2
+CY	BIT	0D0H.7
+TI	BIT	098H.1
+INT1	BIT	0B0H.3
+CLK_DIV	DATA	097H
+IAP_ADDRH	DATA	0C3H
+RXD2	BIT	090H.0
+ISP_CMD	DATA	0C5H
+PS	BIT	0B8H.4
+TXD2	BIT	090H.1
+SP	DATA	081H
+CMOD	DATA	0D9H
+CCON	DATA	0D8H
+IAP_ADDRL	DATA	0C4H
+PPCA	BIT	0B8H.7
+OV	BIT	0D0H.2
+WR	BIT	0B0H.6
+ELVD	BIT	0A8H.6
+P00	BIT	080H.0
+P10	BIT	090H.0
+P01	BIT	080H.1
+ADC_CONTR	DATA	0BCH
+SBUF	DATA	099H
+PCON	DATA	087H
+P20	BIT	0A0H.0
+P11	BIT	090H.1
+P02	BIT	080H.2
+ISP_ADDRH	DATA	0C3H
+P30	BIT	0B0H.0
+P21	BIT	0A0H.1
+P12	BIT	090H.2
+P03	BIT	080H.3
+P40	BIT	0C0H.0
+P31	BIT	0B0H.1
+P22	BIT	0A0H.2
+P13	BIT	090H.3
+P04	BIT	080H.4
+SCON	DATA	098H
+WAKE_CLKO	DATA	08FH
+P50	BIT	0C8H.0
+P41	BIT	0C0H.1
+P32	BIT	0B0H.2
+P23	BIT	0A0H.3
+P14	BIT	090H.4
+P05	BIT	080H.5
+TMOD	DATA	089H
+TCON	DATA	088H
+P51	BIT	0C8H.1
+P42	BIT	0C0H.2
+P33	BIT	0B0H.3
+P24	BIT	0A0H.4
+P15	BIT	090H.5
+P06	BIT	080H.6
+ISP_ADDRL	DATA	0C4H
+PLVD	BIT	0B8H.6
+P52	BIT	0C8H.2
+P43	BIT	0C0H.3
+P34	BIT	0B0H.4
+P25	BIT	0A0H.5
+P16	BIT	090H.6
+P07	BIT	080H.7
+P53	BIT	0C8H.3
+P44	BIT	0C0H.4
+P35	BIT	0B0H.5
+P26	BIT	0A0H.6
+P17	BIT	090H.7
+P54	BIT	0C8H.4
+P45	BIT	0C0H.5
+P36	BIT	0B0H.6
+P27	BIT	0A0H.7
+P55	BIT	0C8H.5
+P46	BIT	0C0H.6
+P37	BIT	0B0H.7
+P56	BIT	0C8H.6
+P47	BIT	0C0H.7
+P57	BIT	0C8H.7
+IE0	BIT	088H.1
+BUS_SPEED	DATA	0A1H
+IE1	BIT	088H.3
+IE2	DATA	0AFH
+B	DATA	0F0H
+AUXR	DATA	08EH
+IAP_CONTR	DATA	0C7H
+ACC	DATA	0E0H
+ET0	BIT	0A8H.1
+ET1	BIT	0A8H.3
+TF0	BIT	088H.5
+TF1	BIT	088H.7
+IP2	DATA	0B5H
+RL_TH0	DATA	08CH
+RB8	BIT	098H.2
+RL_TH1	DATA	08DH
+TH0	DATA	08CH
+EX0	BIT	0A8H.0
+IT0	BIT	088H.0
+RL_T2H	DATA	0D6H
+TH1	DATA	08DH
+EX1	BIT	0A8H.2
+TB8	BIT	098H.3
+IT1	BIT	088H.2
+RL_T3H	DATA	0D4H
+TH2	DATA	0D6H
+T2H	DATA	0D6H
+P	BIT	0D0H.0
+RL_T4H	DATA	0D2H
+TH3	DATA	0D4H
+T3H	DATA	0D4H
+RL_TL0	DATA	08AH
+SM0	BIT	098H.7
+TH4	DATA	0D2H
+T4H	DATA	0D2H
+RL_TL1	DATA	08BH
+TL0	DATA	08AH
+SM1	BIT	098H.6
+RL_T2L	DATA	0D7H
+TL1	DATA	08BH
+SM2	BIT	098H.5
+RL_T3L	DATA	0D5H
+TL2	DATA	0D7H
+T2L	DATA	0D7H
+RL_T4L	DATA	0D3H
+TL3	DATA	0D5H
+T3L	DATA	0D5H
+PT0	BIT	0B8H.1
+TL4	DATA	0D3H
+T4L	DATA	0D3H
+PT1	BIT	0B8H.3
+RS0	BIT	0D0H.3
+ISP_CONTR	DATA	0C7H
+TR0	BIT	088H.4
+RS1	BIT	0D0H.4
+IAP_DATA	DATA	0C2H
+TR1	BIT	088H.6
+PX0	BIT	0B8H.0
+WDT_CONTR	DATA	0C1H
+PX1	BIT	0B8H.2
+PCA_PWM0	DATA	0F2H
+PCA_PWM1	DATA	0F3H
+PCA_PWM2	DATA	0F4H
+P1ASF	DATA	09DH
+DPH	DATA	083H
+T4T3M	DATA	0D1H
+ADC_RESL	DATA	0BEH
+DPL	DATA	082H
+SPSTAT	DATA	0CDH
+IPH	DATA	0B7H
+S2BUF	DATA	09BH
+PCON2	DATA	097H
+S3BUF	DATA	0ADH
+REN	BIT	098H.4
+S4BUF	DATA	085H
+S2CON	DATA	09AH
+S3CON	DATA	0ACH
+ISP_DATA	DATA	0C2H
+S4CON	DATA	084H
+SADEN	DATA	0B9H
+RXD	BIT	0B0H.0
+SADDR	DATA	0A9H
+TXD	BIT	0B0H.1
+B0	BIT	0F0H.0
+B1	BIT	0F0H.1
+IAP_TRIG	DATA	0C6H
+AUXR1	DATA	0A2H
+B2	BIT	0F0H.2
+SPI_SS	BIT	090H.2
+AUXR2	DATA	08FH
+B3	BIT	0F0H.3
+B4	BIT	0F0H.4
+F0	BIT	0D0H.5
+B5	BIT	0F0H.5
+F1	BIT	0D0H.1
+INT_CLKO	DATA	08FH
+B6	BIT	0F0H.6
+ACC0	BIT	0E0H.0
+B7	BIT	0F0H.7
+ACC1	BIT	0E0H.1
+ACC2	BIT	0E0H.2
+ACC3	BIT	0E0H.3
+PSW	DATA	0D0H
+ACC4	BIT	0E0H.4
+SPI_SCLK	BIT	090H.5
+CCF0	BIT	0D8H.0
+ACC5	BIT	0E0H.5
+CCF1	BIT	0D8H.1
+ACC6	BIT	0E0H.6
+SPDAT	DATA	0CFH
+P0M0	DATA	094H
+?PR?uart_init?SOFT_UART                  SEGMENT CODE 
+?PR?uart_deinit?SOFT_UART                SEGMENT CODE 
+?PR?_uart_send?SOFT_UART                 SEGMENT CODE 
+?DT?_uart_send?SOFT_UART                 SEGMENT DATA OVERLAYABLE 
+?PR?_print_str?SOFT_UART                 SEGMENT CODE 
+?BI?_print_str?SOFT_UART                 SEGMENT BIT OVERLAYABLE 
+?PR?_print_hex?SOFT_UART                 SEGMENT CODE 
+?BI?_print_hex?SOFT_UART                 SEGMENT BIT OVERLAYABLE 
+?PR?_print_dec?SOFT_UART                 SEGMENT CODE 
+?BI?_print_dec?SOFT_UART                 SEGMENT BIT OVERLAYABLE 
+?BI?SOFT_UART        SEGMENT BIT 
+	PUBLIC	_print_dec
+	PUBLIC	_print_hex
+	PUBLIC	_print_str
+	PUBLIC	_uart_send
+	PUBLIC	uart_deinit
+	PUBLIC	uart_init
+
+	RSEG  ?BI?_print_dec?SOFT_UART
+?_print_dec?BIT:
+      state?546:   DBIT   1
+
+	RSEG  ?DT?_uart_send?SOFT_UART
+?_uart_send?BYTE:
+        dat?240:   DS   1
+
+	RSEG  ?BI?_print_hex?SOFT_UART
+?_print_hex?BIT:
+      state?444:   DBIT   1
+
+	RSEG  ?BI?_print_str?SOFT_UART
+?_print_str?BIT:
+      state?342:   DBIT   1
+
+	RSEG  ?BI?SOFT_UART
+           init:   DBIT   1
+; 
+; /*************	功能说明	**************
+; 
+; 本文件为模拟串口发送程序, 一般为测试监控用.
+; 
+; 串口参数:9600,8,n,1.
+; 
+; 可以根据主时钟自动适应.
+; 
+; ******************************************/
+; 
+; #include	"soft_uart.h"
+; #include 	"timer.h"
+; 
+; /***************************************************************************/
+; 
+; 
+; #define BaudRate		115200		//模拟串口波特率
+; 
+; 
+; static bit init;
+; 
+; 
+; #if (BaudRate == 115200)
+; #pragma asm
+  RXB     BIT     P3.0
+  TXB     BIT     P3.1
+; #pragma endasm
+; 
+; void uart_init(void)
+
+	RSEG  ?PR?uart_init?SOFT_UART
+uart_init:
+			; SOURCE LINE # 30
+; {
+			; SOURCE LINE # 31
+; 	init = 1;
+			; SOURCE LINE # 32
+	SETB 	init
+; }
+			; SOURCE LINE # 33
+	RET  	
+; END OF uart_init
+
+; 
+; void uart_deinit(void)
+
+	RSEG  ?PR?uart_deinit?SOFT_UART
+uart_deinit:
+			; SOURCE LINE # 35
+; {
+			; SOURCE LINE # 36
+; 	init = 0;
+			; SOURCE LINE # 37
+	CLR  	init
+; }
+			; SOURCE LINE # 38
+	RET  	
+; END OF uart_deinit
+
+; 
+; bit uart_send(unsigned char dat)
+
+	RSEG  ?PR?_uart_send?SOFT_UART
+L?0017:
+	USING	0
+	MOV  	B,#0AH
+	DIV  	AB
+	MOV  	A,B
+	ADD  	A,#030H
+	MOV  	R7,A
+_uart_send:
+			; SOURCE LINE # 40
+	MOV  	dat?240,R7
+; {
+			; SOURCE LINE # 41
+; #pragma asm
+;         PUSH    ACC
+	  PUSH    ACC
+;         MOV     ACC,    R0
+	  MOV     ACC,    R0
+;         PUSH    ACC
+	  PUSH    ACC
+;         MOV     ACC,    R1
+	  MOV     ACC,    R1
+;         PUSH    ACC
+	  PUSH    ACC
+; 
+	  
+;         MOV     ACC,    R7
+	  MOV     ACC,    R7
+;         MOV     R1,     #8
+	  MOV     R1,     #8
+; 
+	  
+;         // 115200 baud rate = 96 clock
+	  
+;         // send start bit
+	  
+;         CLR     TXB             // 4
+	  CLR     TXB              
+;         MOV     R0,     #22     // 2
+	  MOV     R0,     #22      
+;         DJNZ    R0,     $       // 4 * 22 = 88
+	  DJNZ    R0,     $        
+;         NOP
+	  NOP
+;         NOP
+	  NOP
+; 
+	  
+;         // send byte
+	  
+; L1:     RRC     A               // 1
+	  L1:     RRC     A                
+;         MOV     TXB,     C      // 4
+	  MOV     TXB,     C       
+;         MOV     R0,     #21     // 2
+	  MOV     R0,     #21      
+;         NOP                     // 1
+	  NOP                      
+;         DJNZ    R0,     $       // 4 * 21 = 84
+	  DJNZ    R0,     $        
+;         DJNZ    R1,     L1      // 4
+	  DJNZ    R1,     L1       
+; 
+	  
+;         // send stop bit
+	  
+;         SETB    TXB             // 4
+	  SETB    TXB              
+;         MOV     R0,     #22     // 2
+	  MOV     R0,     #22      
+;         DJNZ    R0,     $       // 4 * 22 = 88
+	  DJNZ    R0,     $        
+;         NOP
+	  NOP
+;         NOP
+	  NOP
+; 
+	  
+;         MOV     R0,     #0FFH
+	  MOV     R0,     #0FFH
+;         DJNZ    R0,     $
+	  DJNZ    R0,     $
+; 
+	  
+;         POP     ACC
+	  POP     ACC
+;         MOV     R1,     ACC
+	  MOV     R1,     ACC
+;         POP     ACC
+	  POP     ACC
+;         MOV     R0,     ACC
+	  MOV     R0,     ACC
+;         POP     ACC
+	  POP     ACC
+; #pragma endasm
+; 
+; 	return 1;
+			; SOURCE LINE # 85
+	SETB 	C
+; }
+			; SOURCE LINE # 86
+?C0003:
+	RET  	
+; END OF _uart_send
+
+; 
+; #else
+; #define Timer0_Reload	(65536 - MAIN_Fosc / BaudRate / 3)
+; #define D_RxBitLenth	9		//9: 8 + 1 stop
+; #define D_TxBitLenth	9		//9: 1 stop bit
+; 
+; sbit RXB = P3^0;                //define UART TX/RX port
+; sbit TXB = P3^1;
+; 
+; static unsigned char TBUF,RBUF;
+; static unsigned char TCNT,RCNT;	//发送和接收检测 计数器(3倍速率检测)
+; static unsigned char TBIT,RBIT;	//发送和接收的数据计数器
+; static unsigned char rcv_cnt, get_cnt;
+; static unsigned char buf[16];
+; 
+; static bit TING,RING;	//正在发送或接收一个字节
+; 
+; #define	RxBitLenth	9	//8个数据位+1个停止位
+; #define	TxBitLenth	9	//8个数据位+1个停止位
+; 
+; 
+; bit uart_rev(unsigned char *dat)
+; {
+; 	if (!init)
+; 	{
+; 		return 0;
+; 	}
+; 	if (get_cnt != rcv_cnt)
+; 	{
+; 		*dat = buf[get_cnt++ & 0x0f];
+; 		return 1;
+; 	}
+; 	return 0;
+; }
+; 
+; bit uart_send(unsigned char dat)
+; {
+; 	if (!init)
+; 	{
+; 		return 0;
+; 	}
+; 	while (TING);
+; 	TBUF = dat;
+; 	TING = 1;
+; 	return 1;
+; }
+; 
+; void uart_isr(void)
+; {
+; 	if (RING)
+; 	{
+; 		if (--RCNT == 0)				  //接收数据以定时器的1/3来接收
+; 		{
+; 			RCNT = 3;                   //重置接收计数器  接收数据以定时器的1/3来接收	reset send baudrate counter
+; 			if (--RBIT == 0)			  //接收完一帧数据
+; 			{
+; 				RING = 0;               //停止接收			stop receive
+; 				buf[rcv_cnt++ & 0x0f] = RBUF;
+; 			}
+; 			else
+; 			{
+; 				RBUF >>= 1;			  //把接收的单b数据 暂存到 RDAT(接收缓冲)
+; 				if (RXB) RBUF |= 0x80;  //shift RX data to RX buffer
+; 			}
+; 		}
+; 	}
+; 	else if (!RXB)		//判断是不是开始位 RXB=0;
+; 	{
+; 		RING = 1;       //如果是则设置开始接收标志位 	set start receive flag
+; 		RCNT = 4;       //初始化接收波特率计数器       	initial receive baudrate counter
+; 		RBIT = RxBitLenth;       //初始化接收的数据位数(8个数据位+1个停止位)    initial receive bit number (8 data bits + 1 stop bit)
+; 	}
+; 
+; 	if (TING)			//发送开始标志位   judge whether sending
+; 	{
+; 		if (--TCNT == 0)			//发送数据以定时器的1/3来发送
+; 		{
+; 			TCNT = 3;				//重置发送计数器   reset send baudrate counter
+; 			if (TBIT == 0)			//发送计数器为0 表明单字节发送还没开始
+; 			{
+; 				TXB = 0;			//发送开始位     					send start bit
+; 				TBIT = TxBitLenth;	//发送数据位数 (8数据位+1停止位)	initial send bit number (8 data bits + 1 stop bit)
+; 			}
+; 			else					//发送计数器为非0 正在发送数据
+; 			{
+; 				if (--TBIT == 0)	//发送计数器减为0 表明单字节发送结束
+; 				{
+; 					TXB = 1;		//送停止位数据
+; 					TING = 0;		//发送停止位    			stop send
+; 				}
+; 				else
+; 				{
+; 					TBUF >>= 1;		//把最低位送到 CY(益处标志位) shift data to CY
+; 					TXB = CY;		//发送单b数据				write CY to TX port
+; 				}
+; 			}
+; 		}
+; 	}
+; }
+; 
+; void uart_init(void)
+; {
+; 	TIM_InitTypeDef tim_type;
+; 
+;     if (init) {
+;         return;
+;     }
+; 
+; 	tim_type.TIM_Mode = TIM_16BitAutoReload;
+; 	tim_type.TIM_Polity = 1;
+; 	tim_type.TIM_Interrupt = ENABLE;
+; 	tim_type.TIM_ClkSource = TIM_CLOCK_1T;
+; 	tim_type.TIM_ClkOut = DISABLE;
+; 	tim_type.TIM_Value = Timer0_Reload;
+; 	tim_type.TIM_Run = ENABLE;
+; 	tim_type.TIM_Isr = uart_isr;
+; 	Timer_Inilize(Timer0, &tim_type);
+; 
+; 	TING = 0;
+; 	RING = 0;
+; 	TCNT = 3;
+; 	RCNT = 0;
+; 	init = 1;
+; }
+; 
+; void uart_deinit(void)
+; {
+; 	init = 0;
+; 	while (TING);
+; 	Timer0_Stop();
+; 	Timer0_InterruptDisable();
+; }
+; #endif
+; 
+; 
+; void print_str(unsigned char code *str)
+
+	RSEG  ?PR?_print_str?SOFT_UART
+_print_str:
+	USING	0
+			; SOURCE LINE # 222
+;---- Variable 'str?341' assigned to Register 'R4/R5' ----
+	MOV  	R5,AR7
+	MOV  	R4,AR6
+; {
+			; SOURCE LINE # 223
+;     bit state = init;
+			; SOURCE LINE # 224
+	MOV  	C,init
+	MOV  	state?342,C
+; 
+;     uart_init();
+			; SOURCE LINE # 226
+	LCALL	uart_init
+?C0004:
+; 
+; 	while (*str) {
+			; SOURCE LINE # 228
+	MOV  	DPL,R5
+	MOV  	DPH,R4
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	JZ   	?C0005
+; 		uart_send(*str++);
+			; SOURCE LINE # 229
+	INC  	R5
+	MOV  	A,R5
+	JNZ  	?C0016
+	INC  	R4
+?C0016:
+	DEC  	A
+	MOV  	DPL,A
+	CLR  	A
+	MOVC 	A,@A+DPTR
+	MOV  	R7,A
+	LCALL	_uart_send
+; 	}
+			; SOURCE LINE # 230
+	SJMP 	?C0004
+?C0005:
+; 
+;     if (!state) {
+			; SOURCE LINE # 232
+	JB   	state?342,?C0007
+;         uart_deinit();
+			; SOURCE LINE # 233
+	LCALL	uart_deinit
+;     }
+			; SOURCE LINE # 234
+; }
+			; SOURCE LINE # 235
+?C0007:
+	RET  	
+; END OF _print_str
+
+; 
+; #define HEX2CHAR(h)     ((h >= 10) ? (h - 10 + 'A'): (h + '0'))
+; #define DEC2CHAR(d)     (d + '0')
+; 
+; 
+; void print_hex(unsigned char hex)
+
+	RSEG  ?PR?_print_hex?SOFT_UART
+_print_hex:
+	USING	0
+			; SOURCE LINE # 241
+;---- Variable 'hex?443' assigned to Register 'R6' ----
+	MOV  	R6,AR7
+; {
+			; SOURCE LINE # 242
+;     bit state = init;
+			; SOURCE LINE # 243
+	MOV  	C,init
+	MOV  	state?444,C
+; 
+;     uart_init();
+			; SOURCE LINE # 245
+	LCALL	uart_init
+; 
+; 	uart_send(HEX2CHAR(hex / 16));
+			; SOURCE LINE # 247
+	MOV  	A,R6
+	SWAP 	A
+	ANL  	A,#0FH
+	MOV  	R7,A
+	CLR  	C
+	SUBB 	A,#0AH
+	JC   	?C0008
+	MOV  	A,R7
+	ADD  	A,#037H
+	MOV  	R7,A
+	SJMP 	?C0009
+?C0008:
+	MOV  	A,R6
+	SWAP 	A
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+?C0009:
+	LCALL	_uart_send
+; 	uart_send(HEX2CHAR(hex % 16));
+			; SOURCE LINE # 248
+	MOV  	A,R6
+	ANL  	A,#0FH
+	MOV  	R7,A
+	CLR  	C
+	SUBB 	A,#0AH
+	JC   	?C0010
+	MOV  	A,R7
+	ADD  	A,#037H
+	MOV  	R7,A
+	SJMP 	?C0011
+?C0010:
+	MOV  	A,R6
+	ANL  	A,#0FH
+	ADD  	A,#030H
+	MOV  	R7,A
+?C0011:
+	LCALL	_uart_send
+; 
+;     if (!state) {
+			; SOURCE LINE # 250
+	JB   	state?444,?C0013
+;         uart_deinit();
+			; SOURCE LINE # 251
+	LCALL	uart_deinit
+;     }
+			; SOURCE LINE # 252
+; }
+			; SOURCE LINE # 253
+?C0013:
+	RET  	
+; END OF _print_hex
+
+; 
+; void print_dec(unsigned char dec)
+
+	RSEG  ?PR?_print_dec?SOFT_UART
+_print_dec:
+	USING	0
+			; SOURCE LINE # 255
+;---- Variable 'dec?545' assigned to Register 'R6' ----
+	MOV  	R6,AR7
+; {
+			; SOURCE LINE # 256
+;     bit state = init;
+			; SOURCE LINE # 257
+	MOV  	C,init
+	MOV  	state?546,C
+; 
+;     uart_init();
+			; SOURCE LINE # 259
+	LCALL	uart_init
+; 
+; 	uart_send(DEC2CHAR(dec / 100));
+			; SOURCE LINE # 261
+	MOV  	A,R6
+	MOV  	B,#064H
+	DIV  	AB
+	ADD  	A,#030H
+	MOV  	R7,A
+	LCALL	_uart_send
+; 	uart_send(DEC2CHAR(dec / 10 % 10));
+			; SOURCE LINE # 262
+	MOV  	A,R6
+	MOV  	B,#0AH
+	DIV  	AB
+	LCALL	L?0017
+; 	uart_send(DEC2CHAR(dec % 10));
+			; SOURCE LINE # 263
+	MOV  	A,R6
+	LCALL	L?0017
+; 
+;     if (!state) {
+			; SOURCE LINE # 265
+	JB   	state?546,?C0015
+;         uart_deinit();
+			; SOURCE LINE # 266
+	LCALL	uart_deinit
+;     }
+			; SOURCE LINE # 267
+; }
+			; SOURCE LINE # 268
+?C0015:
+	RET  	
+; END OF _print_dec
+
+	END

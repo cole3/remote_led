@@ -48,7 +48,8 @@ void slow_led(bit on, unsigned int sec)
     m = sec * 600;
 
     WHITE_LED = on;
-    for (i=0; i<m; i++) {
+    for (i=0; i<m; i++)
+    {
         cnt = i;
         WHITE_LED = !WHITE_LED;
         while (cnt--);
@@ -62,7 +63,8 @@ void slow_led(bit on, unsigned int sec)
 
 void breath_led(void)
 {
-    while (1) {
+    while (1)
+    {
         slow_led(1, 2);
         slow_led(0, 2);
     }

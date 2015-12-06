@@ -1,0 +1,1 @@
+"source\Soft_uart.c" INCDIR(include) DEBUG OBJECTEXTEND PRINT(.\Soft_uart.lst) PAGEWIDTH (79) PAGELENGTH (66) SRC (.\Soft_uart.SRC)
