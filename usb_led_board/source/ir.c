@@ -12,6 +12,9 @@
 
 //#define CONFIG_RC3_CODE
 
+#pragma asm
+IR_SEND      BIT     P3.4
+#pragma endasm
 
 static bit ir_rcv_int = 0;
 
@@ -226,10 +229,108 @@ void ir_send_t0_timer_cfg(bit enable)
     Timer_Inilize(Timer0, &tim_type);
 }
 
+
+#pragma asm
+        // 1 cycle = 1/38K = 291 clock = 145 + 146
+CYCLE:  SETB    IR_SEND         // 4
+        NOP                     // 1
+        MOV     R0,     #33     // 2
+        DJNZ    R0,     $       // 4 * 33 = 132
+
+        CLR     IR_SEND         // 4
+        MOV     R0,     #33     // 2
+        DJNZ    R0,     $       // 4 * 33 = 132
+        RET                     // 4
+
+        // 0 bit = cycle(560us) + 0(560us) = cycle(21 cycle) + 0(6193.152 = 4*12*129 clock)
+IRS0:   MOV     R1,     #21     // 2
+CC1:    LCALL   CYCLE           // 6
+        DJNZ    R1,     CC1     // 4
+
+        MOV     R2,     #12    // 2
+CC2:    MOV     R1,     #129    // 2
+        DJNZ    R1,     $       // 4
+        DJNZ    R2,     CC2     // 4
+        RET
+
+        // 1 bit = cycle(560us) + 0(1690us) = cycle(21 cycle) + 0(18690.048 = 4*32*146 clock)
+IRS1:   MOV     R1,     #21     // 2
+CC3:    LCALL   CYCLE           // 6
+        DJNZ    R1,     CC3     // 4
+
+        MOV     R2,     #32     // 2
+CC4:    MOV     R1,     #146    // 2
+        DJNZ    R1,     $       // 4
+        DJNZ    R2,     CC4     // 4
+        RET
+#pragma endasm
+
 bit ir_send(unsigned char *key)
 {
-    // TODO:
-    key = key;
+#pragma asm
+        PUSH    ACC
+        MOV     ACC,    R0
+        PUSH    ACC
+        MOV     ACC,    R1
+        PUSH    ACC
+        MOV     ACC,    R2
+        PUSH    ACC
+        MOV     ACC,    R3
+        PUSH    ACC
+        MOV     ACC,    R4
+        PUSH    ACC
+        MOV     ACC,    R5
+        PUSH    ACC
+
+        MOV     A,      R1
+        MOV     R5,     A
+
+        // send start code: 0(9000us = 342 cycle = 171 + 171) + 1(4500us = 49767 clock = 4 * 49 * 255)
+        MOV     R1,     #170    // 2
+        MOV     R2,     #170    // 2
+C1:     LCALL   CYCLE           // 6
+        DJNZ    R1,     C1      // 4
+C2:     LCALL   CYCLE           // 6
+        DJNZ    R2,     C2      // 4
+
+        MOV     R2,     #49     // 2
+C3:     MOV     R1,     #255    // 2
+        DJNZ    R1,     $       // 4
+        DJNZ    R2,     C3      // 4
+
+        // send byte
+        MOV     R4,     #4      //
+C7:     MOV     A,      R5
+        MOV     R0,     A
+        MOV     A,      @R0     //
+        INC     R5
+        MOV     R3,     #8      //
+C6:     RRC     A               // 1
+        JC      C4              // 3
+        LCALL   IRS0            // 6
+        LJMP    C5
+C4:     LCALL   IRS1            // 6
+C5:     DJNZ    R3,     C6      // 4
+        DJNZ    R4,     C7      // 4
+
+        MOV     R0,     #0FFH
+        DJNZ    R0,     $
+
+        POP     ACC
+        MOV     R5,     ACC
+        POP     ACC
+        MOV     R4,     ACC
+        POP     ACC
+        MOV     R3,     ACC
+        POP     ACC
+        MOV     R2,     ACC
+        POP     ACC
+        MOV     R1,     ACC
+        POP     ACC
+        MOV     R0,     ACC
+        POP     ACC
+#pragma endasm
+
     return 0;
 }
 

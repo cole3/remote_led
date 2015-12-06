@@ -1,0 +1,1 @@
+"source\ir.c" INCDIR(include) DEBUG OBJECTEXTEND PRINT(.\ir.lst) PAGEWIDTH (79) PAGELENGTH (66) SRC (.\ir.SRC)

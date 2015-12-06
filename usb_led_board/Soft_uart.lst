@@ -1,4 +1,4 @@
-C51 COMPILER V7.08   SOFT_UART                    12/06/2015 11:38:20 PAGE 1   
+C51 COMPILER V7.08   SOFT_UART                    12/06/2015 18:14:14 PAGE 1   
 
 
 C51 COMPILER V7.08, COMPILATION OF MODULE SOFT_UART
@@ -41,67 +41,68 @@ line level    source
   29          
   30          void uart_init(void)
   31          {
-  32   1              init = 1;
+  32   1          init = 1;
   33   1      }
   34          
   35          void uart_deinit(void)
   36          {
-  37   1              init = 0;
+  37   1          init = 0;
   38   1      }
   39          
   40          bit uart_send(unsigned char dat)
   41          {
   42   1      #pragma asm
-  43   1              PUSH    ACC
-  44   1              MOV     ACC,    R0
-  45   1              PUSH    ACC
-  46   1              MOV     ACC,    R1
-  47   1              PUSH    ACC
+  43   1          PUSH    ACC
+  44   1          MOV     ACC,    R0
+  45   1          PUSH    ACC
+  46   1          MOV     ACC,    R1
+  47   1          PUSH    ACC
   48   1      
-  49   1              MOV     ACC,    R7
-  50   1              MOV     R1,     #8
+  49   1          MOV     ACC,    R7
+  50   1          MOV     R1,     #8
   51   1      
-  52   1              // 115200 baud rate = 96 clock
-  53   1              // send start bit
-  54   1              CLR     TXB             // 4
-C51 COMPILER V7.08   SOFT_UART                    12/06/2015 11:38:20 PAGE 2   
+  52   1          // 115200 baud rate = 96 clock
+  53   1          // send start bit
+  54   1          CLR     TXB             // 4
+C51 COMPILER V7.08   SOFT_UART                    12/06/2015 18:14:14 PAGE 2   
 
-  55   1              MOV     R0,     #22     // 2
-  56   1              DJNZ    R0,     $       // 4 * 22 = 88
-  57   1              NOP
-  58   1              NOP
+  55   1          MOV     R0,     #22     // 2
+  56   1          DJNZ    R0,     $       // 4 * 22 = 88
+  57   1          NOP
+  58   1          NOP
   59   1      
-  60   1              // send byte
-  61   1      L1:     RRC     A               // 1
-  62   1              MOV     TXB,     C      // 4
-  63   1              MOV     R0,     #21     // 2
-  64   1              NOP                     // 1
-  65   1              DJNZ    R0,     $       // 4 * 21 = 84
-  66   1              DJNZ    R1,     L1      // 4
-  67   1      
-  68   1              // send stop bit
-  69   1              SETB    TXB             // 4
-  70   1              MOV     R0,     #22     // 2
-  71   1              DJNZ    R0,     $       // 4 * 22 = 88
-  72   1              NOP
-  73   1              NOP
-  74   1      
-  75   1              MOV     R0,     #0FFH
-  76   1              DJNZ    R0,     $
-  77   1      
-  78   1              POP     ACC
-  79   1              MOV     R1,     ACC
-  80   1              POP     ACC
-  81   1              MOV     R0,     ACC
-  82   1              POP     ACC
-  83   1      #pragma endasm
-  84   1      
-  85   1              return 1;
-  86   1      }
+  60   1          // send byte
+  61   1      L1:
+  62   1          RRC     A               // 1
+  63   1          MOV     TXB,     C      // 4
+  64   1          MOV     R0,     #21     // 2
+  65   1          NOP                     // 1
+  66   1          DJNZ    R0,     $       // 4 * 21 = 84
+  67   1          DJNZ    R1,     L1      // 4
+  68   1      
+  69   1          // send stop bit
+  70   1          SETB    TXB             // 4
+  71   1          MOV     R0,     #22     // 2
+  72   1          DJNZ    R0,     $       // 4 * 22 = 88
+  73   1          NOP
+  74   1          NOP
+  75   1      
+  76   1          MOV     R0,     #0FFH
+  77   1          DJNZ    R0,     $
+  78   1      
+  79   1          POP     ACC
+  80   1          MOV     R1,     ACC
+  81   1          POP     ACC
+  82   1          MOV     R0,     ACC
+  83   1          POP     ACC
+  84   1      #pragma endasm
+  85   1      
+  86   1          return 1;
+  87   1      }
 *** WARNING C280 IN LINE 40 OF SOURCE\SOFT_UART.C: 'dat': unreferenced local va
              -riable
-  87          
-  88          #else
+  88          
+  89          #else
               #define Timer0_Reload   (65536 - MAIN_Fosc / BaudRate / 3)
               #define D_RxBitLenth    9               //9: 8 + 1 stop
               #define D_TxBitLenth    9               //9: 1 stop bit
@@ -124,181 +125,170 @@ line level    source
               
               bit uart_rev(unsigned char *dat)
               {
-                      if (!init)
-                      {
-                              return 0;
-                      }
-                      if (get_cnt != rcv_cnt)
-                      {
-C51 COMPILER V7.08   SOFT_UART                    12/06/2015 11:38:20 PAGE 3   
-
-                              *dat = buf[get_cnt++ & 0x0f];
-                              return 1;
-                      }
+                  if (!init) {
                       return 0;
+                  }
+                  if (get_cnt != rcv_cnt) {
+                      *dat = buf[get_cnt++ & 0x0f];
+C51 COMPILER V7.08   SOFT_UART                    12/06/2015 18:14:14 PAGE 3   
+
+                      return 1;
+                  }
+                  return 0;
               }
               
               bit uart_send(unsigned char dat)
               {
-                      if (!init)
-                      {
-                              return 0;
-                      }
-                      while (TING);
-                      TBUF = dat;
-                      TING = 1;
-                      return 1;
+                  if (!init) {
+                      return 0;
+                  }
+                  while (TING);
+                  TBUF = dat;
+                  TING = 1;
+                  return 1;
               }
               
               void uart_isr(void)
               {
-                      if (RING)
-                      {
-                              if (--RCNT == 0)                                  //½ÓÊÕÊý¾ÝÒÔ¶¨Ê±Æ÷µÄ1/3À´½ÓÊÕ
-                              {
-                                      RCNT = 3;                   //ÖØÖÃ½ÓÊÕ¼ÆÊýÆ÷  ½ÓÊÕÊý¾ÝÒÔ¶¨Ê±Æ÷
-             -µÄ1/3À´½ÓÊÕ        reset send baudrate counter
-                                      if (--RBIT == 0)                          //½ÓÊÕÍêÒ»Ö¡Êý¾Ý
-                                      {
-                                              RING = 0;               //Í£Ö¹½ÓÊÕ                      stop receive
-                                              buf[rcv_cnt++ & 0x0f] = RBUF;
-                                      }
-                                      else
-                                      {
-                                              RBUF >>= 1;                       //°Ñ½ÓÊÕµÄµ¥bÊý¾Ý ÔÝ´æµ½ RDAT(½ÓÊÕ»º³å)
-                                              if (RXB) RBUF |= 0x80;  //shift RX data to RX buffer
-                                      }
-                              }
+                  if (RING) {
+                      if (--RCNT == 0) {                        //½ÓÊÕÊý¾ÝÒÔ¶¨Ê±Æ÷µÄ1/3À´½ÓÊÕ
+                          RCNT = 3;                   //ÖØÖÃ½ÓÊÕ¼ÆÊýÆ÷  ½ÓÊÕÊý¾
+             -ÝÒÔ¶¨Ê±Æ÷µÄ1/3À´½ÓÊÕ  reset send baudrate counter
+                          if (--RBIT == 0) {            //½ÓÊÕÍêÒ»Ö¡Êý¾Ý
+                              RING = 0;               //Í£Ö¹½ÓÊÕ                      stop receive
+                              buf[rcv_cnt++ & 0x0f] = RBUF;
+                          } else {
+                              RBUF >>= 1;                       //°Ñ½ÓÊÕµÄµ¥bÊý¾Ý ÔÝ´æµ½ RDAT(½ÓÊ
+             -Õ»º³å)
+                              if (RXB) RBUF |= 0x80;  //shift RX data to RX buf
+             -fer
+                          }
                       }
-                      else if (!RXB)          //ÅÐ¶ÏÊÇ²»ÊÇ¿ªÊ¼Î» RXB=0;
-                      {
-                              RING = 1;       //Èç¹ûÊÇÔòÉèÖÃ¿ªÊ¼½ÓÊÕ±êÖ¾Î»    set start receive
-             - flag
-                              RCNT = 4;       //³õÊ¼»¯½ÓÊÕ²¨ÌØÂÊ¼ÆÊýÆ÷        initial receive
-             - baudrate counter
-                              RBIT = RxBitLenth;       //³õÊ¼»¯½ÓÊÕµÄÊý¾ÝÎ»Êý(8¸öÊý¾ÝÎ»+1¸öÍ£
-             -Ö¹Î»)    initial receive bit number (8 data bits + 1 stop bit)
-                      }
+                  } else if (!RXB) {  //ÅÐ¶ÏÊÇ²»ÊÇ¿ªÊ¼Î» RXB=0;
+                      RING = 1;       //Èç¹ûÊÇÔòÉèÖÃ¿ªÊ¼½ÓÊÕ±êÖ¾Î»    set start r
+             -eceive flag
+                      RCNT = 4;       //³õÊ¼»¯½ÓÊÕ²¨ÌØÂÊ¼ÆÊýÆ÷        initial r
+             -eceive baudrate counter
+                      RBIT = RxBitLenth;       //³õÊ¼»¯½ÓÊÕµÄÊý¾ÝÎ»Êý(8¸öÊý¾ÝÎ»
+             -+1¸öÍ£Ö¹Î»)    initial receive bit number (8 data bits + 1 stop bit)
+                  }
               
-                      if (TING)                       //·¢ËÍ¿ªÊ¼±êÖ¾Î»   judge whether sending
-                      {
-                              if (--TCNT == 0)                        //·¢ËÍÊý¾ÝÒÔ¶¨Ê±Æ÷µÄ1/3À´·¢ËÍ
-                              {
-                                      TCNT = 3;                               //ÖØÖÃ·¢ËÍ¼ÆÊýÆ÷   reset send baudrate counter
-                                      if (TBIT == 0)                  //·¢ËÍ¼ÆÊýÆ÷Îª0 ±íÃ÷µ¥×Ö½Ú·¢ËÍ»¹Ã»¿ªÊ¼
-                                      {
-                                              TXB = 0;                        //·¢ËÍ¿ªÊ¼Î»                                            send start bit
-                                              TBIT = TxBitLenth;      //·¢ËÍÊý¾ÝÎ»Êý (8Êý¾ÝÎ»+1Í£Ö¹Î»)        initial s
-             -end bit number (8 data bits + 1 stop bit)
-                                      }
-                                      else                                    //·¢ËÍ¼ÆÊýÆ÷Îª·Ç0 ÕýÔÚ·¢ËÍÊý¾Ý
-                                      {
-                                              if (--TBIT == 0)        //·¢ËÍ¼ÆÊýÆ÷¼õÎª0 ±íÃ÷µ¥×Ö½Ú·¢ËÍ½áÊø
-                                              {
-                                                      TXB = 1;                //ËÍÍ£Ö¹Î»Êý¾Ý
-C51 COMPILER V7.08   SOFT_UART                    12/06/2015 11:38:20 PAGE 4   
-
-                                                      TING = 0;               //·¢ËÍÍ£Ö¹Î»                            stop send
-                                              }
-                                              else
-                                              {
-                                                      TBUF >>= 1;             //°Ñ×îµÍÎ»ËÍµ½ CY(Òæ´¦±êÖ¾Î») shift data to CY
-                                                      TXB = CY;               //·¢ËÍµ¥bÊý¾Ý                           write CY to TX port
-                                              }
-                                      }
+                  if (TING) {         //·¢ËÍ¿ªÊ¼±êÖ¾Î»   judge whether sending
+                      if (--TCNT == 0) {              //·¢ËÍÊý¾ÝÒÔ¶¨Ê±Æ÷µÄ1/3À´·¢ËÍ
+                          TCNT = 3;                           //ÖØÖÃ·¢ËÍ¼ÆÊýÆ÷   reset send baudrate c
+             -ounter
+                          if (TBIT == 0) {            //·¢ËÍ¼ÆÊýÆ÷Îª0 ±íÃ÷µ¥×Ö½Ú·¢ËÍ»¹Ã»¿
+             -ªÊ¼
+                              TXB = 0;                        //·¢ËÍ¿ªÊ¼Î»                                            send start bit
+                              TBIT = TxBitLenth;      //·¢ËÍÊý¾ÝÎ»Êý (8Êý¾ÝÎ»+1Í£Ö¹Î
+             -»)        initial send bit number (8 data bits + 1 stop bit)
+                          } else {                            //·¢ËÍ¼ÆÊýÆ÷Îª·Ç0 ÕýÔÚ·¢ËÍÊý¾Ý
+                              if (--TBIT == 0) {      //·¢ËÍ¼ÆÊýÆ÷¼õÎª0 ±íÃ÷µ¥×Ö½Ú·¢
+             -ËÍ½áÊø
+                                  TXB = 1;            //ËÍÍ£Ö¹Î»Êý¾Ý
+                                  TING = 0;           //·¢ËÍÍ£Ö¹Î»                            stop send
+                              } else {
+                                  TBUF >>= 1;         //°Ñ×îµÍÎ»ËÍµ½ CY(Òæ´¦±êÖ¾Î») sh
+             -ift data to CY
+                                  TXB = CY;           //·¢ËÍµ¥bÊý¾Ý                           write CY to TX po
+             -rt
                               }
+                          }
                       }
+                  }
+C51 COMPILER V7.08   SOFT_UART                    12/06/2015 18:14:14 PAGE 4   
+
               }
               
               void uart_init(void)
               {
-                      TIM_InitTypeDef tim_type;
+                  TIM_InitTypeDef tim_type;
               
                   if (init) {
                       return;
                   }
               
-                      tim_type.TIM_Mode = TIM_16BitAutoReload;
-                      tim_type.TIM_Polity = 1;
-                      tim_type.TIM_Interrupt = ENABLE;
-                      tim_type.TIM_ClkSource = TIM_CLOCK_1T;
-                      tim_type.TIM_ClkOut = DISABLE;
-                      tim_type.TIM_Value = Timer0_Reload;
-                      tim_type.TIM_Run = ENABLE;
-                      tim_type.TIM_Isr = uart_isr;
-                      Timer_Inilize(Timer0, &tim_type);
+                  tim_type.TIM_Mode = TIM_16BitAutoReload;
+                  tim_type.TIM_Polity = 1;
+                  tim_type.TIM_Interrupt = ENABLE;
+                  tim_type.TIM_ClkSource = TIM_CLOCK_1T;
+                  tim_type.TIM_ClkOut = DISABLE;
+                  tim_type.TIM_Value = Timer0_Reload;
+                  tim_type.TIM_Run = ENABLE;
+                  tim_type.TIM_Isr = uart_isr;
+                  Timer_Inilize(Timer0, &tim_type);
               
-                      TING = 0;
-                      RING = 0;
-                      TCNT = 3;
-                      RCNT = 0;
-                      init = 1;
+                  TING = 0;
+                  RING = 0;
+                  TCNT = 3;
+                  RCNT = 0;
+                  init = 1;
               }
               
               void uart_deinit(void)
               {
-                      init = 0;
-                      while (TING);
-                      Timer0_Stop();
-                      Timer0_InterruptDisable();
+                  init = 0;
+                  while (TING);
+                  Timer0_Stop();
+                  Timer0_InterruptDisable();
               }
               #endif
- 220          
- 221          
- 222          void print_str(unsigned char code *str)
- 223          {
- 224   1          bit state = init;
- 225   1      
- 226   1          uart_init();
+ 203          
+ 204          
+ 205          void print_str(unsigned char code *str)
+ 206          {
+ 207   1          bit state = init;
+ 208   1      
+ 209   1          uart_init();
+ 210   1      
+ 211   1          while (*str) {
+ 212   2              uart_send(*str++);
+ 213   2          }
+ 214   1      
+ 215   1          if (!state) {
+ 216   2              uart_deinit();
+ 217   2          }
+ 218   1      }
+ 219          
+ 220          #define HEX2CHAR(h)     ((h >= 10) ? (h - 10 + 'A'): (h + '0'))
+ 221          #define DEC2CHAR(d)     (d + '0')
+ 222          
+ 223          
+ 224          void print_hex(unsigned char hex)
+ 225          {
+ 226   1          bit state = init;
  227   1      
- 228   1              while (*str) {
- 229   2                      uart_send(*str++);
- 230   2              }
- 231   1      
- 232   1          if (!state) {
- 233   2              uart_deinit();
- 234   2          }
- 235   1      }
- 236          
- 237          #define HEX2CHAR(h)     ((h >= 10) ? (h - 10 + 'A'): (h + '0'))
- 238          #define DEC2CHAR(d)     (d + '0')
-C51 COMPILER V7.08   SOFT_UART                    12/06/2015 11:38:20 PAGE 5   
+ 228   1          uart_init();
+ 229   1      
+ 230   1          uart_send(HEX2CHAR(hex / 16));
+ 231   1          uart_send(HEX2CHAR(hex % 16));
+C51 COMPILER V7.08   SOFT_UART                    12/06/2015 18:14:14 PAGE 5   
 
- 239          
- 240          
- 241          void print_hex(unsigned char hex)
- 242          {
- 243   1          bit state = init;
- 244   1      
- 245   1          uart_init();
- 246   1      
- 247   1              uart_send(HEX2CHAR(hex / 16));
- 248   1              uart_send(HEX2CHAR(hex % 16));
- 249   1      
- 250   1          if (!state) {
- 251   2              uart_deinit();
- 252   2          }
- 253   1      }
- 254          
- 255          void print_dec(unsigned char dec)
- 256          {
- 257   1          bit state = init;
- 258   1      
- 259   1          uart_init();
- 260   1      
- 261   1              uart_send(DEC2CHAR(dec / 100));
- 262   1              uart_send(DEC2CHAR(dec / 10 % 10));
- 263   1              uart_send(DEC2CHAR(dec % 10));
- 264   1      
- 265   1          if (!state) {
- 266   2              uart_deinit();
- 267   2          }
- 268   1      }
- 269          
+ 232   1      
+ 233   1          if (!state) {
+ 234   2              uart_deinit();
+ 235   2          }
+ 236   1      }
+ 237          
+ 238          void print_dec(unsigned char dec)
+ 239          {
+ 240   1          bit state = init;
+ 241   1      
+ 242   1          uart_init();
+ 243   1      
+ 244   1          uart_send(DEC2CHAR(dec / 100));
+ 245   1          uart_send(DEC2CHAR(dec / 10 % 10));
+ 246   1          uart_send(DEC2CHAR(dec % 10));
+ 247   1      
+ 248   1          if (!state) {
+ 249   2              uart_deinit();
+ 250   2          }
+ 251   1      }
+ 252          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    286    ----
+   CODE SIZE        =    289    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

@@ -338,7 +338,7 @@ uart_init:
 			; SOURCE LINE # 30
 ; {
 			; SOURCE LINE # 31
-; 	init = 1;
+;     init = 1;
 			; SOURCE LINE # 32
 	SETB 	init
 ; }
@@ -354,7 +354,7 @@ uart_deinit:
 			; SOURCE LINE # 35
 ; {
 			; SOURCE LINE # 36
-; 	init = 0;
+;     init = 0;
 			; SOURCE LINE # 37
 	CLR  	init
 ; }
@@ -379,93 +379,95 @@ _uart_send:
 ; {
 			; SOURCE LINE # 41
 ; #pragma asm
-;         PUSH    ACC
+;     PUSH    ACC
 	  PUSH    ACC
-;         MOV     ACC,    R0
+;     MOV     ACC,    R0
 	  MOV     ACC,    R0
-;         PUSH    ACC
+;     PUSH    ACC
 	  PUSH    ACC
-;         MOV     ACC,    R1
+;     MOV     ACC,    R1
 	  MOV     ACC,    R1
-;         PUSH    ACC
+;     PUSH    ACC
 	  PUSH    ACC
 ; 
 	  
-;         MOV     ACC,    R7
+;     MOV     ACC,    R7
 	  MOV     ACC,    R7
-;         MOV     R1,     #8
+;     MOV     R1,     #8
 	  MOV     R1,     #8
 ; 
 	  
-;         // 115200 baud rate = 96 clock
+;     // 115200 baud rate = 96 clock
 	  
-;         // send start bit
+;     // send start bit
 	  
-;         CLR     TXB             // 4
+;     CLR     TXB             // 4
 	  CLR     TXB              
-;         MOV     R0,     #22     // 2
+;     MOV     R0,     #22     // 2
 	  MOV     R0,     #22      
-;         DJNZ    R0,     $       // 4 * 22 = 88
+;     DJNZ    R0,     $       // 4 * 22 = 88
 	  DJNZ    R0,     $        
-;         NOP
+;     NOP
 	  NOP
-;         NOP
+;     NOP
 	  NOP
 ; 
 	  
-;         // send byte
+;     // send byte
 	  
-; L1:     RRC     A               // 1
-	  L1:     RRC     A                
-;         MOV     TXB,     C      // 4
+; L1:
+	  L1:
+;     RRC     A               // 1
+	  RRC     A                
+;     MOV     TXB,     C      // 4
 	  MOV     TXB,     C       
-;         MOV     R0,     #21     // 2
+;     MOV     R0,     #21     // 2
 	  MOV     R0,     #21      
-;         NOP                     // 1
+;     NOP                     // 1
 	  NOP                      
-;         DJNZ    R0,     $       // 4 * 21 = 84
+;     DJNZ    R0,     $       // 4 * 21 = 84
 	  DJNZ    R0,     $        
-;         DJNZ    R1,     L1      // 4
+;     DJNZ    R1,     L1      // 4
 	  DJNZ    R1,     L1       
 ; 
 	  
-;         // send stop bit
+;     // send stop bit
 	  
-;         SETB    TXB             // 4
+;     SETB    TXB             // 4
 	  SETB    TXB              
-;         MOV     R0,     #22     // 2
+;     MOV     R0,     #22     // 2
 	  MOV     R0,     #22      
-;         DJNZ    R0,     $       // 4 * 22 = 88
+;     DJNZ    R0,     $       // 4 * 22 = 88
 	  DJNZ    R0,     $        
-;         NOP
+;     NOP
 	  NOP
-;         NOP
+;     NOP
 	  NOP
 ; 
 	  
-;         MOV     R0,     #0FFH
+;     MOV     R0,     #0FFH
 	  MOV     R0,     #0FFH
-;         DJNZ    R0,     $
+;     DJNZ    R0,     $
 	  DJNZ    R0,     $
 ; 
 	  
-;         POP     ACC
+;     POP     ACC
 	  POP     ACC
-;         MOV     R1,     ACC
+;     MOV     R1,     ACC
 	  MOV     R1,     ACC
-;         POP     ACC
+;     POP     ACC
 	  POP     ACC
-;         MOV     R0,     ACC
+;     MOV     R0,     ACC
 	  MOV     R0,     ACC
-;         POP     ACC
+;     POP     ACC
 	  POP     ACC
 ; #pragma endasm
 ; 
-; 	return 1;
-			; SOURCE LINE # 85
+;     return 1;
+			; SOURCE LINE # 86
 	SETB 	C
 ; }
-			; SOURCE LINE # 86
+			; SOURCE LINE # 87
 ?C0003:
 	RET  	
 ; END OF _uart_send
@@ -493,114 +495,96 @@ _uart_send:
 ; 
 ; bit uart_rev(unsigned char *dat)
 ; {
-; 	if (!init)
-; 	{
-; 		return 0;
-; 	}
-; 	if (get_cnt != rcv_cnt)
-; 	{
-; 		*dat = buf[get_cnt++ & 0x0f];
-; 		return 1;
-; 	}
-; 	return 0;
+;     if (!init) {
+;         return 0;
+;     }
+;     if (get_cnt != rcv_cnt) {
+;         *dat = buf[get_cnt++ & 0x0f];
+;         return 1;
+;     }
+;     return 0;
 ; }
 ; 
 ; bit uart_send(unsigned char dat)
 ; {
-; 	if (!init)
-; 	{
-; 		return 0;
-; 	}
-; 	while (TING);
-; 	TBUF = dat;
-; 	TING = 1;
-; 	return 1;
+;     if (!init) {
+;         return 0;
+;     }
+;     while (TING);
+;     TBUF = dat;
+;     TING = 1;
+;     return 1;
 ; }
 ; 
 ; void uart_isr(void)
 ; {
-; 	if (RING)
-; 	{
-; 		if (--RCNT == 0)				  //接收数据以定时器的1/3来接收
-; 		{
-; 			RCNT = 3;                   //重置接收计数器  接收数据以定时器的1/3来接收	reset send baudrate counter
-; 			if (--RBIT == 0)			  //接收完一帧数据
-; 			{
-; 				RING = 0;               //停止接收			stop receive
-; 				buf[rcv_cnt++ & 0x0f] = RBUF;
-; 			}
-; 			else
-; 			{
-; 				RBUF >>= 1;			  //把接收的单b数据 暂存到 RDAT(接收缓冲)
-; 				if (RXB) RBUF |= 0x80;  //shift RX data to RX buffer
-; 			}
-; 		}
-; 	}
-; 	else if (!RXB)		//判断是不是开始位 RXB=0;
-; 	{
-; 		RING = 1;       //如果是则设置开始接收标志位 	set start receive flag
-; 		RCNT = 4;       //初始化接收波特率计数器       	initial receive baudrate counter
-; 		RBIT = RxBitLenth;       //初始化接收的数据位数(8个数据位+1个停止位)    initial receive bit number (8 data bits + 1 stop bit)
-; 	}
+;     if (RING) {
+;         if (--RCNT == 0) {			  //接收数据以定时器的1/3来接收
+;             RCNT = 3;                   //重置接收计数器  接收数据以定时器的1/3来接收	reset send baudrate counter
+;             if (--RBIT == 0) {		  //接收完一帧数据
+;                 RING = 0;               //停止接收			stop receive
+;                 buf[rcv_cnt++ & 0x0f] = RBUF;
+;             } else {
+;                 RBUF >>= 1;			  //把接收的单b数据 暂存到 RDAT(接收缓冲)
+;                 if (RXB) RBUF |= 0x80;  //shift RX data to RX buffer
+;             }
+;         }
+;     } else if (!RXB) {	//判断是不是开始位 RXB=0;
+;         RING = 1;       //如果是则设置开始接收标志位 	set start receive flag
+;         RCNT = 4;       //初始化接收波特率计数器       	initial receive baudrate counter
+;         RBIT = RxBitLenth;       //初始化接收的数据位数(8个数据位+1个停止位)    initial receive bit number (8 data bits + 1 stop bit)
+;     }
 ; 
-; 	if (TING)			//发送开始标志位   judge whether sending
-; 	{
-; 		if (--TCNT == 0)			//发送数据以定时器的1/3来发送
-; 		{
-; 			TCNT = 3;				//重置发送计数器   reset send baudrate counter
-; 			if (TBIT == 0)			//发送计数器为0 表明单字节发送还没开始
-; 			{
-; 				TXB = 0;			//发送开始位     					send start bit
-; 				TBIT = TxBitLenth;	//发送数据位数 (8数据位+1停止位)	initial send bit number (8 data bits + 1 stop bit)
-; 			}
-; 			else					//发送计数器为非0 正在发送数据
-; 			{
-; 				if (--TBIT == 0)	//发送计数器减为0 表明单字节发送结束
-; 				{
-; 					TXB = 1;		//送停止位数据
-; 					TING = 0;		//发送停止位    			stop send
-; 				}
-; 				else
-; 				{
-; 					TBUF >>= 1;		//把最低位送到 CY(益处标志位) shift data to CY
-; 					TXB = CY;		//发送单b数据				write CY to TX port
-; 				}
-; 			}
-; 		}
-; 	}
+;     if (TING) {		//发送开始标志位   judge whether sending
+;         if (--TCNT == 0) {		//发送数据以定时器的1/3来发送
+;             TCNT = 3;				//重置发送计数器   reset send baudrate counter
+;             if (TBIT == 0) {		//发送计数器为0 表明单字节发送还没开始
+;                 TXB = 0;			//发送开始位     					send start bit
+;                 TBIT = TxBitLenth;	//发送数据位数 (8数据位+1停止位)	initial send bit number (8 data bits + 1 stop bit)
+;             } else {				//发送计数器为非0 正在发送数据
+;                 if (--TBIT == 0) {	//发送计数器减为0 表明单字节发送结束
+;                     TXB = 1;		//送停止位数据
+;                     TING = 0;		//发送停止位    			stop send
+;                 } else {
+;                     TBUF >>= 1;		//把最低位送到 CY(益处标志位) shift data to CY
+;                     TXB = CY;		//发送单b数据				write CY to TX port
+;                 }
+;             }
+;         }
+;     }
 ; }
 ; 
 ; void uart_init(void)
 ; {
-; 	TIM_InitTypeDef tim_type;
+;     TIM_InitTypeDef tim_type;
 ; 
 ;     if (init) {
 ;         return;
 ;     }
 ; 
-; 	tim_type.TIM_Mode = TIM_16BitAutoReload;
-; 	tim_type.TIM_Polity = 1;
-; 	tim_type.TIM_Interrupt = ENABLE;
-; 	tim_type.TIM_ClkSource = TIM_CLOCK_1T;
-; 	tim_type.TIM_ClkOut = DISABLE;
-; 	tim_type.TIM_Value = Timer0_Reload;
-; 	tim_type.TIM_Run = ENABLE;
-; 	tim_type.TIM_Isr = uart_isr;
-; 	Timer_Inilize(Timer0, &tim_type);
+;     tim_type.TIM_Mode = TIM_16BitAutoReload;
+;     tim_type.TIM_Polity = 1;
+;     tim_type.TIM_Interrupt = ENABLE;
+;     tim_type.TIM_ClkSource = TIM_CLOCK_1T;
+;     tim_type.TIM_ClkOut = DISABLE;
+;     tim_type.TIM_Value = Timer0_Reload;
+;     tim_type.TIM_Run = ENABLE;
+;     tim_type.TIM_Isr = uart_isr;
+;     Timer_Inilize(Timer0, &tim_type);
 ; 
-; 	TING = 0;
-; 	RING = 0;
-; 	TCNT = 3;
-; 	RCNT = 0;
-; 	init = 1;
+;     TING = 0;
+;     RING = 0;
+;     TCNT = 3;
+;     RCNT = 0;
+;     init = 1;
 ; }
 ; 
 ; void uart_deinit(void)
 ; {
-; 	init = 0;
-; 	while (TING);
-; 	Timer0_Stop();
-; 	Timer0_InterruptDisable();
+;     init = 0;
+;     while (TING);
+;     Timer0_Stop();
+;     Timer0_InterruptDisable();
 ; }
 ; #endif
 ; 
@@ -610,31 +594,31 @@ _uart_send:
 	RSEG  ?PR?_print_str?SOFT_UART
 _print_str:
 	USING	0
-			; SOURCE LINE # 222
+			; SOURCE LINE # 205
 ;---- Variable 'str?341' assigned to Register 'R4/R5' ----
 	MOV  	R5,AR7
 	MOV  	R4,AR6
 ; {
-			; SOURCE LINE # 223
+			; SOURCE LINE # 206
 ;     bit state = init;
-			; SOURCE LINE # 224
+			; SOURCE LINE # 207
 	MOV  	C,init
 	MOV  	state?342,C
 ; 
 ;     uart_init();
-			; SOURCE LINE # 226
+			; SOURCE LINE # 209
 	LCALL	uart_init
 ?C0004:
 ; 
-; 	while (*str) {
-			; SOURCE LINE # 228
+;     while (*str) {
+			; SOURCE LINE # 211
 	MOV  	DPL,R5
 	MOV  	DPH,R4
 	CLR  	A
 	MOVC 	A,@A+DPTR
 	JZ   	?C0005
-; 		uart_send(*str++);
-			; SOURCE LINE # 229
+;         uart_send(*str++);
+			; SOURCE LINE # 212
 	INC  	R5
 	MOV  	A,R5
 	JNZ  	?C0016
@@ -646,21 +630,21 @@ _print_str:
 	MOVC 	A,@A+DPTR
 	MOV  	R7,A
 	LCALL	_uart_send
-; 	}
-			; SOURCE LINE # 230
+;     }
+			; SOURCE LINE # 213
 	SJMP 	?C0004
 ?C0005:
 ; 
 ;     if (!state) {
-			; SOURCE LINE # 232
+			; SOURCE LINE # 215
 	JB   	state?342,?C0007
 ;         uart_deinit();
-			; SOURCE LINE # 233
+			; SOURCE LINE # 216
 	LCALL	uart_deinit
 ;     }
-			; SOURCE LINE # 234
+			; SOURCE LINE # 217
 ; }
-			; SOURCE LINE # 235
+			; SOURCE LINE # 218
 ?C0007:
 	RET  	
 ; END OF _print_str
@@ -675,22 +659,22 @@ _print_str:
 	RSEG  ?PR?_print_hex?SOFT_UART
 _print_hex:
 	USING	0
-			; SOURCE LINE # 241
+			; SOURCE LINE # 224
 ;---- Variable 'hex?443' assigned to Register 'R6' ----
 	MOV  	R6,AR7
 ; {
-			; SOURCE LINE # 242
+			; SOURCE LINE # 225
 ;     bit state = init;
-			; SOURCE LINE # 243
+			; SOURCE LINE # 226
 	MOV  	C,init
 	MOV  	state?444,C
 ; 
 ;     uart_init();
-			; SOURCE LINE # 245
+			; SOURCE LINE # 228
 	LCALL	uart_init
 ; 
-; 	uart_send(HEX2CHAR(hex / 16));
-			; SOURCE LINE # 247
+;     uart_send(HEX2CHAR(hex / 16));
+			; SOURCE LINE # 230
 	MOV  	A,R6
 	SWAP 	A
 	ANL  	A,#0FH
@@ -710,8 +694,8 @@ _print_hex:
 	MOV  	R7,A
 ?C0009:
 	LCALL	_uart_send
-; 	uart_send(HEX2CHAR(hex % 16));
-			; SOURCE LINE # 248
+;     uart_send(HEX2CHAR(hex % 16));
+			; SOURCE LINE # 231
 	MOV  	A,R6
 	ANL  	A,#0FH
 	MOV  	R7,A
@@ -731,15 +715,15 @@ _print_hex:
 	LCALL	_uart_send
 ; 
 ;     if (!state) {
-			; SOURCE LINE # 250
+			; SOURCE LINE # 233
 	JB   	state?444,?C0013
 ;         uart_deinit();
-			; SOURCE LINE # 251
+			; SOURCE LINE # 234
 	LCALL	uart_deinit
 ;     }
-			; SOURCE LINE # 252
+			; SOURCE LINE # 235
 ; }
-			; SOURCE LINE # 253
+			; SOURCE LINE # 236
 ?C0013:
 	RET  	
 ; END OF _print_hex
@@ -750,49 +734,49 @@ _print_hex:
 	RSEG  ?PR?_print_dec?SOFT_UART
 _print_dec:
 	USING	0
-			; SOURCE LINE # 255
+			; SOURCE LINE # 238
 ;---- Variable 'dec?545' assigned to Register 'R6' ----
 	MOV  	R6,AR7
 ; {
-			; SOURCE LINE # 256
+			; SOURCE LINE # 239
 ;     bit state = init;
-			; SOURCE LINE # 257
+			; SOURCE LINE # 240
 	MOV  	C,init
 	MOV  	state?546,C
 ; 
 ;     uart_init();
-			; SOURCE LINE # 259
+			; SOURCE LINE # 242
 	LCALL	uart_init
 ; 
-; 	uart_send(DEC2CHAR(dec / 100));
-			; SOURCE LINE # 261
+;     uart_send(DEC2CHAR(dec / 100));
+			; SOURCE LINE # 244
 	MOV  	A,R6
 	MOV  	B,#064H
 	DIV  	AB
 	ADD  	A,#030H
 	MOV  	R7,A
 	LCALL	_uart_send
-; 	uart_send(DEC2CHAR(dec / 10 % 10));
-			; SOURCE LINE # 262
+;     uart_send(DEC2CHAR(dec / 10 % 10));
+			; SOURCE LINE # 245
 	MOV  	A,R6
 	MOV  	B,#0AH
 	DIV  	AB
 	LCALL	L?0017
-; 	uart_send(DEC2CHAR(dec % 10));
-			; SOURCE LINE # 263
+;     uart_send(DEC2CHAR(dec % 10));
+			; SOURCE LINE # 246
 	MOV  	A,R6
 	LCALL	L?0017
 ; 
 ;     if (!state) {
-			; SOURCE LINE # 265
+			; SOURCE LINE # 248
 	JB   	state?546,?C0015
 ;         uart_deinit();
-			; SOURCE LINE # 266
+			; SOURCE LINE # 249
 	LCALL	uart_deinit
 ;     }
-			; SOURCE LINE # 267
+			; SOURCE LINE # 250
 ; }
-			; SOURCE LINE # 268
+			; SOURCE LINE # 251
 ?C0015:
 	RET  	
 ; END OF _print_dec

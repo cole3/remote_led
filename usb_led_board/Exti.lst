@@ -1,4 +1,4 @@
-C51 COMPILER V7.08   EXTI                         12/06/2015 11:23:58 PAGE 1   
+C51 COMPILER V7.08   EXTI                         12/06/2015 14:16:05 PAGE 1   
 
 
 C51 COMPILER V7.08, COMPILATION OF MODULE EXTI
@@ -25,32 +25,32 @@ line level    source
               void Ext_INT0 (void) interrupt INT0_VECTOR              //½øÖÐ¶ÏÊ±ÒÑ¾­Çå³ý±êÖ
              -¾
               {
-                      P00 = ~P00;
+                  P00 = ~P00;
               }
               
               /********************* INT1ÖÐ¶Ïº¯Êý *************************/
               void Ext_INT1 (void) interrupt INT1_VECTOR              //½øÖÐ¶ÏÊ±ÒÑ¾­Çå³ý±êÖ
              -¾
               {
-                      P01 = ~P01;
+                  P01 = ~P01;
               }
               
               /********************* INT2ÖÐ¶Ïº¯Êý *************************/
               void Ext_INT2 (void) interrupt INT2_VECTOR      //
               {
-                      P02 = ~P02;
+                  P02 = ~P02;
               }
               
               /********************* INT3ÖÐ¶Ïº¯Êý *************************/
               void Ext_INT3 (void) interrupt INT3_VECTOR
               {
-                      P03 = ~P03;
+                  P03 = ~P03;
               }
               
               /********************* INT4ÖÐ¶Ïº¯Êý *************************/
               void Ext_INT4 (void) interrupt INT4_VECTOR
               {
-                      P04 = ~P04;
+                  P04 = ~P04;
               }
               #endif
   43          //===============================================================
@@ -64,57 +64,56 @@ line level    source
              -=========
   50          u8      Ext_Inilize(u8 EXT, EXTI_InitTypeDef *INTx)
   51          {
-C51 COMPILER V7.08   EXTI                         12/06/2015 11:23:58 PAGE 2   
+C51 COMPILER V7.08   EXTI                         12/06/2015 14:16:05 PAGE 2   
 
-  52   1              if(EXT >  EXT_INT4)     return 1;       //¿Õ²Ù×÷
-  53   1              
-  54   1              if(EXT == EXT_INT0)     //ÍâÖÐ¶Ï0
-  55   1              {
-  56   2                      if(INTx->EXTI_Interrupt == ENABLE)              EX0 = 1;        //ÔÊÐíÖÐ¶Ï
-  57   2                      else                                                                    EX0 = 0;        //½ûÖ¹ÖÐ¶Ï
-  58   2                      if(INTx->EXTI_Polity == PolityHigh)             PX0 = 1;        //¸ßÓÅÏÈ¼¶ÖÐ¶Ï
-  59   2                      else                                                                    PX0 = 0;        //µÍÓÅÏÈ¼¶ÖÐ¶Ï
-  60   2                      if(INTx->EXTI_Mode == EXT_MODE_Fall)    IT0 = 1;        //ÏÂ½µÑØÖÐ¶Ï
-  61   2                      else                                                                    IT0 = 0;        //ÉÏÉý,ÏÂ½µÑØÖÐ¶Ï
-  62   2                      return  0;              //³É¹¦
-  63   2              }
-  64   1      
-  65   1              if(EXT == EXT_INT1)     //ÍâÖÐ¶Ï1
-  66   1              {
-  67   2                      if(INTx->EXTI_Interrupt == ENABLE)              EX1 = 1;        //ÔÊÐíÖÐ¶Ï
-  68   2                      else                                                                    EX1 = 0;        //½ûÖ¹ÖÐ¶Ï
-  69   2                      if(INTx->EXTI_Polity == PolityHigh)             PX1 = 1;        //¸ßÓÅÏÈ¼¶ÖÐ¶Ï
-  70   2                      else                                                                    PX1 = 0;        //µÍÓÅÏÈ¼¶ÖÐ¶Ï
-  71   2                      if(INTx->EXTI_Mode == EXT_MODE_Fall)    IT1 = 1;        //ÏÂ½µÑØÖÐ¶Ï
-  72   2                      else                                                                    IT1 = 0;        //ÉÏÉý,ÏÂ½µÑØÖÐ¶Ï
-  73   2                      return  0;              //³É¹¦
-  74   2              }
-  75   1      
-  76   1              if(EXT == EXT_INT2)             //ÍâÖÐ¶Ï2, ¹Ì¶¨ÎªÏÂ½µÑØµÍÓÅÏÈ¼¶ÖÐ¶Ï
-  77   1              {
-  78   2                      if(INTx->EXTI_Interrupt == ENABLE)      INT_CLKO |=  (1 << 4);  //ÔÊÐ
-             -íÖÐ¶Ï        
-  79   2                      else                                                            INT_CLKO &= ~(1 << 4);  //½ûÖ¹ÖÐ¶Ï
-  80   2                      return  0;              //³É¹¦
-  81   2              }
-  82   1      
-  83   1              if(EXT == EXT_INT3)             //ÍâÖÐ¶Ï3, ¹Ì¶¨ÎªÏÂ½µÑØµÍÓÅÏÈ¼¶ÖÐ¶Ï
-  84   1              {
-  85   2                      if(INTx->EXTI_Interrupt == ENABLE)      INT_CLKO |=  (1 << 5);  //ÔÊÐ
-             -íÖÐ¶Ï        
-  86   2                      else                                                            INT_CLKO &= ~(1 << 5);  //½ûÖ¹ÖÐ¶Ï
-  87   2                      return  0;              //³É¹¦
-  88   2              }
-  89   1      
-  90   1              if(EXT == EXT_INT4)             //ÍâÖÐ¶Ï4, ¹Ì¶¨ÎªÏÂ½µÑØµÍÓÅÏÈ¼¶ÖÐ¶Ï
-  91   1              {
-  92   2                      if(INTx->EXTI_Interrupt == ENABLE)      INT_CLKO |=  (1 << 6);  //ÔÊÐ
-             -íÖÐ¶Ï        
-  93   2                      else                                                            INT_CLKO &= ~(1 << 6);  //½ûÖ¹ÖÐ¶Ï
-  94   2                      return  0;              //³É¹¦
-  95   2              }
-  96   1              return 2;       //Ê§°Ü
-  97   1      }
+  52   1          if(EXT >  EXT_INT4) return 1;       //¿Õ²Ù×÷
+  53   1      
+  54   1          if(EXT == EXT_INT0) {       //ÍâÖÐ¶Ï0
+  55   2              if(INTx->EXTI_Interrupt == ENABLE)              EX0 = 1;        //ÔÊÐíÖÐ¶Ï
+  56   2              else                                                                    EX0 = 0;        //½ûÖ¹ÖÐ¶Ï
+  57   2              if(INTx->EXTI_Polity == PolityHigh)             PX0 = 1;        //¸ßÓÅÏÈ¼¶Ö
+             -Ð¶Ï
+  58   2              else                                                                    PX0 = 0;        //µÍÓÅÏÈ¼¶ÖÐ¶Ï
+  59   2              if(INTx->EXTI_Mode == EXT_MODE_Fall)    IT0 = 1;        //ÏÂ½µÑØÖÐ¶
+             -Ï
+  60   2              else                                                                    IT0 = 0;        //ÉÏÉý,ÏÂ½µÑØÖÐ¶Ï
+  61   2              return  0;              //³É¹¦
+  62   2          }
+  63   1      
+  64   1          if(EXT == EXT_INT1) {       //ÍâÖÐ¶Ï1
+  65   2              if(INTx->EXTI_Interrupt == ENABLE)              EX1 = 1;        //ÔÊÐíÖÐ¶Ï
+  66   2              else                                                                    EX1 = 0;        //½ûÖ¹ÖÐ¶Ï
+  67   2              if(INTx->EXTI_Polity == PolityHigh)             PX1 = 1;        //¸ßÓÅÏÈ¼¶Ö
+             -Ð¶Ï
+  68   2              else                                                                    PX1 = 0;        //µÍÓÅÏÈ¼¶ÖÐ¶Ï
+  69   2              if(INTx->EXTI_Mode == EXT_MODE_Fall)    IT1 = 1;        //ÏÂ½µÑØÖÐ¶
+             -Ï
+  70   2              else                                                                    IT1 = 0;        //ÉÏÉý,ÏÂ½µÑØÖÐ¶Ï
+  71   2              return  0;              //³É¹¦
+  72   2          }
+  73   1      
+  74   1          if(EXT == EXT_INT2) {       //ÍâÖÐ¶Ï2, ¹Ì¶¨ÎªÏÂ½µÑØµÍÓÅÏÈ¼¶ÖÐ¶Ï
+  75   2              if(INTx->EXTI_Interrupt == ENABLE)      INT_CLKO |=  (1 << 4);
+             -        //ÔÊÐíÖÐ¶Ï
+  76   2              else                                                            INT_CLKO &= ~(1 << 4);  //½ûÖ¹ÖÐ¶Ï
+  77   2              return  0;              //³É¹¦
+  78   2          }
+  79   1      
+  80   1          if(EXT == EXT_INT3) {       //ÍâÖÐ¶Ï3, ¹Ì¶¨ÎªÏÂ½µÑØµÍÓÅÏÈ¼¶ÖÐ¶Ï
+  81   2              if(INTx->EXTI_Interrupt == ENABLE)      INT_CLKO |=  (1 << 5);
+             -        //ÔÊÐíÖÐ¶Ï
+  82   2              else                                                            INT_CLKO &= ~(1 << 5);  //½ûÖ¹ÖÐ¶Ï
+  83   2              return  0;              //³É¹¦
+  84   2          }
+  85   1      
+  86   1          if(EXT == EXT_INT4) {       //ÍâÖÐ¶Ï4, ¹Ì¶¨ÎªÏÂ½µÑØµÍÓÅÏÈ¼¶ÖÐ¶Ï
+  87   2              if(INTx->EXTI_Interrupt == ENABLE)      INT_CLKO |=  (1 << 6);
+             -        //ÔÊÐíÖÐ¶Ï
+  88   2              else                                                            INT_CLKO &= ~(1 << 6);  //½ûÖ¹ÖÐ¶Ï
+  89   2              return  0;              //³É¹¦
+  90   2          }
+  91   1          return 2;   //Ê§°Ü
+  92   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE

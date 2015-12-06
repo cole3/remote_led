@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE     1
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     1
 
 
 MACRO ASSEMBLER A51 V7.08a
@@ -65,7 +65,7 @@ LOC  OBJ            LINE     SOURCE
   00AD                55     EADC    BIT     0A8H.5
   00A1                56     SPI_SCLK_2      BIT     0A0H.1
   00A8                57     IE      DATA    0A8H
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE     2
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     2
 
   00C3                58     SPI_SCLK_3      BIT     0C0H.3
   00E9                59     CL      DATA    0E9H
@@ -133,7 +133,7 @@ LOC  OBJ            LINE     SOURCE
   00C8               121     P50     BIT     0C8H.0
   00C1               122     P41     BIT     0C0H.1
   00B2               123     P32     BIT     0B0H.2
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE     3
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     3
 
   00A3               124     P23     BIT     0A0H.3
   0094               125     P14     BIT     090H.4
@@ -201,7 +201,7 @@ LOC  OBJ            LINE     SOURCE
   00D4               187     TH3     DATA    0D4H
   00D4               188     T3H     DATA    0D4H
   008A               189     RL_TL0  DATA    08AH
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE     4
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     4
 
   009F               190     SM0     BIT     098H.7
   00D2               191     TH4     DATA    0D2H
@@ -269,7 +269,7 @@ LOC  OBJ            LINE     SOURCE
   008F               253     INT_CLKO        DATA    08FH
   00F6               254     B6      BIT     0F0H.6
   00E0               255     ACC0    BIT     0E0H.0
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE     5
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     5
 
   00F7               256     B7      BIT     0F0H.7
   00E1               257     ACC1    BIT     0E0H.1
@@ -337,7 +337,7 @@ LOC  OBJ            LINE     SOURCE
                      319     ; /***************************************************************************/
                      320     ; 
                      321     ; 
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE     6
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     6
 
                      322     ; #define BaudRate              115200          //Ä£Äâ´®¿Ú²¨ÌØÂÊ
                      323     ; 
@@ -358,7 +358,7 @@ LOC  OBJ            LINE     SOURCE
                      338                             ; SOURCE LINE # 30
                      339     ; {
                      340                             ; SOURCE LINE # 31
-                     341     ;       init = 1;
+                     341     ;     init = 1;
                      342                             ; SOURCE LINE # 32
 0000 D200     F      343             SETB    init
                      344     ; }
@@ -374,7 +374,7 @@ LOC  OBJ            LINE     SOURCE
                      354                             ; SOURCE LINE # 35
                      355     ; {
                      356                             ; SOURCE LINE # 36
-                     357     ;       init = 0;
+                     357     ;     init = 0;
                      358                             ; SOURCE LINE # 37
 0000 C200     F      359             CLR     init
                      360     ; }
@@ -399,455 +399,432 @@ LOC  OBJ            LINE     SOURCE
                      379     ; {
                      380                             ; SOURCE LINE # 41
                      381     ; #pragma asm
-                     382     ;         PUSH    ACC
+                     382     ;     PUSH    ACC
 000B C0E0            383               PUSH    ACC
-                     384     ;         MOV     ACC,    R0
+                     384     ;     MOV     ACC,    R0
 000D 88E0            385               MOV     ACC,    R0
-                     386     ;         PUSH    ACC
+                     386     ;     PUSH    ACC
 000F C0E0            387               PUSH    ACC
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE     7
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     7
 
-                     388     ;         MOV     ACC,    R1
+                     388     ;     MOV     ACC,    R1
 0011 89E0            389               MOV     ACC,    R1
-                     390     ;         PUSH    ACC
+                     390     ;     PUSH    ACC
 0013 C0E0            391               PUSH    ACC
                      392     ; 
                      393               
-                     394     ;         MOV     ACC,    R7
+                     394     ;     MOV     ACC,    R7
 0015 8FE0            395               MOV     ACC,    R7
-                     396     ;         MOV     R1,     #8
+                     396     ;     MOV     R1,     #8
 0017 7908            397               MOV     R1,     #8
                      398     ; 
                      399               
-                     400     ;         // 115200 baud rate = 96 clock
+                     400     ;     // 115200 baud rate = 96 clock
                      401               
-                     402     ;         // send start bit
+                     402     ;     // send start bit
                      403               
-                     404     ;         CLR     TXB             // 4
+                     404     ;     CLR     TXB             // 4
 0019 C2B1            405               CLR     TXB              
-                     406     ;         MOV     R0,     #22     // 2
+                     406     ;     MOV     R0,     #22     // 2
 001B 7816            407               MOV     R0,     #22      
-                     408     ;         DJNZ    R0,     $       // 4 * 22 = 88
+                     408     ;     DJNZ    R0,     $       // 4 * 22 = 88
 001D D8FE            409               DJNZ    R0,     $        
-                     410     ;         NOP
+                     410     ;     NOP
 001F 00              411               NOP
-                     412     ;         NOP
+                     412     ;     NOP
 0020 00              413               NOP
                      414     ; 
                      415               
-                     416     ;         // send byte
+                     416     ;     // send byte
                      417               
-                     418     ; L1:     RRC     A               // 1
-0021 13              419               L1:     RRC     A                
-                     420     ;         MOV     TXB,     C      // 4
-0022 92B1            421               MOV     TXB,     C       
-                     422     ;         MOV     R0,     #21     // 2
-0024 7815            423               MOV     R0,     #21      
-                     424     ;         NOP                     // 1
-0026 00              425               NOP                      
-                     426     ;         DJNZ    R0,     $       // 4 * 21 = 84
-0027 D8FE            427               DJNZ    R0,     $        
-                     428     ;         DJNZ    R1,     L1      // 4
-0029 D9F6            429               DJNZ    R1,     L1       
-                     430     ; 
-                     431               
-                     432     ;         // send stop bit
+                     418     ; L1:
+0021                 419               L1:
+                     420     ;     RRC     A               // 1
+0021 13              421               RRC     A                
+                     422     ;     MOV     TXB,     C      // 4
+0022 92B1            423               MOV     TXB,     C       
+                     424     ;     MOV     R0,     #21     // 2
+0024 7815            425               MOV     R0,     #21      
+                     426     ;     NOP                     // 1
+0026 00              427               NOP                      
+                     428     ;     DJNZ    R0,     $       // 4 * 21 = 84
+0027 D8FE            429               DJNZ    R0,     $        
+                     430     ;     DJNZ    R1,     L1      // 4
+0029 D9F6            431               DJNZ    R1,     L1       
+                     432     ; 
                      433               
-                     434     ;         SETB    TXB             // 4
-002B D2B1            435               SETB    TXB              
-                     436     ;         MOV     R0,     #22     // 2
-002D 7816            437               MOV     R0,     #22      
-                     438     ;         DJNZ    R0,     $       // 4 * 22 = 88
-002F D8FE            439               DJNZ    R0,     $        
-                     440     ;         NOP
-0031 00              441               NOP
-                     442     ;         NOP
-0032 00              443               NOP
-                     444     ; 
-                     445               
-                     446     ;         MOV     R0,     #0FFH
-0033 78FF            447               MOV     R0,     #0FFH
-                     448     ;         DJNZ    R0,     $
-0035 D8FE            449               DJNZ    R0,     $
-                     450     ; 
-                     451               
-                     452     ;         POP     ACC
-0037 D0E0            453               POP     ACC
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE     8
+                     434     ;     // send stop bit
+                     435               
+                     436     ;     SETB    TXB             // 4
+002B D2B1            437               SETB    TXB              
+                     438     ;     MOV     R0,     #22     // 2
+002D 7816            439               MOV     R0,     #22      
+                     440     ;     DJNZ    R0,     $       // 4 * 22 = 88
+002F D8FE            441               DJNZ    R0,     $        
+                     442     ;     NOP
+0031 00              443               NOP
+                     444     ;     NOP
+0032 00              445               NOP
+                     446     ; 
+                     447               
+                     448     ;     MOV     R0,     #0FFH
+0033 78FF            449               MOV     R0,     #0FFH
+                     450     ;     DJNZ    R0,     $
+0035 D8FE            451               DJNZ    R0,     $
+                     452     ; 
+                     453               
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     8
 
-                     454     ;         MOV     R1,     ACC
-0039 A9E0            455               MOV     R1,     ACC
-                     456     ;         POP     ACC
-003B D0E0            457               POP     ACC
-                     458     ;         MOV     R0,     ACC
-003D A8E0            459               MOV     R0,     ACC
-                     460     ;         POP     ACC
-003F D0E0            461               POP     ACC
-                     462     ; #pragma endasm
-                     463     ; 
-                     464     ;       return 1;
-                     465                             ; SOURCE LINE # 85
-0041 D3              466             SETB    C
-                     467     ; }
-                     468                             ; SOURCE LINE # 86
-0042                 469     ?C0003:
-0042 22              470             RET     
-                     471     ; END OF _uart_send
-                     472     
-                     473     ; 
-                     474     ; #else
-                     475     ; #define Timer0_Reload (65536 - MAIN_Fosc / BaudRate / 3)
-                     476     ; #define D_RxBitLenth  9               //9: 8 + 1 stop
-                     477     ; #define D_TxBitLenth  9               //9: 1 stop bit
-                     478     ; 
-                     479     ; sbit RXB = P3^0;                //define UART TX/RX port
-                     480     ; sbit TXB = P3^1;
-                     481     ; 
-                     482     ; static unsigned char TBUF,RBUF;
-                     483     ; static unsigned char TCNT,RCNT;       //·¢ËÍºÍ½ÓÊÕ¼ì²â ¼ÆÊýÆ÷(3±¶ËÙÂÊ¼ì²â)
-                     484     ; static unsigned char TBIT,RBIT;       //·¢ËÍºÍ½ÓÊÕµÄÊý¾Ý¼ÆÊýÆ÷
-                     485     ; static unsigned char rcv_cnt, get_cnt;
-                     486     ; static unsigned char buf[16];
-                     487     ; 
-                     488     ; static bit TING,RING; //ÕýÔÚ·¢ËÍ»ò½ÓÊÕÒ»¸ö×Ö½Ú
+                     454     ;     POP     ACC
+0037 D0E0            455               POP     ACC
+                     456     ;     MOV     R1,     ACC
+0039 A9E0            457               MOV     R1,     ACC
+                     458     ;     POP     ACC
+003B D0E0            459               POP     ACC
+                     460     ;     MOV     R0,     ACC
+003D A8E0            461               MOV     R0,     ACC
+                     462     ;     POP     ACC
+003F D0E0            463               POP     ACC
+                     464     ; #pragma endasm
+                     465     ; 
+                     466     ;     return 1;
+                     467                             ; SOURCE LINE # 86
+0041 D3              468             SETB    C
+                     469     ; }
+                     470                             ; SOURCE LINE # 87
+0042                 471     ?C0003:
+0042 22              472             RET     
+                     473     ; END OF _uart_send
+                     474     
+                     475     ; 
+                     476     ; #else
+                     477     ; #define Timer0_Reload (65536 - MAIN_Fosc / BaudRate / 3)
+                     478     ; #define D_RxBitLenth  9               //9: 8 + 1 stop
+                     479     ; #define D_TxBitLenth  9               //9: 1 stop bit
+                     480     ; 
+                     481     ; sbit RXB = P3^0;                //define UART TX/RX port
+                     482     ; sbit TXB = P3^1;
+                     483     ; 
+                     484     ; static unsigned char TBUF,RBUF;
+                     485     ; static unsigned char TCNT,RCNT;       //·¢ËÍºÍ½ÓÊÕ¼ì²â ¼ÆÊýÆ÷(3±¶ËÙÂÊ¼ì²â)
+                     486     ; static unsigned char TBIT,RBIT;       //·¢ËÍºÍ½ÓÊÕµÄÊý¾Ý¼ÆÊýÆ÷
+                     487     ; static unsigned char rcv_cnt, get_cnt;
+                     488     ; static unsigned char buf[16];
                      489     ; 
-                     490     ; #define       RxBitLenth      9       //8¸öÊý¾ÝÎ»+1¸öÍ£Ö¹Î»
-                     491     ; #define       TxBitLenth      9       //8¸öÊý¾ÝÎ»+1¸öÍ£Ö¹Î»
-                     492     ; 
-                     493     ; 
-                     494     ; bit uart_rev(unsigned char *dat)
-                     495     ; {
-                     496     ;       if (!init)
-                     497     ;       {
-                     498     ;               return 0;
-                     499     ;       }
-                     500     ;       if (get_cnt != rcv_cnt)
-                     501     ;       {
-                     502     ;               *dat = buf[get_cnt++ & 0x0f];
-                     503     ;               return 1;
-                     504     ;       }
-                     505     ;       return 0;
+                     490     ; static bit TING,RING; //ÕýÔÚ·¢ËÍ»ò½ÓÊÕÒ»¸ö×Ö½Ú
+                     491     ; 
+                     492     ; #define       RxBitLenth      9       //8¸öÊý¾ÝÎ»+1¸öÍ£Ö¹Î»
+                     493     ; #define       TxBitLenth      9       //8¸öÊý¾ÝÎ»+1¸öÍ£Ö¹Î»
+                     494     ; 
+                     495     ; 
+                     496     ; bit uart_rev(unsigned char *dat)
+                     497     ; {
+                     498     ;     if (!init) {
+                     499     ;         return 0;
+                     500     ;     }
+                     501     ;     if (get_cnt != rcv_cnt) {
+                     502     ;         *dat = buf[get_cnt++ & 0x0f];
+                     503     ;         return 1;
+                     504     ;     }
+                     505     ;     return 0;
                      506     ; }
                      507     ; 
                      508     ; bit uart_send(unsigned char dat)
                      509     ; {
-                     510     ;       if (!init)
-                     511     ;       {
-                     512     ;               return 0;
-                     513     ;       }
-                     514     ;       while (TING);
-                     515     ;       TBUF = dat;
-                     516     ;       TING = 1;
-                     517     ;       return 1;
-                     518     ; }
-                     519     ; 
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE     9
+                     510     ;     if (!init) {
+                     511     ;         return 0;
+                     512     ;     }
+                     513     ;     while (TING);
+                     514     ;     TBUF = dat;
+                     515     ;     TING = 1;
+                     516     ;     return 1;
+                     517     ; }
+                     518     ; 
+                     519     ; void uart_isr(void)
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     9
 
-                     520     ; void uart_isr(void)
-                     521     ; {
-                     522     ;       if (RING)
-                     523     ;       {
-                     524     ;               if (--RCNT == 0)                                  //½ÓÊÕÊý¾ÝÒÔ¶¨Ê±Æ÷µÄ1/3À´
-                             ½ÓÊÕ
-                     525     ;               {
-                     526     ;                       RCNT = 3;                   //ÖØÖÃ½ÓÊÕ¼ÆÊýÆ÷  ½ÓÊÕÊý¾ÝÒÔ¶¨Ê±Æ÷µÄ1/3
-                             À´½ÓÊÕ       reset send baudrate counter
-                     527     ;                       if (--RBIT == 0)                          //½ÓÊÕÍêÒ»Ö¡Êý¾Ý
-                     528     ;                       {
-                     529     ;                               RING = 0;               //Í£Ö¹½ÓÊÕ                      sto
-                             p receive
-                     530     ;                               buf[rcv_cnt++ & 0x0f] = RBUF;
-                     531     ;                       }
-                     532     ;                       else
-                     533     ;                       {
-                     534     ;                               RBUF >>= 1;                       //°Ñ½ÓÊÕµÄµ¥bÊý¾Ý ÔÝ´æµ½ 
-                             RDAT(½ÓÊÕ»º³å)
-                     535     ;                               if (RXB) RBUF |= 0x80;  //shift RX data to RX buffer
-                     536     ;                       }
-                     537     ;               }
-                     538     ;       }
-                     539     ;       else if (!RXB)          //ÅÐ¶ÏÊÇ²»ÊÇ¿ªÊ¼Î» RXB=0;
-                     540     ;       {
-                     541     ;               RING = 1;       //Èç¹ûÊÇÔòÉèÖÃ¿ªÊ¼½ÓÊÕ±êÖ¾Î»    set start receive flag
-                     542     ;               RCNT = 4;       //³õÊ¼»¯½ÓÊÕ²¨ÌØÂÊ¼ÆÊýÆ÷        initial receive baudrate co
+                     520     ; {
+                     521     ;     if (RING) {
+                     522     ;         if (--RCNT == 0) {                      //½ÓÊÕÊý¾ÝÒÔ¶¨Ê±Æ÷µÄ1/3À´½ÓÊÕ
+                     523     ;             RCNT = 3;                   //ÖØÖÃ½ÓÊÕ¼ÆÊýÆ÷  ½ÓÊÕÊý¾ÝÒÔ¶¨Ê±Æ÷µÄ1/3À´½ÓÊÕ res
+                             et send baudrate counter
+                     524     ;             if (--RBIT == 0) {                  //½ÓÊÕÍêÒ»Ö¡Êý¾Ý
+                     525     ;                 RING = 0;               //Í£Ö¹½ÓÊÕ                    stop receive
+                     526     ;                 buf[rcv_cnt++ & 0x0f] = RBUF;
+                     527     ;             } else {
+                     528     ;                 RBUF >>= 1;                     //°Ñ½ÓÊÕµÄµ¥bÊý¾Ý ÔÝ´æµ½ RDAT(½ÓÊÕ»º³å)
+                     529     ;                 if (RXB) RBUF |= 0x80;  //shift RX data to RX buffer
+                     530     ;             }
+                     531     ;         }
+                     532     ;     } else if (!RXB) {        //ÅÐ¶ÏÊÇ²»ÊÇ¿ªÊ¼Î» RXB=0;
+                     533     ;         RING = 1;       //Èç¹ûÊÇÔòÉèÖÃ¿ªÊ¼½ÓÊÕ±êÖ¾Î»  set start receive flag
+                     534     ;         RCNT = 4;       //³õÊ¼»¯½ÓÊÕ²¨ÌØÂÊ¼ÆÊýÆ÷              initial receive baudrate co
                              unter
-                     543     ;               RBIT = RxBitLenth;       //³õÊ¼»¯½ÓÊÕµÄÊý¾ÝÎ»Êý(8¸öÊý¾ÝÎ»+1¸öÍ£Ö¹Î»)    ini
-                             tial receive bit number (8 data bits + 1 stop bit)
-                     544     ;       }
-                     545     ; 
-                     546     ;       if (TING)                       //·¢ËÍ¿ªÊ¼±êÖ¾Î»   judge whether sending
-                     547     ;       {
-                     548     ;               if (--TCNT == 0)                        //·¢ËÍÊý¾ÝÒÔ¶¨Ê±Æ÷µÄ1/3À´·¢ËÍ
-                     549     ;               {
-                     550     ;                       TCNT = 3;                               //ÖØÖÃ·¢ËÍ¼ÆÊýÆ÷   reset se
-                             nd baudrate counter
-                     551     ;                       if (TBIT == 0)                  //·¢ËÍ¼ÆÊýÆ÷Îª0 ±íÃ÷µ¥×Ö½Ú·¢ËÍ»¹Ã»¿
-                             ªÊ¼
-                     552     ;                       {
-                     553     ;                               TXB = 0;                        //·¢ËÍ¿ªÊ¼Î»               
-                                                          send start bit
-                     554     ;                               TBIT = TxBitLenth;      //·¢ËÍÊý¾ÝÎ»Êý (8Êý¾ÝÎ»+1Í£Ö¹Î»)   
-                                  initial send bit number (8 data bits + 1 stop bit)
-                     555     ;                       }
-                     556     ;                       else                                    //·¢ËÍ¼ÆÊýÆ÷Îª·Ç0 ÕýÔÚ·¢ËÍÊ
-                             ý¾Ý
-                     557     ;                       {
-                     558     ;                               if (--TBIT == 0)        //·¢ËÍ¼ÆÊýÆ÷¼õÎª0 ±íÃ÷µ¥×Ö½Ú·¢ËÍ½áÊ
-                             ø
-                     559     ;                               {
-                     560     ;                                       TXB = 1;                //ËÍÍ£Ö¹Î»Êý¾Ý
-                     561     ;                                       TING = 0;               //·¢ËÍÍ£Ö¹Î»               
-                                          stop send
-                     562     ;                               }
-                     563     ;                               else
-                     564     ;                               {
-                     565     ;                                       TBUF >>= 1;             //°Ñ×îµÍÎ»ËÍµ½ CY(Òæ´¦±êÖ¾Î
-                             ») shift data to CY
-                     566     ;                                       TXB = CY;               //·¢ËÍµ¥bÊý¾Ý              
-                                          write CY to TX port
-                     567     ;                               }
-                     568     ;                       }
-                     569     ;               }
-                     570     ;       }
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE    10
+                     535     ;         RBIT = RxBitLenth;       //³õÊ¼»¯½ÓÊÕµÄÊý¾ÝÎ»Êý(8¸öÊý¾ÝÎ»+1¸öÍ£Ö¹Î»)    initial r
+                             eceive bit number (8 data bits + 1 stop bit)
+                     536     ;     }
+                     537     ; 
+                     538     ;     if (TING) {               //·¢ËÍ¿ªÊ¼±êÖ¾Î»   judge whether sending
+                     539     ;         if (--TCNT == 0) {            //·¢ËÍÊý¾ÝÒÔ¶¨Ê±Æ÷µÄ1/3À´·¢ËÍ
+                     540     ;             TCNT = 3;                         //ÖØÖÃ·¢ËÍ¼ÆÊýÆ÷   reset send baudrate coun
+                             ter
+                     541     ;             if (TBIT == 0) {          //·¢ËÍ¼ÆÊýÆ÷Îª0 ±íÃ÷µ¥×Ö½Ú·¢ËÍ»¹Ã»¿ªÊ¼
+                     542     ;                 TXB = 0;                      //·¢ËÍ¿ªÊ¼Î»                               
+                                          send start bit
+                     543     ;                 TBIT = TxBitLenth;    //·¢ËÍÊý¾ÝÎ»Êý (8Êý¾ÝÎ»+1Í£Ö¹Î»)        initial sen
+                             d bit number (8 data bits + 1 stop bit)
+                     544     ;             } else {                          //·¢ËÍ¼ÆÊýÆ÷Îª·Ç0 ÕýÔÚ·¢ËÍÊý¾Ý
+                     545     ;                 if (--TBIT == 0) {    //·¢ËÍ¼ÆÊýÆ÷¼õÎª0 ±íÃ÷µ¥×Ö½Ú·¢ËÍ½áÊø
+                     546     ;                     TXB = 1;          //ËÍÍ£Ö¹Î»Êý¾Ý
+                     547     ;                     TING = 0;         //·¢ËÍÍ£Ö¹Î»                            stop send
+                     548     ;                 } else {
+                     549     ;                     TBUF >>= 1;               //°Ñ×îµÍÎ»ËÍµ½ CY(Òæ´¦±êÖ¾Î») shift data to
+                              CY
+                     550     ;                     TXB = CY;         //·¢ËÍµ¥bÊý¾Ý                           write CY to
+                              TX port
+                     551     ;                 }
+                     552     ;             }
+                     553     ;         }
+                     554     ;     }
+                     555     ; }
+                     556     ; 
+                     557     ; void uart_init(void)
+                     558     ; {
+                     559     ;     TIM_InitTypeDef tim_type;
+                     560     ; 
+                     561     ;     if (init) {
+                     562     ;         return;
+                     563     ;     }
+                     564     ; 
+                     565     ;     tim_type.TIM_Mode = TIM_16BitAutoReload;
+                     566     ;     tim_type.TIM_Polity = 1;
+                     567     ;     tim_type.TIM_Interrupt = ENABLE;
+                     568     ;     tim_type.TIM_ClkSource = TIM_CLOCK_1T;
+                     569     ;     tim_type.TIM_ClkOut = DISABLE;
+                     570     ;     tim_type.TIM_Value = Timer0_Reload;
+                     571     ;     tim_type.TIM_Run = ENABLE;
+                     572     ;     tim_type.TIM_Isr = uart_isr;
+                     573     ;     Timer_Inilize(Timer0, &tim_type);
+                     574     ; 
+                     575     ;     TING = 0;
+                     576     ;     RING = 0;
+                     577     ;     TCNT = 3;
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    10
 
-                     571     ; }
-                     572     ; 
-                     573     ; void uart_init(void)
-                     574     ; {
-                     575     ;       TIM_InitTypeDef tim_type;
-                     576     ; 
-                     577     ;     if (init) {
-                     578     ;         return;
-                     579     ;     }
-                     580     ; 
-                     581     ;       tim_type.TIM_Mode = TIM_16BitAutoReload;
-                     582     ;       tim_type.TIM_Polity = 1;
-                     583     ;       tim_type.TIM_Interrupt = ENABLE;
-                     584     ;       tim_type.TIM_ClkSource = TIM_CLOCK_1T;
-                     585     ;       tim_type.TIM_ClkOut = DISABLE;
-                     586     ;       tim_type.TIM_Value = Timer0_Reload;
-                     587     ;       tim_type.TIM_Run = ENABLE;
-                     588     ;       tim_type.TIM_Isr = uart_isr;
-                     589     ;       Timer_Inilize(Timer0, &tim_type);
+                     578     ;     RCNT = 0;
+                     579     ;     init = 1;
+                     580     ; }
+                     581     ; 
+                     582     ; void uart_deinit(void)
+                     583     ; {
+                     584     ;     init = 0;
+                     585     ;     while (TING);
+                     586     ;     Timer0_Stop();
+                     587     ;     Timer0_InterruptDisable();
+                     588     ; }
+                     589     ; #endif
                      590     ; 
-                     591     ;       TING = 0;
-                     592     ;       RING = 0;
-                     593     ;       TCNT = 3;
-                     594     ;       RCNT = 0;
-                     595     ;       init = 1;
-                     596     ; }
-                     597     ; 
-                     598     ; void uart_deinit(void)
-                     599     ; {
-                     600     ;       init = 0;
-                     601     ;       while (TING);
-                     602     ;       Timer0_Stop();
-                     603     ;       Timer0_InterruptDisable();
-                     604     ; }
-                     605     ; #endif
-                     606     ; 
+                     591     ; 
+                     592     ; void print_str(unsigned char code *str)
+                     593     
+----                 594             RSEG  ?PR?_print_str?SOFT_UART
+0000                 595     _print_str:
+                     596             USING   0
+                     597                             ; SOURCE LINE # 205
+                     598     ;---- Variable 'str?341' assigned to Register 'R4/R5' ----
+0000 AD07            599             MOV     R5,AR7
+0002 AC06            600             MOV     R4,AR6
+                     601     ; {
+                     602                             ; SOURCE LINE # 206
+                     603     ;     bit state = init;
+                     604                             ; SOURCE LINE # 207
+0004 A200     F      605             MOV     C,init
+0006 9200     F      606             MOV     state?342,C
                      607     ; 
-                     608     ; void print_str(unsigned char code *str)
-                     609     
-----                 610             RSEG  ?PR?_print_str?SOFT_UART
-0000                 611     _print_str:
-                     612             USING   0
-                     613                             ; SOURCE LINE # 222
-                     614     ;---- Variable 'str?341' assigned to Register 'R4/R5' ----
-0000 AD07            615             MOV     R5,AR7
-0002 AC06            616             MOV     R4,AR6
-                     617     ; {
-                     618                             ; SOURCE LINE # 223
-                     619     ;     bit state = init;
-                     620                             ; SOURCE LINE # 224
-0004 A200     F      621             MOV     C,init
-0006 9200     F      622             MOV     state?342,C
-                     623     ; 
-                     624     ;     uart_init();
-                     625                             ; SOURCE LINE # 226
-0008 120000   F      626             LCALL   uart_init
-000B                 627     ?C0004:
-                     628     ; 
-                     629     ;       while (*str) {
-                     630                             ; SOURCE LINE # 228
-000B 8D82            631             MOV     DPL,R5
-000D 8C83            632             MOV     DPH,R4
-000F E4              633             CLR     A
-0010 93              634             MOVC    A,@A+DPTR
-0011 6010            635             JZ      ?C0005
-                     636     ;               uart_send(*str++);
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE    11
+                     608     ;     uart_init();
+                     609                             ; SOURCE LINE # 209
+0008 120000   F      610             LCALL   uart_init
+000B                 611     ?C0004:
+                     612     ; 
+                     613     ;     while (*str) {
+                     614                             ; SOURCE LINE # 211
+000B 8D82            615             MOV     DPL,R5
+000D 8C83            616             MOV     DPH,R4
+000F E4              617             CLR     A
+0010 93              618             MOVC    A,@A+DPTR
+0011 6010            619             JZ      ?C0005
+                     620     ;         uart_send(*str++);
+                     621                             ; SOURCE LINE # 212
+0013 0D              622             INC     R5
+0014 ED              623             MOV     A,R5
+0015 7001            624             JNZ     ?C0016
+0017 0C              625             INC     R4
+0018                 626     ?C0016:
+0018 14              627             DEC     A
+0019 F582            628             MOV     DPL,A
+001B E4              629             CLR     A
+001C 93              630             MOVC    A,@A+DPTR
+001D FF              631             MOV     R7,A
+001E 120000   F      632             LCALL   _uart_send
+                     633     ;     }
+                     634                             ; SOURCE LINE # 213
+0021 80E8            635             SJMP    ?C0004
+0023                 636     ?C0005:
+                     637     ; 
+                     638     ;     if (!state) {
+                     639                             ; SOURCE LINE # 215
+0023 200003   F      640             JB      state?342,?C0007
+                     641     ;         uart_deinit();
+                     642                             ; SOURCE LINE # 216
+0026 120000   F      643             LCALL   uart_deinit
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    11
 
-                     637                             ; SOURCE LINE # 229
-0013 0D              638             INC     R5
-0014 ED              639             MOV     A,R5
-0015 7001            640             JNZ     ?C0016
-0017 0C              641             INC     R4
-0018                 642     ?C0016:
-0018 14              643             DEC     A
-0019 F582            644             MOV     DPL,A
-001B E4              645             CLR     A
-001C 93              646             MOVC    A,@A+DPTR
-001D FF              647             MOV     R7,A
-001E 120000   F      648             LCALL   _uart_send
-                     649     ;       }
-                     650                             ; SOURCE LINE # 230
-0021 80E8            651             SJMP    ?C0004
-0023                 652     ?C0005:
-                     653     ; 
-                     654     ;     if (!state) {
-                     655                             ; SOURCE LINE # 232
-0023 200003   F      656             JB      state?342,?C0007
-                     657     ;         uart_deinit();
-                     658                             ; SOURCE LINE # 233
-0026 120000   F      659             LCALL   uart_deinit
-                     660     ;     }
-                     661                             ; SOURCE LINE # 234
-                     662     ; }
-                     663                             ; SOURCE LINE # 235
-0029                 664     ?C0007:
-0029 22              665             RET     
-                     666     ; END OF _print_str
-                     667     
-                     668     ; 
-                     669     ; #define HEX2CHAR(h)     ((h >= 10) ? (h - 10 + 'A'): (h + '0'))
-                     670     ; #define DEC2CHAR(d)     (d + '0')
+                     644     ;     }
+                     645                             ; SOURCE LINE # 217
+                     646     ; }
+                     647                             ; SOURCE LINE # 218
+0029                 648     ?C0007:
+0029 22              649             RET     
+                     650     ; END OF _print_str
+                     651     
+                     652     ; 
+                     653     ; #define HEX2CHAR(h)     ((h >= 10) ? (h - 10 + 'A'): (h + '0'))
+                     654     ; #define DEC2CHAR(d)     (d + '0')
+                     655     ; 
+                     656     ; 
+                     657     ; void print_hex(unsigned char hex)
+                     658     
+----                 659             RSEG  ?PR?_print_hex?SOFT_UART
+0000                 660     _print_hex:
+                     661             USING   0
+                     662                             ; SOURCE LINE # 224
+                     663     ;---- Variable 'hex?443' assigned to Register 'R6' ----
+0000 AE07            664             MOV     R6,AR7
+                     665     ; {
+                     666                             ; SOURCE LINE # 225
+                     667     ;     bit state = init;
+                     668                             ; SOURCE LINE # 226
+0002 A200     F      669             MOV     C,init
+0004 9200     F      670             MOV     state?444,C
                      671     ; 
-                     672     ; 
-                     673     ; void print_hex(unsigned char hex)
-                     674     
-----                 675             RSEG  ?PR?_print_hex?SOFT_UART
-0000                 676     _print_hex:
-                     677             USING   0
-                     678                             ; SOURCE LINE # 241
-                     679     ;---- Variable 'hex?443' assigned to Register 'R6' ----
-0000 AE07            680             MOV     R6,AR7
-                     681     ; {
-                     682                             ; SOURCE LINE # 242
-                     683     ;     bit state = init;
-                     684                             ; SOURCE LINE # 243
-0002 A200     F      685             MOV     C,init
-0004 9200     F      686             MOV     state?444,C
-                     687     ; 
-                     688     ;     uart_init();
-                     689                             ; SOURCE LINE # 245
-0006 120000   F      690             LCALL   uart_init
-                     691     ; 
-                     692     ;       uart_send(HEX2CHAR(hex / 16));
-                     693                             ; SOURCE LINE # 247
-0009 EE              694             MOV     A,R6
-000A C4              695             SWAP    A
-000B 540F            696             ANL     A,#0FH
-000D FF              697             MOV     R7,A
-000E C3              698             CLR     C
-000F 940A            699             SUBB    A,#0AH
-0011 4006            700             JC      ?C0008
-0013 EF              701             MOV     A,R7
-0014 2437            702             ADD     A,#037H
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE    12
+                     672     ;     uart_init();
+                     673                             ; SOURCE LINE # 228
+0006 120000   F      674             LCALL   uart_init
+                     675     ; 
+                     676     ;     uart_send(HEX2CHAR(hex / 16));
+                     677                             ; SOURCE LINE # 230
+0009 EE              678             MOV     A,R6
+000A C4              679             SWAP    A
+000B 540F            680             ANL     A,#0FH
+000D FF              681             MOV     R7,A
+000E C3              682             CLR     C
+000F 940A            683             SUBB    A,#0AH
+0011 4006            684             JC      ?C0008
+0013 EF              685             MOV     A,R7
+0014 2437            686             ADD     A,#037H
+0016 FF              687             MOV     R7,A
+0017 8007            688             SJMP    ?C0009
+0019                 689     ?C0008:
+0019 EE              690             MOV     A,R6
+001A C4              691             SWAP    A
+001B 540F            692             ANL     A,#0FH
+001D 2430            693             ADD     A,#030H
+001F FF              694             MOV     R7,A
+0020                 695     ?C0009:
+0020 120000   F      696             LCALL   _uart_send
+                     697     ;     uart_send(HEX2CHAR(hex % 16));
+                     698                             ; SOURCE LINE # 231
+0023 EE              699             MOV     A,R6
+0024 540F            700             ANL     A,#0FH
+0026 FF              701             MOV     R7,A
+0027 C3              702             CLR     C
+0028 940A            703             SUBB    A,#0AH
+002A 4006            704             JC      ?C0010
+002C EF              705             MOV     A,R7
+002D 2437            706             ADD     A,#037H
+002F FF              707             MOV     R7,A
+0030 8006            708             SJMP    ?C0011
+0032                 709     ?C0010:
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    12
 
-0016 FF              703             MOV     R7,A
-0017 8007            704             SJMP    ?C0009
-0019                 705     ?C0008:
-0019 EE              706             MOV     A,R6
-001A C4              707             SWAP    A
-001B 540F            708             ANL     A,#0FH
-001D 2430            709             ADD     A,#030H
-001F FF              710             MOV     R7,A
-0020                 711     ?C0009:
-0020 120000   F      712             LCALL   _uart_send
-                     713     ;       uart_send(HEX2CHAR(hex % 16));
-                     714                             ; SOURCE LINE # 248
-0023 EE              715             MOV     A,R6
-0024 540F            716             ANL     A,#0FH
-0026 FF              717             MOV     R7,A
-0027 C3              718             CLR     C
-0028 940A            719             SUBB    A,#0AH
-002A 4006            720             JC      ?C0010
-002C EF              721             MOV     A,R7
-002D 2437            722             ADD     A,#037H
-002F FF              723             MOV     R7,A
-0030 8006            724             SJMP    ?C0011
-0032                 725     ?C0010:
-0032 EE              726             MOV     A,R6
-0033 540F            727             ANL     A,#0FH
-0035 2430            728             ADD     A,#030H
-0037 FF              729             MOV     R7,A
-0038                 730     ?C0011:
-0038 120000   F      731             LCALL   _uart_send
-                     732     ; 
-                     733     ;     if (!state) {
-                     734                             ; SOURCE LINE # 250
-003B 200003   F      735             JB      state?444,?C0013
-                     736     ;         uart_deinit();
-                     737                             ; SOURCE LINE # 251
-003E 120000   F      738             LCALL   uart_deinit
-                     739     ;     }
-                     740                             ; SOURCE LINE # 252
-                     741     ; }
-                     742                             ; SOURCE LINE # 253
-0041                 743     ?C0013:
-0041 22              744             RET     
-                     745     ; END OF _print_hex
-                     746     
-                     747     ; 
-                     748     ; void print_dec(unsigned char dec)
-                     749     
-----                 750             RSEG  ?PR?_print_dec?SOFT_UART
-0000                 751     _print_dec:
-                     752             USING   0
-                     753                             ; SOURCE LINE # 255
-                     754     ;---- Variable 'dec?545' assigned to Register 'R6' ----
-0000 AE07            755             MOV     R6,AR7
-                     756     ; {
-                     757                             ; SOURCE LINE # 256
-                     758     ;     bit state = init;
-                     759                             ; SOURCE LINE # 257
-0002 A200     F      760             MOV     C,init
-0004 9200     F      761             MOV     state?546,C
-                     762     ; 
-                     763     ;     uart_init();
-                     764                             ; SOURCE LINE # 259
-0006 120000   F      765             LCALL   uart_init
-                     766     ; 
-                     767     ;       uart_send(DEC2CHAR(dec / 100));
-                     768                             ; SOURCE LINE # 261
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE    13
+0032 EE              710             MOV     A,R6
+0033 540F            711             ANL     A,#0FH
+0035 2430            712             ADD     A,#030H
+0037 FF              713             MOV     R7,A
+0038                 714     ?C0011:
+0038 120000   F      715             LCALL   _uart_send
+                     716     ; 
+                     717     ;     if (!state) {
+                     718                             ; SOURCE LINE # 233
+003B 200003   F      719             JB      state?444,?C0013
+                     720     ;         uart_deinit();
+                     721                             ; SOURCE LINE # 234
+003E 120000   F      722             LCALL   uart_deinit
+                     723     ;     }
+                     724                             ; SOURCE LINE # 235
+                     725     ; }
+                     726                             ; SOURCE LINE # 236
+0041                 727     ?C0013:
+0041 22              728             RET     
+                     729     ; END OF _print_hex
+                     730     
+                     731     ; 
+                     732     ; void print_dec(unsigned char dec)
+                     733     
+----                 734             RSEG  ?PR?_print_dec?SOFT_UART
+0000                 735     _print_dec:
+                     736             USING   0
+                     737                             ; SOURCE LINE # 238
+                     738     ;---- Variable 'dec?545' assigned to Register 'R6' ----
+0000 AE07            739             MOV     R6,AR7
+                     740     ; {
+                     741                             ; SOURCE LINE # 239
+                     742     ;     bit state = init;
+                     743                             ; SOURCE LINE # 240
+0002 A200     F      744             MOV     C,init
+0004 9200     F      745             MOV     state?546,C
+                     746     ; 
+                     747     ;     uart_init();
+                     748                             ; SOURCE LINE # 242
+0006 120000   F      749             LCALL   uart_init
+                     750     ; 
+                     751     ;     uart_send(DEC2CHAR(dec / 100));
+                     752                             ; SOURCE LINE # 244
+0009 EE              753             MOV     A,R6
+000A 75F064          754             MOV     B,#064H
+000D 84              755             DIV     AB
+000E 2430            756             ADD     A,#030H
+0010 FF              757             MOV     R7,A
+0011 120000   F      758             LCALL   _uart_send
+                     759     ;     uart_send(DEC2CHAR(dec / 10 % 10));
+                     760                             ; SOURCE LINE # 245
+0014 EE              761             MOV     A,R6
+0015 75F00A          762             MOV     B,#0AH
+0018 84              763             DIV     AB
+0019 120000   F      764             LCALL   L?0017
+                     765     ;     uart_send(DEC2CHAR(dec % 10));
+                     766                             ; SOURCE LINE # 246
+001C EE              767             MOV     A,R6
+001D 120000   F      768             LCALL   L?0017
+                     769     ; 
+                     770     ;     if (!state) {
+                     771                             ; SOURCE LINE # 248
+0020 200003   F      772             JB      state?546,?C0015
+                     773     ;         uart_deinit();
+                     774                             ; SOURCE LINE # 249
+0023 120000   F      775             LCALL   uart_deinit
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    13
 
-0009 EE              769             MOV     A,R6
-000A 75F064          770             MOV     B,#064H
-000D 84              771             DIV     AB
-000E 2430            772             ADD     A,#030H
-0010 FF              773             MOV     R7,A
-0011 120000   F      774             LCALL   _uart_send
-                     775     ;       uart_send(DEC2CHAR(dec / 10 % 10));
-                     776                             ; SOURCE LINE # 262
-0014 EE              777             MOV     A,R6
-0015 75F00A          778             MOV     B,#0AH
-0018 84              779             DIV     AB
-0019 120000   F      780             LCALL   L?0017
-                     781     ;       uart_send(DEC2CHAR(dec % 10));
-                     782                             ; SOURCE LINE # 263
-001C EE              783             MOV     A,R6
-001D 120000   F      784             LCALL   L?0017
-                     785     ; 
-                     786     ;     if (!state) {
-                     787                             ; SOURCE LINE # 265
-0020 200003   F      788             JB      state?546,?C0015
-                     789     ;         uart_deinit();
-                     790                             ; SOURCE LINE # 266
-0023 120000   F      791             LCALL   uart_deinit
-                     792     ;     }
-                     793                             ; SOURCE LINE # 267
-                     794     ; }
-                     795                             ; SOURCE LINE # 268
-0026                 796     ?C0015:
-0026 22              797             RET     
-                     798     ; END OF _print_dec
-                     799     
-                     800             END
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE    14
+                     776     ;     }
+                     777                             ; SOURCE LINE # 250
+                     778     ; }
+                     779                             ; SOURCE LINE # 251
+0026                 780     ?C0015:
+0026 22              781             RET     
+                     782     ; END OF _print_dec
+                     783     
+                     784             END
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    14
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -915,7 +892,7 @@ CCAP1H. . . . . . . . . .  D ADDR   00FBH   A
 CCAP1L. . . . . . . . . .  D ADDR   00EBH   A   
 CCAP2H. . . . . . . . . .  D ADDR   00FCH   A   
 CCAP2L. . . . . . . . . .  D ADDR   00ECH   A   
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE    15
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    15
 
 CCAPM0. . . . . . . . . .  D ADDR   00DAH   A   
 CCAPM1. . . . . . . . . .  D ADDR   00DBH   A   
@@ -983,7 +960,7 @@ P0. . . . . . . . . . . .  D ADDR   0080H   A
 P00 . . . . . . . . . . .  B ADDR   0080H.0 A   
 P01 . . . . . . . . . . .  B ADDR   0080H.1 A   
 P02 . . . . . . . . . . .  B ADDR   0080H.2 A   
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE    16
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    16
 
 P03 . . . . . . . . . . .  B ADDR   0080H.3 A   
 P04 . . . . . . . . . . .  B ADDR   0080H.4 A   
@@ -1051,7 +1028,7 @@ P5M1. . . . . . . . . . .  D ADDR   00C9H   A
 P6. . . . . . . . . . . .  D ADDR   00E8H   A   
 P6M0. . . . . . . . . . .  D ADDR   00CCH   A   
 P6M1. . . . . . . . . . .  D ADDR   00CBH   A   
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE    17
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    17
 
 P7. . . . . . . . . . . .  D ADDR   00F8H   A   
 P7M0. . . . . . . . . . .  D ADDR   00E2H   A   
@@ -1119,7 +1096,7 @@ SPI_SCLK_2. . . . . . . .  B ADDR   00A0H.1 A
 SPI_SCLK_3. . . . . . . .  B ADDR   00C0H.3 A   
 SPI_SS. . . . . . . . . .  B ADDR   0090H.2 A   
 SPI_SS_2. . . . . . . . .  B ADDR   00A0H.4 A   
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 11:38:20 PAGE    18
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    18
 
 SPI_SS_3. . . . . . . . .  B ADDR   00C8H.4 A   
 SPSTAT. . . . . . . . . .  D ADDR   00CDH   A   

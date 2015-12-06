@@ -1,4 +1,4 @@
-C51 COMPILER V7.08   DELAY                        12/06/2015 11:23:58 PAGE 1   
+C51 COMPILER V7.08   DELAY                        12/06/2015 14:16:04 PAGE 1   
 
 
 C51 COMPILER V7.08, COMPILATION OF MODULE DELAY
@@ -50,23 +50,22 @@ line level    source
   28          // 返回: none.
   29          // 版本: VER1.0
   30          // 日期: 2013-4-1
-  31          // 备注: 
+  31          // 备注:
   32          //===============================================================
              -=========
   33          void  delay_ms(unsigned int ms)
   34          {
-  35   1           unsigned int i;
-  36   1               while (ms--)   
-  37   1               {
-  38   2                    i = MAIN_Fosc / 13000;
-  39   2                        while(i--);   //14T per loop
-  40   2           }
-  41   1      }
+  35   1          unsigned int i;
+  36   1          while (ms--) {
+  37   2              i = MAIN_Fosc / 13000;
+  38   2              while(i--);   //14T per loop
+  39   2          }
+  40   1      }
 
-
-C51 COMPILER V7.08   DELAY                        12/06/2015 11:23:58 PAGE 2   
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
+C51 COMPILER V7.08   DELAY                        12/06/2015 14:16:04 PAGE 2   
+
    CODE SIZE        =     27    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----

@@ -138,7 +138,22 @@ main()
     gpio_init();
     ir_rcv_init();
 
+#if 0
+    //0x00FF0DF2
+
     //breath_led();
+    Ir_Buf[0] = 0x00;
+    Ir_Buf[1] = 0xFF;
+    Ir_Buf[2] = 0x0D;
+    Ir_Buf[3] = 0xF2;
+    while (1) {
+        ir_send(Ir_Buf);
+        delay_ms(200);
+        COLOR_LED = 0;
+        delay_ms(200);
+        COLOR_LED = 1;
+    }
+#endif
 
     while (1) {
 #if 0
