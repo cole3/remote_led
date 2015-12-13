@@ -1,4 +1,4 @@
-C51 COMPILER V7.08   IR                           12/06/2015 18:14:15 PAGE 1   
+C51 COMPILER V7.08   IR                           12/13/2015 17:07:06 PAGE 1   
 
 
 C51 COMPILER V7.08, COMPILATION OF MODULE IR
@@ -64,7 +64,7 @@ line level    source
   53   1          tim_type.TIM_Run = enable;
   54   1          tim_type.TIM_Isr = ir_rcv_isr;
   55   1          Timer_Inilize(Timer1, &tim_type);
-C51 COMPILER V7.08   IR                           12/06/2015 18:14:15 PAGE 2   
+C51 COMPILER V7.08   IR                           12/13/2015 17:07:06 PAGE 2   
 
   56   1      }
   57          
@@ -130,7 +130,7 @@ line level    source
  117   1      
  118   1          return 1;
  119   1      }
-C51 COMPILER V7.08   IR                           12/06/2015 18:14:15 PAGE 3   
+C51 COMPILER V7.08   IR                           12/13/2015 17:07:06 PAGE 3   
 
  120          
  121          #ifdef CONFIG_RC3_CODE
@@ -183,235 +183,237 @@ line level    source
  168   2              return 0;
  169   2          }
  170   1      
- 171   1          ir_rcv_t0_timer_cfg();
+ 171   1          SYSTEM_CLK_1T();
  172   1      
- 173   1          temp = Ir_Get_Low();
- 174   1          if (temp > 3000 && temp < 8755) {
- 175   2              ret = nec_decode(key);
- 176   2          }
- 177   1      #ifdef CONFIG_RC3_CODE
+ 173   1          ir_rcv_t0_timer_cfg();
+ 174   1      
+ 175   1          temp = Ir_Get_Low();
+ 176   1          if (temp > 3000 && temp < 8755) {
+ 177   2              ret = nec_decode(key);
+ 178   2          }
+ 179   1      #ifdef CONFIG_RC3_CODE
                   else if (temp <= 3000) {
                       ret = rc5_decode(key);
                   }
               #endif
- 182   1      
- 183   1          ir_rcv_int = 0;
-C51 COMPILER V7.08   IR                           12/06/2015 18:14:15 PAGE 4   
+C51 COMPILER V7.08   IR                           12/13/2015 17:07:06 PAGE 4   
 
- 184   1          Timer1_InterruptEnable();
- 185   1      
- 186   1          return ret;
- 187   1      }
+ 184   1      
+ 185   1          ir_rcv_int = 0;
+ 186   1          Timer1_InterruptEnable();
+ 187   1      
+ 188   1          return ret;
+ 189   1      }
 *** WARNING C280 IN LINE 165 OF SOURCE\IR.C: 'i': unreferenced local variable
 *** WARNING C280 IN LINE 165 OF SOURCE\IR.C: 'j': unreferenced local variable
- 188          
- 189          void ir_rcv_init(void)
- 190          {
- 191   1          ir_rcv_t1_timer_cfg(ENABLE);
- 192   1          ir_rcv_int = 0;
- 193   1      }
- 194          
- 195          void ir_rcv_deinit(void)
- 196          {
- 197   1          ir_rcv_t1_timer_cfg(DISABLE);
- 198   1          ir_rcv_int = 0;
- 199   1      }
- 200          
- 201          
+ 190          
+ 191          void ir_rcv_init(void)
+ 192          {
+ 193   1          ir_rcv_t1_timer_cfg(ENABLE);
+ 194   1          ir_rcv_int = 0;
+ 195   1      }
+ 196          
+ 197          void ir_rcv_deinit(void)
+ 198          {
+ 199   1          ir_rcv_t1_timer_cfg(DISABLE);
+ 200   1          ir_rcv_int = 0;
+ 201   1      }
  202          
- 203          static bit ir_out;
- 204          static unsigned char ir_cnt;
- 205          
- 206          void ir_send_isr(void)
- 207          {
- 208   1          if (ir_out) {
- 209   2              IR_SEND = !IR_SEND;
- 210   2          }
- 211   1      
- 212   1          if (ir_cnt) {
- 213   2              ir_cnt--;
- 214   2          }
- 215   1      }
- 216          
- 217          void ir_send_t0_timer_cfg(bit enable)
- 218          {
- 219   1          TIM_InitTypeDef tim_type;
- 220   1      
- 221   1          tim_type.TIM_Mode = TIM_16BitAutoReload;
- 222   1          tim_type.TIM_Polity = 1;
- 223   1          tim_type.TIM_Interrupt = enable;
- 224   1          tim_type.TIM_ClkSource = TIM_CLOCK_12T;
- 225   1          tim_type.TIM_ClkOut = DISABLE;
- 226   1          tim_type.TIM_Value = 65536 - MAIN_Fosc / (38000 * 2);
- 227   1          tim_type.TIM_Run = enable;
- 228   1          tim_type.TIM_Isr = ir_send_isr;
- 229   1          Timer_Inilize(Timer0, &tim_type);
- 230   1      }
- 231          
- 232          
- 233          #pragma asm
- 234                  // 1 cycle = 1/38K = 291 clock = 145 + 146
- 235          CYCLE:  SETB    IR_SEND         // 4
- 236                  NOP                     // 1
- 237                  MOV     R0,     #33     // 2
- 238                  DJNZ    R0,     $       // 4 * 33 = 132
- 239          
- 240                  CLR     IR_SEND         // 4
- 241                  MOV     R0,     #33     // 2
- 242                  DJNZ    R0,     $       // 4 * 33 = 132
- 243                  RET                     // 4
- 244          
- 245                  // 0 bit = cycle(560us) + 0(560us) = cycle(21 cycle) + 0(
-C51 COMPILER V7.08   IR                           12/06/2015 18:14:15 PAGE 5   
+ 203          
+ 204          
+ 205          static bit ir_out;
+ 206          static unsigned char ir_cnt;
+ 207          
+ 208          void ir_send_isr(void)
+ 209          {
+ 210   1          if (ir_out) {
+ 211   2              IR_SEND = !IR_SEND;
+ 212   2          }
+ 213   1      
+ 214   1          if (ir_cnt) {
+ 215   2              ir_cnt--;
+ 216   2          }
+ 217   1      }
+ 218          
+ 219          void ir_send_t0_timer_cfg(bit enable)
+ 220          {
+ 221   1          TIM_InitTypeDef tim_type;
+ 222   1      
+ 223   1          tim_type.TIM_Mode = TIM_16BitAutoReload;
+ 224   1          tim_type.TIM_Polity = 1;
+ 225   1          tim_type.TIM_Interrupt = enable;
+ 226   1          tim_type.TIM_ClkSource = TIM_CLOCK_12T;
+ 227   1          tim_type.TIM_ClkOut = DISABLE;
+ 228   1          tim_type.TIM_Value = 65536 - MAIN_Fosc / (38000 * 2);
+ 229   1          tim_type.TIM_Run = enable;
+ 230   1          tim_type.TIM_Isr = ir_send_isr;
+ 231   1          Timer_Inilize(Timer0, &tim_type);
+ 232   1      }
+ 233          
+ 234          
+ 235          #pragma asm
+ 236                  // 1 cycle = 1/38K = 291 clock = 145 + 146
+ 237          CYCLE:  SETB    IR_SEND         // 4
+ 238                  NOP                     // 1
+ 239                  MOV     R0,     #33     // 2
+ 240                  DJNZ    R0,     $       // 4 * 33 = 132
+ 241          
+ 242                  CLR     IR_SEND         // 4
+ 243                  MOV     R0,     #33     // 2
+ 244                  DJNZ    R0,     $       // 4 * 33 = 132
+ 245                  RET                     // 4
+C51 COMPILER V7.08   IR                           12/13/2015 17:07:06 PAGE 5   
 
+ 246          
+ 247                  // 0 bit = cycle(560us) + 0(560us) = cycle(21 cycle) + 0(
              -6193.152 = 4*12*129 clock)
- 246          IRS0:   MOV     R1,     #21     // 2
- 247          CC1:    LCALL   CYCLE           // 6
- 248                  DJNZ    R1,     CC1     // 4
- 249          
- 250                  MOV     R2,     #12    // 2
- 251          CC2:    MOV     R1,     #129    // 2
- 252                  DJNZ    R1,     $       // 4
- 253                  DJNZ    R2,     CC2     // 4
- 254                  RET
- 255          
- 256                  // 1 bit = cycle(560us) + 0(1690us) = cycle(21 cycle) + 0
+ 248          IRS0:   MOV     R1,     #21     // 2
+ 249          CC1:    LCALL   CYCLE           // 6
+ 250                  DJNZ    R1,     CC1     // 4
+ 251          
+ 252                  MOV     R2,     #12    // 2
+ 253          CC2:    MOV     R1,     #129    // 2
+ 254                  DJNZ    R1,     $       // 4
+ 255                  DJNZ    R2,     CC2     // 4
+ 256                  RET
+ 257          
+ 258                  // 1 bit = cycle(560us) + 0(1690us) = cycle(21 cycle) + 0
              -(18690.048 = 4*32*146 clock)
- 257          IRS1:   MOV     R1,     #21     // 2
- 258          CC3:    LCALL   CYCLE           // 6
- 259                  DJNZ    R1,     CC3     // 4
- 260          
- 261                  MOV     R2,     #32     // 2
- 262          CC4:    MOV     R1,     #146    // 2
- 263                  DJNZ    R1,     $       // 4
- 264                  DJNZ    R2,     CC4     // 4
- 265                  RET
- 266          #pragma endasm
- 267          
- 268          bit ir_send(unsigned char *key)
- 269          {
- 270   1      #pragma asm
- 271   1              PUSH    ACC
- 272   1              MOV     ACC,    R0
+ 259          IRS1:   MOV     R1,     #21     // 2
+ 260          CC3:    LCALL   CYCLE           // 6
+ 261                  DJNZ    R1,     CC3     // 4
+ 262          
+ 263                  MOV     R2,     #32     // 2
+ 264          CC4:    MOV     R1,     #146    // 2
+ 265                  DJNZ    R1,     $       // 4
+ 266                  DJNZ    R2,     CC4     // 4
+ 267                  RET
+ 268          #pragma endasm
+ 269          
+ 270          bit ir_send(unsigned char *key)
+ 271          {
+ 272   1      #pragma asm
  273   1              PUSH    ACC
- 274   1              MOV     ACC,    R1
+ 274   1              MOV     ACC,    R0
  275   1              PUSH    ACC
- 276   1              MOV     ACC,    R2
+ 276   1              MOV     ACC,    R1
  277   1              PUSH    ACC
- 278   1              MOV     ACC,    R3
+ 278   1              MOV     ACC,    R2
  279   1              PUSH    ACC
- 280   1              MOV     ACC,    R4
+ 280   1              MOV     ACC,    R3
  281   1              PUSH    ACC
- 282   1              MOV     ACC,    R5
+ 282   1              MOV     ACC,    R4
  283   1              PUSH    ACC
- 284   1      
- 285   1              MOV     A,      R1
- 286   1              MOV     R5,     A
- 287   1      
- 288   1              // send start code: 0(9000us = 342 cycle = 171 + 171) + 1
+ 284   1              MOV     ACC,    R5
+ 285   1              PUSH    ACC
+ 286   1      
+ 287   1              MOV     A,      R1
+ 288   1              MOV     R5,     A
+ 289   1      
+ 290   1              // send start code: 0(9000us = 342 cycle = 171 + 171) + 1
              -(4500us = 49767 clock = 4 * 49 * 255)
- 289   1              MOV     R1,     #170    // 2
- 290   1              MOV     R2,     #170    // 2
- 291   1      C1:     LCALL   CYCLE           // 6
- 292   1              DJNZ    R1,     C1      // 4
- 293   1      C2:     LCALL   CYCLE           // 6
- 294   1              DJNZ    R2,     C2      // 4
- 295   1      
- 296   1              MOV     R2,     #49     // 2
- 297   1      C3:     MOV     R1,     #255    // 2
- 298   1              DJNZ    R1,     $       // 4
- 299   1              DJNZ    R2,     C3      // 4
- 300   1      
- 301   1              // send byte
- 302   1              MOV     R4,     #4      //
- 303   1      C7:     MOV     A,      R5
- 304   1              MOV     R0,     A
- 305   1              MOV     A,      @R0     //
- 306   1              INC     R5
-C51 COMPILER V7.08   IR                           12/06/2015 18:14:15 PAGE 6   
+ 291   1              MOV     R1,     #170    // 2
+ 292   1              MOV     R2,     #170    // 2
+ 293   1      C1:     LCALL   CYCLE           // 6
+ 294   1              DJNZ    R1,     C1      // 4
+ 295   1      C2:     LCALL   CYCLE           // 6
+ 296   1              DJNZ    R2,     C2      // 4
+ 297   1      
+ 298   1              MOV     R2,     #49     // 2
+ 299   1      C3:     MOV     R1,     #255    // 2
+ 300   1              DJNZ    R1,     $       // 4
+ 301   1              DJNZ    R2,     C3      // 4
+ 302   1      
+ 303   1              // send byte
+ 304   1              MOV     R4,     #4      //
+ 305   1      C7:     MOV     A,      R5
+ 306   1              MOV     R0,     A
+C51 COMPILER V7.08   IR                           12/13/2015 17:07:06 PAGE 6   
 
- 307   1              MOV     R3,     #8      //
- 308   1      C6:     RRC     A               // 1
- 309   1              JC      C4              // 3
- 310   1              LCALL   IRS0            // 6
- 311   1              LJMP    C5
- 312   1      C4:     LCALL   IRS1            // 6
- 313   1      C5:     DJNZ    R3,     C6      // 4
- 314   1              DJNZ    R4,     C7      // 4
- 315   1      
- 316   1              MOV     R0,     #0FFH
- 317   1              DJNZ    R0,     $
- 318   1      
- 319   1              POP     ACC
- 320   1              MOV     R5,     ACC
+ 307   1              MOV     A,      @R0     //
+ 308   1              INC     R5
+ 309   1              MOV     R3,     #8      //
+ 310   1      C6:     RRC     A               // 1
+ 311   1              JC      C4              // 3
+ 312   1              LCALL   IRS0            // 6
+ 313   1              LJMP    C5
+ 314   1      C4:     LCALL   IRS1            // 6
+ 315   1      C5:     DJNZ    R3,     C6      // 4
+ 316   1              DJNZ    R4,     C7      // 4
+ 317   1      
+ 318   1              MOV     R0,     #0FFH
+ 319   1              DJNZ    R0,     $
+ 320   1      
  321   1              POP     ACC
- 322   1              MOV     R4,     ACC
+ 322   1              MOV     R5,     ACC
  323   1              POP     ACC
- 324   1              MOV     R3,     ACC
+ 324   1              MOV     R4,     ACC
  325   1              POP     ACC
- 326   1              MOV     R2,     ACC
+ 326   1              MOV     R3,     ACC
  327   1              POP     ACC
- 328   1              MOV     R1,     ACC
+ 328   1              MOV     R2,     ACC
  329   1              POP     ACC
- 330   1              MOV     R0,     ACC
+ 330   1              MOV     R1,     ACC
  331   1              POP     ACC
- 332   1      #pragma endasm
- 333   1      
- 334   1          return 0;
- 335   1      }
-*** WARNING C280 IN LINE 268 OF SOURCE\IR.C: 'key': unreferenced local variable
- 336          
- 337          void ir_send_init(void)
- 338          {
- 339   1          IR_SEND = 1;
- 340   1          ir_out = 0;
- 341   1          ir_cnt = 0;
- 342   1          ir_send_t0_timer_cfg(ENABLE);
- 343   1      }
- 344          
- 345          void ir_send_deinit(void)
- 346          {
- 347   1          ir_send_t0_timer_cfg(DISABLE);
- 348   1          IR_SEND = 1;
- 349   1          ir_out = 0;
- 350   1          ir_cnt = 0;
- 351   1      }
- 352          
- 353          
- 354          bit check_ir_loop(void)
- 355          {
- 356   1          unsigned char n = 2;
- 357   1      
- 358   1          ir_send_init();
+ 332   1              MOV     R0,     ACC
+ 333   1              POP     ACC
+ 334   1      #pragma endasm
+ 335   1      
+ 336   1          return 0;
+ 337   1      }
+*** WARNING C280 IN LINE 270 OF SOURCE\IR.C: 'key': unreferenced local variable
+ 338          
+ 339          void ir_send_init(void)
+ 340          {
+ 341   1          IR_SEND = 1;
+ 342   1          ir_out = 0;
+ 343   1          ir_cnt = 0;
+ 344   1          ir_send_t0_timer_cfg(ENABLE);
+ 345   1      }
+ 346          
+ 347          void ir_send_deinit(void)
+ 348          {
+ 349   1          ir_send_t0_timer_cfg(DISABLE);
+ 350   1          IR_SEND = 1;
+ 351   1          ir_out = 0;
+ 352   1          ir_cnt = 0;
+ 353   1      }
+ 354          
+ 355          
+ 356          bit check_ir_loop(void)
+ 357          {
+ 358   1          unsigned char n = 2;
  359   1      
- 360   1          do {
- 361   2              if (ir_rcv_int) {
- 362   3                  break;
- 363   3              }
- 364   2              ir_cnt = 10;
- 365   2              ir_out = 1;
- 366   2              while (ir_cnt);
- 367   2              ir_out = 0;
- 368   2      
- 369   2              if (!ir_rcv_int) {
-C51 COMPILER V7.08   IR                           12/06/2015 18:14:15 PAGE 7   
+ 360   1          ir_send_init();
+ 361   1      
+ 362   1          do {
+ 363   2              if (ir_rcv_int) {
+ 364   3                  break;
+ 365   3              }
+ 366   2              ir_cnt = 10;
+ 367   2              ir_out = 1;
+ 368   2              while (ir_cnt);
+ 369   2              ir_out = 0;
+C51 COMPILER V7.08   IR                           12/13/2015 17:07:06 PAGE 7   
 
- 370   3                  break;
- 371   3              }
- 372   2              ir_rcv_int = 0;
- 373   2              Timer1_InterruptEnable();
- 374   2      
- 375   2              delay_ms(1);
- 376   2          } while (--n);
- 377   1      
- 378   1          ir_send_deinit();
+ 370   2      
+ 371   2              if (!ir_rcv_int) {
+ 372   3                  break;
+ 373   3              }
+ 374   2              ir_rcv_int = 0;
+ 375   2              Timer1_InterruptEnable();
+ 376   2      
+ 377   2              delay_ms(1);
+ 378   2          } while (--n);
  379   1      
- 380   1          return (n == 0);
- 381   1      }
+ 380   1          ir_send_deinit();
+ 381   1      
+ 382   1          return (n == 0);
+ 383   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    718    ----
+   CODE SIZE        =    721    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

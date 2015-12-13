@@ -872,16 +872,20 @@ _ir_rcv:
 			; SOURCE LINE # 169
 ?C0024:
 ; 
-;     ir_rcv_t0_timer_cfg();
+;     SYSTEM_CLK_1T();
 			; SOURCE LINE # 171
+	ANL  	CLK_DIV,#0F8H
+; 
+;     ir_rcv_t0_timer_cfg();
+			; SOURCE LINE # 173
 	LCALL	ir_rcv_t0_timer_cfg
 ; 
 ;     temp = Ir_Get_Low();
-			; SOURCE LINE # 173
+			; SOURCE LINE # 175
 	LCALL	Ir_Get_Low
 ;---- Variable 'temp?650' assigned to Register 'R6/R7' ----
 ;     if (temp > 3000 && temp < 8755) {
-			; SOURCE LINE # 174
+			; SOURCE LINE # 176
 	SETB 	C
 	MOV  	A,R7
 	SUBB 	A,#0B8H
@@ -894,14 +898,14 @@ _ir_rcv:
 	SUBB 	A,#022H
 	JNC  	?C0026
 ;         ret = nec_decode(key);
-			; SOURCE LINE # 175
+			; SOURCE LINE # 177
 	MOV  	R3,key?649
 	MOV  	R2,key?649+01H
 	MOV  	R1,key?649+02H
 	LCALL	_nec_decode
 	MOV  	ret?651,C
 ;     }
-			; SOURCE LINE # 176
+			; SOURCE LINE # 178
 ?C0026:
 ; #ifdef CONFIG_RC3_CODE
 ;     else if (temp <= 3000) {
@@ -910,17 +914,17 @@ _ir_rcv:
 ; #endif
 ; 
 ;     ir_rcv_int = 0;
-			; SOURCE LINE # 183
+			; SOURCE LINE # 185
 	CLR  	ir_rcv_int
 ;     Timer1_InterruptEnable();
-			; SOURCE LINE # 184
+			; SOURCE LINE # 186
 	SETB 	ET1
 ; 
 ;     return ret;
-			; SOURCE LINE # 186
+			; SOURCE LINE # 188
 	MOV  	C,ret?651
 ; }
-			; SOURCE LINE # 187
+			; SOURCE LINE # 189
 ?C0025:
 	RET  	
 ; END OF _ir_rcv
@@ -931,18 +935,18 @@ _ir_rcv:
 	RSEG  ?PR?ir_rcv_init?IR
 ir_rcv_init:
 	USING	0
-			; SOURCE LINE # 189
-; {
-			; SOURCE LINE # 190
-;     ir_rcv_t1_timer_cfg(ENABLE);
 			; SOURCE LINE # 191
+; {
+			; SOURCE LINE # 192
+;     ir_rcv_t1_timer_cfg(ENABLE);
+			; SOURCE LINE # 193
 	SETB 	?ir_rcv_t1_timer_cfg?BIT
 	LCALL	ir_rcv_t1_timer_cfg
 ;     ir_rcv_int = 0;
-			; SOURCE LINE # 192
+			; SOURCE LINE # 194
 	CLR  	ir_rcv_int
 ; }
-			; SOURCE LINE # 193
+			; SOURCE LINE # 195
 	RET  	
 ; END OF ir_rcv_init
 
@@ -952,18 +956,18 @@ ir_rcv_init:
 	RSEG  ?PR?ir_rcv_deinit?IR
 ir_rcv_deinit:
 	USING	0
-			; SOURCE LINE # 195
-; {
-			; SOURCE LINE # 196
-;     ir_rcv_t1_timer_cfg(DISABLE);
 			; SOURCE LINE # 197
+; {
+			; SOURCE LINE # 198
+;     ir_rcv_t1_timer_cfg(DISABLE);
+			; SOURCE LINE # 199
 	CLR  	?ir_rcv_t1_timer_cfg?BIT
 	LCALL	ir_rcv_t1_timer_cfg
 ;     ir_rcv_int = 0;
-			; SOURCE LINE # 198
+			; SOURCE LINE # 200
 	CLR  	ir_rcv_int
 ; }
-			; SOURCE LINE # 199
+			; SOURCE LINE # 201
 	RET  	
 ; END OF ir_rcv_deinit
 
@@ -977,30 +981,30 @@ ir_rcv_deinit:
 
 	RSEG  ?PR?ir_send_isr?IR
 ir_send_isr:
-			; SOURCE LINE # 206
-; {
-			; SOURCE LINE # 207
-;     if (ir_out) {
 			; SOURCE LINE # 208
+; {
+			; SOURCE LINE # 209
+;     if (ir_out) {
+			; SOURCE LINE # 210
 	JNB  	ir_out,?C0029
 ;         IR_SEND = !IR_SEND;
-			; SOURCE LINE # 209
+			; SOURCE LINE # 211
 	CPL  	P34
 ;     }
-			; SOURCE LINE # 210
+			; SOURCE LINE # 212
 ?C0029:
 ; 
 ;     if (ir_cnt) {
-			; SOURCE LINE # 212
+			; SOURCE LINE # 214
 	MOV  	A,ir_cnt
 	JZ   	?C0031
 ;         ir_cnt--;
-			; SOURCE LINE # 213
+			; SOURCE LINE # 215
 	DEC  	ir_cnt
 ;     }
-			; SOURCE LINE # 214
+			; SOURCE LINE # 216
 ; }
-			; SOURCE LINE # 215
+			; SOURCE LINE # 217
 ?C0031:
 	RET  	
 ; END OF ir_send_isr
@@ -1011,45 +1015,45 @@ ir_send_isr:
 	RSEG  ?PR?ir_send_t0_timer_cfg?IR
 ir_send_t0_timer_cfg:
 	USING	0
-			; SOURCE LINE # 217
+			; SOURCE LINE # 219
 ; {
-			; SOURCE LINE # 218
+			; SOURCE LINE # 220
 ;     TIM_InitTypeDef tim_type;
 ; 
 ;     tim_type.TIM_Mode = TIM_16BitAutoReload;
-			; SOURCE LINE # 221
+			; SOURCE LINE # 223
 	CLR  	A
 	MOV  	tim_type?1055,A
 ;     tim_type.TIM_Polity = 1;
-			; SOURCE LINE # 222
+			; SOURCE LINE # 224
 	MOV  	tim_type?1055+01H,#01H
 ;     tim_type.TIM_Interrupt = enable;
-			; SOURCE LINE # 223
+			; SOURCE LINE # 225
 	MOV  	C,enable?1054
 	RLC  	A
 	MOV  	R7,A
 	MOV  	tim_type?1055+02H,A
 ;     tim_type.TIM_ClkSource = TIM_CLOCK_12T;
-			; SOURCE LINE # 224
+			; SOURCE LINE # 226
 	MOV  	tim_type?1055+03H,#01H
 ;     tim_type.TIM_ClkOut = DISABLE;
-			; SOURCE LINE # 225
+			; SOURCE LINE # 227
 	CLR  	A
 	MOV  	tim_type?1055+04H,A
 ;     tim_type.TIM_Value = 65536 - MAIN_Fosc / (38000 * 2);
-			; SOURCE LINE # 226
+			; SOURCE LINE # 228
 	MOV  	tim_type?1055+05H,#0FFH
 	MOV  	tim_type?1055+06H,#06FH
 ;     tim_type.TIM_Run = enable;
-			; SOURCE LINE # 227
+			; SOURCE LINE # 229
 	MOV  	tim_type?1055+07H,R7
 ;     tim_type.TIM_Isr = ir_send_isr;
-			; SOURCE LINE # 228
+			; SOURCE LINE # 230
 	MOV  	tim_type?1055+08H,#0FFH
 	MOV  	tim_type?1055+09H,#HIGH (ir_send_isr)
 	MOV  	tim_type?1055+0AH,#LOW (ir_send_isr)
 ;     Timer_Inilize(Timer0, &tim_type);
-			; SOURCE LINE # 229
+			; SOURCE LINE # 231
 	MOV  	R3,A
 	MOV  	R2,#HIGH (tim_type?1055)
 	MOV  	R1,#LOW (tim_type?1055)
@@ -1099,12 +1103,12 @@ ir_send_t0_timer_cfg:
 
 	RSEG  ?PR?_ir_send?IR
 _ir_send:
-			; SOURCE LINE # 268
+			; SOURCE LINE # 270
 	MOV  	key?1156,R3
 	MOV  	key?1156+01H,R2
 	MOV  	key?1156+02H,R1
 ; {
-			; SOURCE LINE # 269
+			; SOURCE LINE # 271
 ; #pragma asm
 ;         PUSH    ACC
 	  PUSH    ACC
@@ -1231,10 +1235,10 @@ _ir_send:
 ; #pragma endasm
 ; 
 ;     return 0;
-			; SOURCE LINE # 334
+			; SOURCE LINE # 336
 	CLR  	C
 ; }
-			; SOURCE LINE # 335
+			; SOURCE LINE # 337
 ?C0033:
 	RET  	
 ; END OF _ir_send
@@ -1245,21 +1249,21 @@ _ir_send:
 	RSEG  ?PR?ir_send_init?IR
 ir_send_init:
 	USING	0
-			; SOURCE LINE # 337
-; {
-			; SOURCE LINE # 338
-;     IR_SEND = 1;
 			; SOURCE LINE # 339
+; {
+			; SOURCE LINE # 340
+;     IR_SEND = 1;
+			; SOURCE LINE # 341
 	SETB 	P34
 ;     ir_out = 0;
-			; SOURCE LINE # 340
+			; SOURCE LINE # 342
 	CLR  	ir_out
 ;     ir_cnt = 0;
-			; SOURCE LINE # 341
+			; SOURCE LINE # 343
 	CLR  	A
 	MOV  	ir_cnt,A
 ;     ir_send_t0_timer_cfg(ENABLE);
-			; SOURCE LINE # 342
+			; SOURCE LINE # 344
 	SETB 	?ir_send_t0_timer_cfg?BIT
 	LJMP 	ir_send_t0_timer_cfg
 ; END OF ir_send_init
@@ -1271,25 +1275,25 @@ ir_send_init:
 	RSEG  ?PR?ir_send_deinit?IR
 ir_send_deinit:
 	USING	0
-			; SOURCE LINE # 345
-; {
-			; SOURCE LINE # 346
-;     ir_send_t0_timer_cfg(DISABLE);
 			; SOURCE LINE # 347
+; {
+			; SOURCE LINE # 348
+;     ir_send_t0_timer_cfg(DISABLE);
+			; SOURCE LINE # 349
 	CLR  	?ir_send_t0_timer_cfg?BIT
 	LCALL	ir_send_t0_timer_cfg
 ;     IR_SEND = 1;
-			; SOURCE LINE # 348
+			; SOURCE LINE # 350
 	SETB 	P34
 ;     ir_out = 0;
-			; SOURCE LINE # 349
+			; SOURCE LINE # 351
 	CLR  	ir_out
 ;     ir_cnt = 0;
-			; SOURCE LINE # 350
+			; SOURCE LINE # 352
 	CLR  	A
 	MOV  	ir_cnt,A
 ; }
-			; SOURCE LINE # 351
+			; SOURCE LINE # 353
 	RET  	
 ; END OF ir_send_deinit
 
@@ -1300,75 +1304,75 @@ ir_send_deinit:
 	RSEG  ?PR?check_ir_loop?IR
 check_ir_loop:
 	USING	0
-			; SOURCE LINE # 354
-; {
-			; SOURCE LINE # 355
-;     unsigned char n = 2;
 			; SOURCE LINE # 356
+; {
+			; SOURCE LINE # 357
+;     unsigned char n = 2;
+			; SOURCE LINE # 358
 	MOV  	n?1457,#02H
 ; 
 ;     ir_send_init();
-			; SOURCE LINE # 358
+			; SOURCE LINE # 360
 	LCALL	ir_send_init
 ?C0038:
 ; 
 ;     do {
-			; SOURCE LINE # 360
+			; SOURCE LINE # 362
 ;         if (ir_rcv_int) {
-			; SOURCE LINE # 361
+			; SOURCE LINE # 363
 	JB   	ir_rcv_int,?C0037
 ;             break;
-			; SOURCE LINE # 362
+			; SOURCE LINE # 364
 ;         }
-			; SOURCE LINE # 363
+			; SOURCE LINE # 365
 ?C0039:
 ;         ir_cnt = 10;
-			; SOURCE LINE # 364
+			; SOURCE LINE # 366
 	MOV  	ir_cnt,#0AH
 ;         ir_out = 1;
-			; SOURCE LINE # 365
+			; SOURCE LINE # 367
 	SETB 	ir_out
 ?C0040:
 ;         while (ir_cnt);
-			; SOURCE LINE # 366
+			; SOURCE LINE # 368
 	MOV  	A,ir_cnt
 	JNZ  	?C0040
 ?C0041:
 ;         ir_out = 0;
-			; SOURCE LINE # 367
+			; SOURCE LINE # 369
 	CLR  	ir_out
 ; 
 ;         if (!ir_rcv_int) {
-			; SOURCE LINE # 369
+			; SOURCE LINE # 371
 	JNB  	ir_rcv_int,?C0037
 ;             break;
-			; SOURCE LINE # 370
+			; SOURCE LINE # 372
 ;         }
-			; SOURCE LINE # 371
+			; SOURCE LINE # 373
 ?C0042:
 ;         ir_rcv_int = 0;
-			; SOURCE LINE # 372
+			; SOURCE LINE # 374
 	CLR  	ir_rcv_int
 ;         Timer1_InterruptEnable();
-			; SOURCE LINE # 373
+			; SOURCE LINE # 375
 	SETB 	ET1
 ; 
 ;         delay_ms(1);
-			; SOURCE LINE # 375
+			; SOURCE LINE # 377
 	MOV  	R7,#01H
 	MOV  	R6,#00H
 	LCALL	_delay_ms
 ;     } while (--n);
-			; SOURCE LINE # 376
+			; SOURCE LINE # 378
 	DJNZ 	n?1457,?C0038
 ?C0037:
 ; 
 ;     ir_send_deinit();
-			; SOURCE LINE # 378
+			; SOURCE LINE # 380
 	LCALL	ir_send_deinit
 ; 
 ;     return (n == 0);
-			; SOURCE LINE # 380
+			; SOURCE LINE # 382
 	MOV  	A,n?1457
 	JNZ  	?C0043
 	SETB 	C
@@ -1377,7 +1381,7 @@ check_ir_loop:
 	CLR  	C
 ?C0044:
 ; }
-			; SOURCE LINE # 381
+			; SOURCE LINE # 383
 ?C0045:
 	RET  	
 ; END OF check_ir_loop

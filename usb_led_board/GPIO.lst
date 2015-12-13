@@ -1,4 +1,4 @@
-C51 COMPILER V7.08   GPIO                         12/06/2015 14:16:05 PAGE 1   
+C51 COMPILER V7.08   GPIO                         12/08/2015 20:58:32 PAGE 1   
 
 
 C51 COMPILER V7.08, COMPILATION OF MODULE GPIO
@@ -64,7 +64,7 @@ line level    source
   40   2          }
   41   1          if(GPIO == GPIO_P3) {
   42   2              if(GPIOx->Mode == GPIO_PullUp)          P3M1 &= ~GPIOx->Pin,    P3M0
-C51 COMPILER V7.08   GPIO                         12/06/2015 14:16:05 PAGE 2   
+C51 COMPILER V7.08   GPIO                         12/08/2015 20:58:32 PAGE 2   
 
              - &= ~GPIOx->Pin;       //上拉准双向口
   43   2              if(GPIOx->Mode == GPIO_HighZ)           P3M1 |=  GPIOx->Pin,    P3M0 

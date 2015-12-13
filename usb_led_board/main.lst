@@ -1,4 +1,4 @@
-C51 COMPILER V7.08   MAIN                         12/06/2015 18:14:15 PAGE 1   
+C51 COMPILER V7.08   MAIN                         12/13/2015 17:06:23 PAGE 1   
 
 
 C51 COMPILER V7.08, COMPILATION OF MODULE MAIN
@@ -16,46 +16,56 @@ line level    source
    6          #include "key_code.h"
    7          
    8          
-   9          #define SET_LED(led, state)     do {led = !state;} while (0)
+   9          #define SLEEP_TIMEOUT           50000
   10          
-  11          void gpio_init(void)
-  12          {
-  13   1          GPIO_InitTypeDef t_gpio_type;
-  14   1      
-  15   1          t_gpio_type.Mode = GPIO_HighZ;
-  16   1          t_gpio_type.Pin = GPIO_Pin_0;       // UART RXD
-  17   1          GPIO_Inilize(GPIO_P3, &t_gpio_type);
-  18   1      
-  19   1          t_gpio_type.Mode = GPIO_PullUp;
-  20   1          t_gpio_type.Pin = GPIO_Pin_1;       // UART TXD
-  21   1          GPIO_Inilize(GPIO_P3, &t_gpio_type);
-  22   1      
-  23   1          t_gpio_type.Mode = GPIO_PullUp;
-  24   1          t_gpio_type.Pin = GPIO_Pin_2;       // white LED
-  25   1          GPIO_Inilize(GPIO_P3, &t_gpio_type);
-  26   1          WHITE_LED = 1;
-  27   1      
-  28   1          t_gpio_type.Mode = GPIO_PullUp;
-  29   1          t_gpio_type.Pin = GPIO_Pin_3;       // Color LED
-  30   1          GPIO_Inilize(GPIO_P3, &t_gpio_type);
-  31   1          COLOR_LED = 1;
-  32   1      
-  33   1          t_gpio_type.Mode = GPIO_PullUp;
-  34   1          t_gpio_type.Pin = GPIO_Pin_4;       // IR send
-  35   1          GPIO_Inilize(GPIO_P3, &t_gpio_type);
-  36   1          IR_SEND = 1;
-  37   1      
-  38   1          t_gpio_type.Mode = GPIO_HighZ;
-  39   1          t_gpio_type.Pin = GPIO_Pin_5;       // IR rev
-  40   1          GPIO_Inilize(GPIO_P3, &t_gpio_type);
-  41   1      }
-  42          
-  43          #if 0
+  11          #define SET_LED_STATE(led, state)       do {led = !state;} while 
+             -(0)
+  12          
+  13          
+  14          static bit led_on = TRUE;
+  15          static bit color_led_on = FALSE;
+  16          
+  17          
+  18          void gpio_init(void)
+  19          {
+  20   1          GPIO_InitTypeDef t_gpio_type;
+  21   1      
+  22   1          t_gpio_type.Mode = GPIO_HighZ;
+  23   1          t_gpio_type.Pin = GPIO_Pin_0;       // UART RXD
+  24   1          GPIO_Inilize(GPIO_P3, &t_gpio_type);
+  25   1      
+  26   1          t_gpio_type.Mode = GPIO_PullUp;
+  27   1          t_gpio_type.Pin = GPIO_Pin_1;       // UART TXD
+  28   1          GPIO_Inilize(GPIO_P3, &t_gpio_type);
+  29   1      
+  30   1          t_gpio_type.Mode = GPIO_PullUp;
+  31   1          t_gpio_type.Pin = GPIO_Pin_2;       // white LED
+  32   1          GPIO_Inilize(GPIO_P3, &t_gpio_type);
+  33   1          SET_LED_STATE(WHITE_LED, led_on);
+  34   1      
+  35   1          t_gpio_type.Mode = GPIO_PullUp;
+  36   1          t_gpio_type.Pin = GPIO_Pin_3;       // Color LED
+  37   1          GPIO_Inilize(GPIO_P3, &t_gpio_type);
+  38   1          SET_LED_STATE(COLOR_LED, color_led_on);
+  39   1      
+  40   1          t_gpio_type.Mode = GPIO_PullUp;
+  41   1          t_gpio_type.Pin = GPIO_Pin_4;       // IR send
+  42   1          GPIO_Inilize(GPIO_P3, &t_gpio_type);
+  43   1          IR_SEND = 1;
+  44   1      
+  45   1          t_gpio_type.Mode = GPIO_HighZ;
+  46   1          t_gpio_type.Pin = GPIO_Pin_5;       // IR rev
+  47   1          GPIO_Inilize(GPIO_P3, &t_gpio_type);
+  48   1      }
+  49          
+  50          #if 0
               void slow_led(bit on, unsigned int sec)
               {
                   unsigned int i, cnt, m;
               #define INTER_MS        600
                   m = sec * 600;
+C51 COMPILER V7.08   MAIN                         12/13/2015 17:06:23 PAGE 2   
+
               
                   WHITE_LED = on;
                   for (i=0; i<m; i++) {
@@ -64,8 +74,6 @@ line level    source
                       while (cnt--);
               
                       cnt = m - i;
-C51 COMPILER V7.08   MAIN                         12/06/2015 18:14:15 PAGE 2   
-
                       WHITE_LED = !WHITE_LED;
                       while (cnt--);
                   }
@@ -80,97 +88,77 @@ line level    source
                   }
               }
               #endif
-  71          
-  72          static void send_key_to_android(enum key_code key_code)
-  73          {
-  74   1          print_str("\n\r");
-  75   1          print_str("input keyevent ");
-  76   1          print_dec(key_code);
-  77   1          print_str("\n\r");
-  78   1      }
-  79          
-  80          static enum key_code check_key(unsigned char *key)
-  81          {
-  82   1          unsigned char size = sizeof(key_map) / sizeof(key_map[0]);
-  83   1          unsigned char i;
-  84   1          unsigned long key_val;
-  85   1      
-  86   1          key_val = ((unsigned long)key[0] << 24) |
-  87   1                    ((unsigned long)key[1] << 16) |
-  88   1                    ((unsigned long)key[2] << 8) |
-  89   1                    ((unsigned long)key[3]);
-  90   1      
-  91   1          for (i=0; i<size; i++) {
-  92   2              if (key_val == key_map[i].ir_code) {
-  93   3                  return key_map[i].key_code;
-  94   3              }
-  95   2          }
-  96   1      
-  97   1          return KEYCODE_UNKNOWN;
-  98   1      }
-  99          
- 100          
- 101          static void handle_key(enum key_code key_code)
- 102          {
- 103   1          static bit led_on = FALSE;
- 104   1          bit led_ctl = FALSE;
- 105   1      
- 106   1          switch (key_code) {
- 107   2          case KEYCODE_LED_ON:
- 108   2              led_on = TRUE;
- 109   2              led_ctl = TRUE;
- 110   2              break;
- 111   2          case KEYCODE_LED_OFF:
- 112   2              led_on = FALSE;
- 113   2              led_ctl = TRUE;
- 114   2              break;
- 115   2          case KEYCODE_LED_REV:
- 116   2              led_on = !led_on;
- 117   2              led_ctl = TRUE;
- 118   2              break;
- 119   2          case KEYCODE_UNKNOWN:
- 120   2              break;
-C51 COMPILER V7.08   MAIN                         12/06/2015 18:14:15 PAGE 3   
+  78          
+  79          static void send_key_to_android(enum key_code key_code)
+  80          {
+  81   1          print_str("\n\r");
+  82   1          print_str("input keyevent ");
+  83   1          print_dec(key_code);
+  84   1          print_str("\n\r");
+  85   1      }
+  86          
+  87          static enum key_code check_key(unsigned char *key)
+  88          {
+  89   1          unsigned char size = sizeof(key_map) / sizeof(key_map[0]);
+  90   1          unsigned char i;
+  91   1          unsigned long key_val;
+  92   1      
+  93   1          key_val = ((unsigned long)key[0] << 24) |
+  94   1                    ((unsigned long)key[1] << 16) |
+  95   1                    ((unsigned long)key[2] << 8) |
+  96   1                    ((unsigned long)key[3]);
+  97   1      
+  98   1          for (i=0; i<size; i++) {
+  99   2              if (key_val == key_map[i].ir_code) {
+ 100   3                  return key_map[i].key_code;
+ 101   3              }
+ 102   2          }
+ 103   1      
+ 104   1          return KEYCODE_UNKNOWN;
+ 105   1      }
+ 106          
+ 107          
+ 108          static void handle_key(enum key_code key_code)
+ 109          {
+ 110   1          switch (key_code) {
+ 111   2          case KEYCODE_LED_ON:
+ 112   2              led_on = TRUE;
+ 113   2              break;
+ 114   2          case KEYCODE_LED_OFF:
+ 115   2              led_on = FALSE;
+ 116   2              break;
+ 117   2          case KEYCODE_LED_REV:
+ 118   2              led_on = !led_on;
+ 119   2              break;
+C51 COMPILER V7.08   MAIN                         12/13/2015 17:06:23 PAGE 3   
 
- 121   2          default:
- 122   2              send_key_to_android(key_code);
- 123   2              break;
- 124   2          }
- 125   1      
- 126   1          if (led_ctl) {
- 127   2              SET_LED(WHITE_LED, led_on);
+ 120   2          case KEYCODE_COLOR_REV:
+ 121   2              color_led_on = !color_led_on;
+ 122   2              break;
+ 123   2          case KEYCODE_UNKNOWN:
+ 124   2              break;
+ 125   2          default:
+ 126   2              send_key_to_android(key_code);
+ 127   2              break;
  128   2          }
- 129   1      }
- 130          
- 131          unsigned char Ir_Buf[4];
- 132          unsigned int ir_loop_cnt = 0;
+ 129   1      
+ 130   1          SET_LED_STATE(WHITE_LED, led_on);
+ 131   1          SET_LED_STATE(COLOR_LED, color_led_on);
+ 132   1      }
  133          
- 134          
- 135          main()
- 136          {
- 137   1          EA = 1;
- 138   1          gpio_init();
- 139   1          ir_rcv_init();
- 140   1      
- 141   1      #if 0
-                  //0x00FF0DF2
-              
-                  //breath_led();
-                  Ir_Buf[0] = 0x00;
-                  Ir_Buf[1] = 0xFF;
-                  Ir_Buf[2] = 0x0D;
-                  Ir_Buf[3] = 0xF2;
-                  while (1) {
-                      ir_send(Ir_Buf);
-                      delay_ms(200);
-                      COLOR_LED = 0;
-                      delay_ms(200);
-                      COLOR_LED = 1;
-                  }
-              #endif
- 157   1      
- 158   1          while (1) {
- 159   2      #if 0
+ 134          unsigned char Ir_Buf[4];
+ 135          unsigned int loop_cnt = 0;
+ 136          
+ 137          
+ 138          main()
+ 139          {
+ 140   1          EA = 1;
+ 141   1          SYSTEM_CLK_1T();
+ 142   1          gpio_init();
+ 143   1          ir_rcv_init();
+ 144   1      
+ 145   1          while (1) {
+ 146   2      #if 0
                       if (ir_loop_cnt++ > 5000) {
                           ir_loop_cnt = 0;
                           if (check_ir_loop()) {
@@ -180,35 +168,40 @@ line level    source
                           }
                       }
               #endif
- 169   2              //MCU_IDLE();
- 170   2              if (ir_rcv(Ir_Buf)) {
- 171   3                  print_str("rcv key: 0x");
- 172   3                  print_hex(Ir_Buf[0]);
- 173   3                  print_hex(Ir_Buf[1]);
- 174   3                  print_hex(Ir_Buf[2]);
- 175   3                  print_hex(Ir_Buf[3]);
- 176   3                  print_str("\n\r");
- 177   3      
- 178   3                  handle_key(check_key(Ir_Buf));
- 179   3              }
- 180   2          }
- 181   1      }
- 182          
- 183          
- 184          
-C51 COMPILER V7.08   MAIN                         12/06/2015 18:14:15 PAGE 4   
-
- 185          
+ 156   2              if (loop_cnt++ > SLEEP_TIMEOUT) {
+ 157   3                  //MCU_IDLE();
+ 158   3                  SYSTEM_CLK_128T();
+ 159   3              }
+ 160   2      
+ 161   2              if (ir_rcv(Ir_Buf)) {
+ 162   3                  print_str("rcv key: 0x");
+ 163   3                  print_hex(Ir_Buf[0]);
+ 164   3                  print_hex(Ir_Buf[1]);
+ 165   3                  print_hex(Ir_Buf[2]);
+ 166   3                  print_hex(Ir_Buf[3]);
+ 167   3                  print_str("\n\r");
+ 168   3      
+ 169   3                  handle_key(check_key(Ir_Buf));
+ 170   3                  loop_cnt = 0;
+ 171   3              }
+ 172   2          }
+ 173   1      }
+ 174          
+ 175          
+ 176          
+ 177          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    471    ----
-   CONSTANT SIZE    =    111    ----
+   CODE SIZE        =    516    ----
+   CONSTANT SIZE    =    121    ----
    XDATA SIZE       =   ----    ----
+C51 COMPILER V7.08   MAIN                         12/13/2015 17:06:23 PAGE 4   
+
    PDATA SIZE       =   ----    ----
    DATA SIZE        =      6      12
    IDATA SIZE       =   ----    ----
-   BIT SIZE         =      1       1
+   BIT SIZE         =      2    ----
 END OF MODULE INFORMATION.
 
 

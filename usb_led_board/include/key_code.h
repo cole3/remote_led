@@ -92,6 +92,7 @@ enum key_code {
     KEYCODE_LED_ON,
     KEYCODE_LED_OFF,
     KEYCODE_LED_REV,
+    KEYCODE_COLOR_REV,
     KEYCODE_MAX
 };
 
@@ -118,6 +119,8 @@ code struct key_code_map key_map[] = {
     {KEYCODE_LED_OFF,       0x1AA1DC43},
     {KEYCODE_LED_REV,       0xC001102E},
     {KEYCODE_LED_REV,       0x2D2D4CB3},
+    {KEYCODE_LED_REV,       0x0C0C0FF0},
+    {KEYCODE_COLOR_REV,     0x0C0C1AE5},
 };
 
 

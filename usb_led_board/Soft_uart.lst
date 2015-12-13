@@ -1,4 +1,4 @@
-C51 COMPILER V7.08   SOFT_UART                    12/06/2015 18:14:14 PAGE 1   
+C51 COMPILER V7.08   SOFT_UART                    12/13/2015 17:07:05 PAGE 1   
 
 
 C51 COMPILER V7.08, COMPILATION OF MODULE SOFT_UART
@@ -64,7 +64,7 @@ line level    source
   52   1          // 115200 baud rate = 96 clock
   53   1          // send start bit
   54   1          CLR     TXB             // 4
-C51 COMPILER V7.08   SOFT_UART                    12/06/2015 18:14:14 PAGE 2   
+C51 COMPILER V7.08   SOFT_UART                    12/13/2015 17:07:05 PAGE 2   
 
   55   1          MOV     R0,     #22     // 2
   56   1          DJNZ    R0,     $       // 4 * 22 = 88
@@ -130,7 +130,7 @@ line level    source
                   }
                   if (get_cnt != rcv_cnt) {
                       *dat = buf[get_cnt++ & 0x0f];
-C51 COMPILER V7.08   SOFT_UART                    12/06/2015 18:14:14 PAGE 3   
+C51 COMPILER V7.08   SOFT_UART                    12/13/2015 17:07:05 PAGE 3   
 
                       return 1;
                   }
@@ -196,7 +196,7 @@ line level    source
                           }
                       }
                   }
-C51 COMPILER V7.08   SOFT_UART                    12/06/2015 18:14:14 PAGE 4   
+C51 COMPILER V7.08   SOFT_UART                    12/13/2015 17:07:05 PAGE 4   
 
               }
               
@@ -262,7 +262,7 @@ line level    source
  229   1      
  230   1          uart_send(HEX2CHAR(hex / 16));
  231   1          uart_send(HEX2CHAR(hex % 16));
-C51 COMPILER V7.08   SOFT_UART                    12/06/2015 18:14:14 PAGE 5   
+C51 COMPILER V7.08   SOFT_UART                    12/13/2015 17:07:05 PAGE 5   
 
  232   1      
  233   1          if (!state) {

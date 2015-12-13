@@ -6,7 +6,14 @@
 #include "key_code.h"
 
 
-#define SET_LED(led, state)     do {led = !state;} while (0)
+#define SLEEP_TIMEOUT           50000
+
+#define SET_LED_STATE(led, state)       do {led = !state;} while (0)
+
+
+static bit led_on = TRUE;
+static bit color_led_on = FALSE;
+
 
 void gpio_init(void)
 {
@@ -23,12 +30,12 @@ void gpio_init(void)
     t_gpio_type.Mode = GPIO_PullUp;
     t_gpio_type.Pin = GPIO_Pin_2;	// white LED
     GPIO_Inilize(GPIO_P3, &t_gpio_type);
-    WHITE_LED = 1;
+    SET_LED_STATE(WHITE_LED, led_on);
 
     t_gpio_type.Mode = GPIO_PullUp;
     t_gpio_type.Pin = GPIO_Pin_3;	// Color LED
     GPIO_Inilize(GPIO_P3, &t_gpio_type);
-    COLOR_LED = 1;
+    SET_LED_STATE(COLOR_LED, color_led_on);
 
     t_gpio_type.Mode = GPIO_PullUp;
     t_gpio_type.Pin = GPIO_Pin_4;	// IR send
@@ -100,21 +107,18 @@ static enum key_code check_key(unsigned char *key)
 
 static void handle_key(enum key_code key_code)
 {
-    static bit led_on = FALSE;
-    bit led_ctl = FALSE;
-
     switch (key_code) {
     case KEYCODE_LED_ON:
         led_on = TRUE;
-        led_ctl = TRUE;
         break;
     case KEYCODE_LED_OFF:
         led_on = FALSE;
-        led_ctl = TRUE;
         break;
     case KEYCODE_LED_REV:
         led_on = !led_on;
-        led_ctl = TRUE;
+        break;
+    case KEYCODE_COLOR_REV:
+        color_led_on = !color_led_on;
         break;
     case KEYCODE_UNKNOWN:
         break;
@@ -123,37 +127,20 @@ static void handle_key(enum key_code key_code)
         break;
     }
 
-    if (led_ctl) {
-        SET_LED(WHITE_LED, led_on);
-    }
+    SET_LED_STATE(WHITE_LED, led_on);
+    SET_LED_STATE(COLOR_LED, color_led_on);
 }
 
 unsigned char Ir_Buf[4];
-unsigned int ir_loop_cnt = 0;
+unsigned int loop_cnt = 0;
 
 
 main()
 {
     EA = 1;
+    SYSTEM_CLK_1T();
     gpio_init();
     ir_rcv_init();
-
-#if 0
-    //0x00FF0DF2
-
-    //breath_led();
-    Ir_Buf[0] = 0x00;
-    Ir_Buf[1] = 0xFF;
-    Ir_Buf[2] = 0x0D;
-    Ir_Buf[3] = 0xF2;
-    while (1) {
-        ir_send(Ir_Buf);
-        delay_ms(200);
-        COLOR_LED = 0;
-        delay_ms(200);
-        COLOR_LED = 1;
-    }
-#endif
 
     while (1) {
 #if 0
@@ -166,7 +153,11 @@ main()
             }
         }
 #endif
-        //MCU_IDLE();
+        if (loop_cnt++ > SLEEP_TIMEOUT) {
+            //MCU_IDLE();
+            SYSTEM_CLK_128T();
+        }
+
         if (ir_rcv(Ir_Buf)) {
             print_str("rcv key: 0x");
             print_hex(Ir_Buf[0]);
@@ -176,6 +167,7 @@ main()
             print_str("\n\r");
 
             handle_key(check_key(Ir_Buf));
+            loop_cnt = 0;
         }
     }
 }

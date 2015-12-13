@@ -11,7 +11,7 @@
  DaveTm { 0,0,0,0,0,0,0,0 }
 
 Target (Target 1), 0x0000 // Tools: 'MCS-51'
-GRPOPT 1,(include),0,0,0
+GRPOPT 1,(include),1,0,0
 GRPOPT 2,(source),1,0,0
 GRPOPT 3,(lib),1,0,0
 
@@ -23,14 +23,15 @@ OPTFFF 1,5,5,0,0,0,0,0,<.\include\soft_uart.h><soft_uart.h>
 OPTFFF 1,6,5,0,0,0,0,0,<.\include\STC15Fxxxx.H><STC15Fxxxx.H> 
 OPTFFF 1,7,5,0,0,0,0,0,<.\include\timer.h><timer.h> 
 OPTFFF 1,8,5,0,0,0,0,0,<.\include\ir.h><ir.h> 
-OPTFFF 2,9,1,0,0,0,0,0,<.\source\delay.c><delay.c> 
-OPTFFF 2,10,1,0,0,0,0,0,<.\source\Exti.c><Exti.c> 
-OPTFFF 2,11,1,0,0,0,0,0,<.\source\GPIO.c><GPIO.c> 
-OPTFFF 2,12,1,0,0,0,0,0,<.\source\Soft_uart.c><Soft_uart.c> 
-OPTFFF 2,13,1,0,0,0,0,0,<.\source\timer.c><timer.c> 
-OPTFFF 2,14,1,0,0,0,0,0,<.\source\main.c><main.c> 
-OPTFFF 2,15,1,0,0,0,0,0,<.\source\ir.c><ir.c> 
-OPTFFF 3,16,4,0,0,0,0,0,<C:\Keil\C51\LIB\C51S.LIB><C51S.LIB> 
+OPTFFF 1,9,5,0,0,0,0,0,<.\include\key_code.h><key_code.h> 
+OPTFFF 2,10,1,0,0,0,0,0,<.\source\delay.c><delay.c> 
+OPTFFF 2,11,1,0,0,0,0,0,<.\source\Exti.c><Exti.c> 
+OPTFFF 2,12,1,0,0,0,0,0,<.\source\GPIO.c><GPIO.c> 
+OPTFFF 2,13,1,0,0,0,0,0,<.\source\Soft_uart.c><Soft_uart.c> 
+OPTFFF 2,14,1,0,0,0,0,0,<.\source\timer.c><timer.c> 
+OPTFFF 2,15,1,0,0,0,0,0,<.\source\main.c><main.c> 
+OPTFFF 2,16,1,436207616,0,0,0,0,<.\source\ir.c><ir.c> 
+OPTFFF 3,17,4,0,0,0,0,0,<C:\Keil\C51\LIB\C51S.LIB><C51S.LIB> 
 
 
 TARGOPT 1, (Target 1)
@@ -44,7 +45,8 @@ TARGOPT 1, (Target 1)
   OPTFL 1,0,1
   OPTDL (S8051.DLL)()(DP51.DLL)(-p51)(S8051.DLL)()(TP51.DLL)(-p51)
   OPTDBG 44029,0,()()()()()()()()()() ()()()()
-  OPTKEY 0,(DLGDP51)((98=-1,-1,-1,-1,0)(82=-1,-1,-1,-1,0)(83=-1,-1,-1,-1,0)(84=-1,-1,-1,-1,0)(85=-1,-1,-1,-1,0)(80=-1,-1,-1,-1,0)(91=-1,-1,-1,-1,0)(92=-1,-1,-1,-1,0))
+  OPTKEY 0,(DLGDP51)((98=-1,-1,-1,-1,0)(82=-1,-1,-1,-1,0)(83=-1,-1,-1,-1,0)(84=-1,-1,-1,-1,0)(85=1035,71,1233,167,0)(80=-1,-1,-1,-1,0)(91=-1,-1,-1,-1,0)(92=-1,-1,-1,-1,0))
+  OPTBB 0,0,1105,1,-16774922,0,0,0,0,1,<ir.src>()()
   OPTDF 0x84
   OPTLE <>
   OPTLC <>

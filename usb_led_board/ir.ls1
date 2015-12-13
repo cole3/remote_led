@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE     1
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE     1
 
 
 MACRO ASSEMBLER A51 V7.08a
@@ -65,7 +65,7 @@ LOC  OBJ            LINE     SOURCE
   00AD                55     EADC    BIT     0A8H.5
   00A1                56     SPI_SCLK_2      BIT     0A0H.1
   00A8                57     IE      DATA    0A8H
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE     2
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE     2
 
   00C3                58     SPI_SCLK_3      BIT     0C0H.3
   00E9                59     CL      DATA    0E9H
@@ -133,7 +133,7 @@ LOC  OBJ            LINE     SOURCE
   00C8               121     P50     BIT     0C8H.0
   00C1               122     P41     BIT     0C0H.1
   00B2               123     P32     BIT     0B0H.2
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE     3
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE     3
 
   00A3               124     P23     BIT     0A0H.3
   0094               125     P14     BIT     090H.4
@@ -201,7 +201,7 @@ LOC  OBJ            LINE     SOURCE
   00D4               187     TH3     DATA    0D4H
   00D4               188     T3H     DATA    0D4H
   008A               189     RL_TL0  DATA    08AH
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE     4
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE     4
 
   009F               190     SM0     BIT     098H.7
   00D2               191     TH4     DATA    0D2H
@@ -269,7 +269,7 @@ LOC  OBJ            LINE     SOURCE
   008F               253     INT_CLKO        DATA    08FH
   00F6               254     B6      BIT     0F0H.6
   00E0               255     ACC0    BIT     0E0H.0
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE     5
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE     5
 
   00F7               256     B7      BIT     0F0H.7
   00E1               257     ACC1    BIT     0E0H.1
@@ -337,7 +337,7 @@ LOC  OBJ            LINE     SOURCE
                      319     
 ----                 320             RSEG  ?BI?ir_send_t0_timer_cfg?IR
 0000                 321     ?ir_send_t0_timer_cfg?BIT:
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE     6
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE     6
 
 0000                 322         enable?1054:   DBIT   1
                      323     
@@ -405,7 +405,7 @@ LOC  OBJ            LINE     SOURCE
                      385     ; 
                      386     ; #pragma asm
   00B4               387       IR_SEND      BIT     P3.4
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE     7
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE     7
 
                      388     ; #pragma endasm
                      389     ; 
@@ -473,7 +473,7 @@ LOC  OBJ            LINE     SOURCE
                      451                             ; SOURCE LINE # 40
 0019 FB              452             MOV     R3,A
 001A 7A00     F      453             MOV     R2,#HIGH (tim_type?140)
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE     8
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE     8
 
 001C 7900     F      454             MOV     R1,#LOW (tim_type?140)
 001E FF              455             MOV     R7,A
@@ -541,7 +541,7 @@ LOC  OBJ            LINE     SOURCE
 ----                 517             RSEG  ?PR?Ir_Get_Low?IR
 0000                 518     Ir_Get_Low:
                      519             USING   0
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE     9
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE     9
 
                      520                             ; SOURCE LINE # 58
                      521     ; {
@@ -609,7 +609,7 @@ LOC  OBJ            LINE     SOURCE
 0000 E4              583             CLR     A
 0001 FF              584             MOV     R7,A
 0002 FE              585             MOV     R6,A
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    10
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    10
 
                      586     ; 
                      587     ;     TL0 = 0;
@@ -677,7 +677,7 @@ LOC  OBJ            LINE     SOURCE
                      649                             ; SOURCE LINE # 98
 000D C3              650             CLR     C
 000E E500     F      651             MOV     A,temp?546+01H
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    11
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    11
 
 0010 9466            652             SUBB    A,#066H
 0012 E500     F      653             MOV     A,temp?546
@@ -745,7 +745,7 @@ LOC  OBJ            LINE     SOURCE
 0050 C3              715             CLR     C
 0051 E500     F      716             MOV     A,temp?546+01H
 0053 94B8            717             SUBB    A,#0B8H
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    12
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    12
 
 0055 E500     F      718             MOV     A,temp?546
 0057 9400            719             SUBB    A,#00H
@@ -813,7 +813,7 @@ LOC  OBJ            LINE     SOURCE
 00A5 C3              781             CLR     C
 00A6 E500     F      782             MOV     A,j?548
 00A8 6480            783             XRL     A,#080H
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    13
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    13
 
 00AA 9488            784             SUBB    A,#088H
 00AC 5003            785             JNC     $ + 5H
@@ -881,7 +881,7 @@ LOC  OBJ            LINE     SOURCE
                      847     ; bit ir_rcv(unsigned char *key)
                      848     
 ----                 849             RSEG  ?PR?_ir_rcv?IR
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    14
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    14
 
 0000                 850     _ir_rcv:
                      851             USING   0
@@ -908,535 +908,539 @@ LOC  OBJ            LINE     SOURCE
                      872                             ; SOURCE LINE # 169
 000D                 873     ?C0024:
                      874     ; 
-                     875     ;     ir_rcv_t0_timer_cfg();
+                     875     ;     SYSTEM_CLK_1T();
                      876                             ; SOURCE LINE # 171
-000D 120000   F      877             LCALL   ir_rcv_t0_timer_cfg
+000D 5397F8          877             ANL     CLK_DIV,#0F8H
                      878     ; 
-                     879     ;     temp = Ir_Get_Low();
+                     879     ;     ir_rcv_t0_timer_cfg();
                      880                             ; SOURCE LINE # 173
-0010 120000   F      881             LCALL   Ir_Get_Low
-                     882     ;---- Variable 'temp?650' assigned to Register 'R6/R7' ----
-                     883     ;     if (temp > 3000 && temp < 8755) {
-                     884                             ; SOURCE LINE # 174
-0013 D3              885             SETB    C
-0014 EF              886             MOV     A,R7
-0015 94B8            887             SUBB    A,#0B8H
-0017 EE              888             MOV     A,R6
-0018 940B            889             SUBB    A,#0BH
-001A 4013            890             JC      ?C0026
-001C EF              891             MOV     A,R7
-001D 9433            892             SUBB    A,#033H
-001F EE              893             MOV     A,R6
-0020 9422            894             SUBB    A,#022H
-0022 500B            895             JNC     ?C0026
-                     896     ;         ret = nec_decode(key);
-                     897                             ; SOURCE LINE # 175
-0024 AB00     F      898             MOV     R3,key?649
-0026 AA00     F      899             MOV     R2,key?649+01H
-0028 A900     F      900             MOV     R1,key?649+02H
-002A 120000   F      901             LCALL   _nec_decode
-002D 9200     F      902             MOV     ret?651,C
-                     903     ;     }
-                     904                             ; SOURCE LINE # 176
-002F                 905     ?C0026:
-                     906     ; #ifdef CONFIG_RC3_CODE
-                     907     ;     else if (temp <= 3000) {
-                     908     ;         ret = rc5_decode(key);
-                     909     ;     }
-                     910     ; #endif
-                     911     ; 
-                     912     ;     ir_rcv_int = 0;
-                     913                             ; SOURCE LINE # 183
-002F C200     F      914             CLR     ir_rcv_int
-                     915     ;     Timer1_InterruptEnable();
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    15
+0010 120000   F      881             LCALL   ir_rcv_t0_timer_cfg
+                     882     ; 
+                     883     ;     temp = Ir_Get_Low();
+                     884                             ; SOURCE LINE # 175
+0013 120000   F      885             LCALL   Ir_Get_Low
+                     886     ;---- Variable 'temp?650' assigned to Register 'R6/R7' ----
+                     887     ;     if (temp > 3000 && temp < 8755) {
+                     888                             ; SOURCE LINE # 176
+0016 D3              889             SETB    C
+0017 EF              890             MOV     A,R7
+0018 94B8            891             SUBB    A,#0B8H
+001A EE              892             MOV     A,R6
+001B 940B            893             SUBB    A,#0BH
+001D 4013            894             JC      ?C0026
+001F EF              895             MOV     A,R7
+0020 9433            896             SUBB    A,#033H
+0022 EE              897             MOV     A,R6
+0023 9422            898             SUBB    A,#022H
+0025 500B            899             JNC     ?C0026
+                     900     ;         ret = nec_decode(key);
+                     901                             ; SOURCE LINE # 177
+0027 AB00     F      902             MOV     R3,key?649
+0029 AA00     F      903             MOV     R2,key?649+01H
+002B A900     F      904             MOV     R1,key?649+02H
+002D 120000   F      905             LCALL   _nec_decode
+0030 9200     F      906             MOV     ret?651,C
+                     907     ;     }
+                     908                             ; SOURCE LINE # 178
+0032                 909     ?C0026:
+                     910     ; #ifdef CONFIG_RC3_CODE
+                     911     ;     else if (temp <= 3000) {
+                     912     ;         ret = rc5_decode(key);
+                     913     ;     }
+                     914     ; #endif
+                     915     ; 
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    15
 
-                     916                             ; SOURCE LINE # 184
-0031 D2AB            917             SETB    ET1
-                     918     ; 
-                     919     ;     return ret;
+                     916     ;     ir_rcv_int = 0;
+                     917                             ; SOURCE LINE # 185
+0032 C200     F      918             CLR     ir_rcv_int
+                     919     ;     Timer1_InterruptEnable();
                      920                             ; SOURCE LINE # 186
-0033 A200     F      921             MOV     C,ret?651
-                     922     ; }
-                     923                             ; SOURCE LINE # 187
-0035                 924     ?C0025:
-0035 22              925             RET     
-                     926     ; END OF _ir_rcv
-                     927     
-                     928     ; 
-                     929     ; void ir_rcv_init(void)
-                     930     
-----                 931             RSEG  ?PR?ir_rcv_init?IR
-0000                 932     ir_rcv_init:
-                     933             USING   0
-                     934                             ; SOURCE LINE # 189
-                     935     ; {
-                     936                             ; SOURCE LINE # 190
-                     937     ;     ir_rcv_t1_timer_cfg(ENABLE);
+0034 D2AB            921             SETB    ET1
+                     922     ; 
+                     923     ;     return ret;
+                     924                             ; SOURCE LINE # 188
+0036 A200     F      925             MOV     C,ret?651
+                     926     ; }
+                     927                             ; SOURCE LINE # 189
+0038                 928     ?C0025:
+0038 22              929             RET     
+                     930     ; END OF _ir_rcv
+                     931     
+                     932     ; 
+                     933     ; void ir_rcv_init(void)
+                     934     
+----                 935             RSEG  ?PR?ir_rcv_init?IR
+0000                 936     ir_rcv_init:
+                     937             USING   0
                      938                             ; SOURCE LINE # 191
-0000 D200     F      939             SETB    ?ir_rcv_t1_timer_cfg?BIT
-0002 120000   F      940             LCALL   ir_rcv_t1_timer_cfg
-                     941     ;     ir_rcv_int = 0;
-                     942                             ; SOURCE LINE # 192
-0005 C200     F      943             CLR     ir_rcv_int
-                     944     ; }
-                     945                             ; SOURCE LINE # 193
-0007 22              946             RET     
-                     947     ; END OF ir_rcv_init
-                     948     
-                     949     ; 
-                     950     ; void ir_rcv_deinit(void)
-                     951     
-----                 952             RSEG  ?PR?ir_rcv_deinit?IR
-0000                 953     ir_rcv_deinit:
-                     954             USING   0
-                     955                             ; SOURCE LINE # 195
-                     956     ; {
-                     957                             ; SOURCE LINE # 196
-                     958     ;     ir_rcv_t1_timer_cfg(DISABLE);
+                     939     ; {
+                     940                             ; SOURCE LINE # 192
+                     941     ;     ir_rcv_t1_timer_cfg(ENABLE);
+                     942                             ; SOURCE LINE # 193
+0000 D200     F      943             SETB    ?ir_rcv_t1_timer_cfg?BIT
+0002 120000   F      944             LCALL   ir_rcv_t1_timer_cfg
+                     945     ;     ir_rcv_int = 0;
+                     946                             ; SOURCE LINE # 194
+0005 C200     F      947             CLR     ir_rcv_int
+                     948     ; }
+                     949                             ; SOURCE LINE # 195
+0007 22              950             RET     
+                     951     ; END OF ir_rcv_init
+                     952     
+                     953     ; 
+                     954     ; void ir_rcv_deinit(void)
+                     955     
+----                 956             RSEG  ?PR?ir_rcv_deinit?IR
+0000                 957     ir_rcv_deinit:
+                     958             USING   0
                      959                             ; SOURCE LINE # 197
-0000 C200     F      960             CLR     ?ir_rcv_t1_timer_cfg?BIT
-0002 120000   F      961             LCALL   ir_rcv_t1_timer_cfg
-                     962     ;     ir_rcv_int = 0;
-                     963                             ; SOURCE LINE # 198
-0005 C200     F      964             CLR     ir_rcv_int
-                     965     ; }
-                     966                             ; SOURCE LINE # 199
-0007 22              967             RET     
-                     968     ; END OF ir_rcv_deinit
-                     969     
-                     970     ; 
-                     971     ; 
-                     972     ; 
-                     973     ; static bit ir_out;
-                     974     ; static unsigned char ir_cnt;
+                     960     ; {
+                     961                             ; SOURCE LINE # 198
+                     962     ;     ir_rcv_t1_timer_cfg(DISABLE);
+                     963                             ; SOURCE LINE # 199
+0000 C200     F      964             CLR     ?ir_rcv_t1_timer_cfg?BIT
+0002 120000   F      965             LCALL   ir_rcv_t1_timer_cfg
+                     966     ;     ir_rcv_int = 0;
+                     967                             ; SOURCE LINE # 200
+0005 C200     F      968             CLR     ir_rcv_int
+                     969     ; }
+                     970                             ; SOURCE LINE # 201
+0007 22              971             RET     
+                     972     ; END OF ir_rcv_deinit
+                     973     
+                     974     ; 
                      975     ; 
-                     976     ; void ir_send_isr(void)
-                     977     
-----                 978             RSEG  ?PR?ir_send_isr?IR
-0000                 979     ir_send_isr:
-                     980                             ; SOURCE LINE # 206
-                     981     ; {
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    16
+                     976     ; 
+                     977     ; static bit ir_out;
+                     978     ; static unsigned char ir_cnt;
+                     979     ; 
+                     980     ; void ir_send_isr(void)
+                     981     
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    16
 
-                     982                             ; SOURCE LINE # 207
-                     983     ;     if (ir_out) {
+----                 982             RSEG  ?PR?ir_send_isr?IR
+0000                 983     ir_send_isr:
                      984                             ; SOURCE LINE # 208
-0000 300002   F      985             JNB     ir_out,?C0029
-                     986     ;         IR_SEND = !IR_SEND;
-                     987                             ; SOURCE LINE # 209
-0003 B2B4            988             CPL     P34
-                     989     ;     }
-                     990                             ; SOURCE LINE # 210
-0005                 991     ?C0029:
-                     992     ; 
-                     993     ;     if (ir_cnt) {
+                     985     ; {
+                     986                             ; SOURCE LINE # 209
+                     987     ;     if (ir_out) {
+                     988                             ; SOURCE LINE # 210
+0000 300002   F      989             JNB     ir_out,?C0029
+                     990     ;         IR_SEND = !IR_SEND;
+                     991                             ; SOURCE LINE # 211
+0003 B2B4            992             CPL     P34
+                     993     ;     }
                      994                             ; SOURCE LINE # 212
-0005 E500     F      995             MOV     A,ir_cnt
-0007 6002            996             JZ      ?C0031
-                     997     ;         ir_cnt--;
-                     998                             ; SOURCE LINE # 213
-0009 1500     F      999             DEC     ir_cnt
-                    1000     ;     }
-                    1001                             ; SOURCE LINE # 214
-                    1002     ; }
-                    1003                             ; SOURCE LINE # 215
-000B                1004     ?C0031:
-000B 22             1005             RET     
-                    1006     ; END OF ir_send_isr
-                    1007     
-                    1008     ; 
-                    1009     ; void ir_send_t0_timer_cfg(bit enable)
-                    1010     
-----                1011             RSEG  ?PR?ir_send_t0_timer_cfg?IR
-0000                1012     ir_send_t0_timer_cfg:
-                    1013             USING   0
-                    1014                             ; SOURCE LINE # 217
-                    1015     ; {
-                    1016                             ; SOURCE LINE # 218
-                    1017     ;     TIM_InitTypeDef tim_type;
-                    1018     ; 
-                    1019     ;     tim_type.TIM_Mode = TIM_16BitAutoReload;
-                    1020                             ; SOURCE LINE # 221
-0000 E4             1021             CLR     A
-0001 F500     F     1022             MOV     tim_type?1055,A
-                    1023     ;     tim_type.TIM_Polity = 1;
-                    1024                             ; SOURCE LINE # 222
-0003 750001   F     1025             MOV     tim_type?1055+01H,#01H
-                    1026     ;     tim_type.TIM_Interrupt = enable;
-                    1027                             ; SOURCE LINE # 223
-0006 A200     F     1028             MOV     C,enable?1054
-0008 33             1029             RLC     A
-0009 FF             1030             MOV     R7,A
-000A F500     F     1031             MOV     tim_type?1055+02H,A
-                    1032     ;     tim_type.TIM_ClkSource = TIM_CLOCK_12T;
-                    1033                             ; SOURCE LINE # 224
-000C 750001   F     1034             MOV     tim_type?1055+03H,#01H
-                    1035     ;     tim_type.TIM_ClkOut = DISABLE;
-                    1036                             ; SOURCE LINE # 225
-000F E4             1037             CLR     A
-0010 F500     F     1038             MOV     tim_type?1055+04H,A
-                    1039     ;     tim_type.TIM_Value = 65536 - MAIN_Fosc / (38000 * 2);
-                    1040                             ; SOURCE LINE # 226
-0012 7500FF   F     1041             MOV     tim_type?1055+05H,#0FFH
-0015 75006F   F     1042             MOV     tim_type?1055+06H,#06FH
-                    1043     ;     tim_type.TIM_Run = enable;
-                    1044                             ; SOURCE LINE # 227
-0018 8F00     F     1045             MOV     tim_type?1055+07H,R7
-                    1046     ;     tim_type.TIM_Isr = ir_send_isr;
-                    1047                             ; SOURCE LINE # 228
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    17
+0005                 995     ?C0029:
+                     996     ; 
+                     997     ;     if (ir_cnt) {
+                     998                             ; SOURCE LINE # 214
+0005 E500     F      999             MOV     A,ir_cnt
+0007 6002           1000             JZ      ?C0031
+                    1001     ;         ir_cnt--;
+                    1002                             ; SOURCE LINE # 215
+0009 1500     F     1003             DEC     ir_cnt
+                    1004     ;     }
+                    1005                             ; SOURCE LINE # 216
+                    1006     ; }
+                    1007                             ; SOURCE LINE # 217
+000B                1008     ?C0031:
+000B 22             1009             RET     
+                    1010     ; END OF ir_send_isr
+                    1011     
+                    1012     ; 
+                    1013     ; void ir_send_t0_timer_cfg(bit enable)
+                    1014     
+----                1015             RSEG  ?PR?ir_send_t0_timer_cfg?IR
+0000                1016     ir_send_t0_timer_cfg:
+                    1017             USING   0
+                    1018                             ; SOURCE LINE # 219
+                    1019     ; {
+                    1020                             ; SOURCE LINE # 220
+                    1021     ;     TIM_InitTypeDef tim_type;
+                    1022     ; 
+                    1023     ;     tim_type.TIM_Mode = TIM_16BitAutoReload;
+                    1024                             ; SOURCE LINE # 223
+0000 E4             1025             CLR     A
+0001 F500     F     1026             MOV     tim_type?1055,A
+                    1027     ;     tim_type.TIM_Polity = 1;
+                    1028                             ; SOURCE LINE # 224
+0003 750001   F     1029             MOV     tim_type?1055+01H,#01H
+                    1030     ;     tim_type.TIM_Interrupt = enable;
+                    1031                             ; SOURCE LINE # 225
+0006 A200     F     1032             MOV     C,enable?1054
+0008 33             1033             RLC     A
+0009 FF             1034             MOV     R7,A
+000A F500     F     1035             MOV     tim_type?1055+02H,A
+                    1036     ;     tim_type.TIM_ClkSource = TIM_CLOCK_12T;
+                    1037                             ; SOURCE LINE # 226
+000C 750001   F     1038             MOV     tim_type?1055+03H,#01H
+                    1039     ;     tim_type.TIM_ClkOut = DISABLE;
+                    1040                             ; SOURCE LINE # 227
+000F E4             1041             CLR     A
+0010 F500     F     1042             MOV     tim_type?1055+04H,A
+                    1043     ;     tim_type.TIM_Value = 65536 - MAIN_Fosc / (38000 * 2);
+                    1044                             ; SOURCE LINE # 228
+0012 7500FF   F     1045             MOV     tim_type?1055+05H,#0FFH
+0015 75006F   F     1046             MOV     tim_type?1055+06H,#06FH
+                    1047     ;     tim_type.TIM_Run = enable;
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    17
 
-001A 7500FF   F     1048             MOV     tim_type?1055+08H,#0FFH
-001D 750000   F     1049             MOV     tim_type?1055+09H,#HIGH (ir_send_isr)
-0020 750000   F     1050             MOV     tim_type?1055+0AH,#LOW (ir_send_isr)
-                    1051     ;     Timer_Inilize(Timer0, &tim_type);
-                    1052                             ; SOURCE LINE # 229
-0023 FB             1053             MOV     R3,A
-0024 7A00     F     1054             MOV     R2,#HIGH (tim_type?1055)
-0026 7900     F     1055             MOV     R1,#LOW (tim_type?1055)
-0028 FF             1056             MOV     R7,A
-0029 020000   F     1057             LJMP    _Timer_Inilize
-                    1058     ; END OF ir_send_t0_timer_cfg
-                    1059     
-                    1060     ; }
-                    1061     ; 
-                    1062     ; 
-                    1063     ; #pragma asm
-                    1064               
-002C D2B4           1065       CYCLE:  SETB    IR_SEND          
-002E 00             1066               NOP                      
-002F 7821           1067               MOV     R0,     #33      
-0031 D8FE           1068               DJNZ    R0,     $        
-                    1069       
-0033 C2B4           1070               CLR     IR_SEND          
-0035 7821           1071               MOV     R0,     #33      
-0037 D8FE           1072               DJNZ    R0,     $        
-0039 22             1073               RET                      
-                    1074       
-                    1075               
-003A 7915           1076       IRS0:   MOV     R1,     #21      
-003C 120000   F     1077       CC1:    LCALL   CYCLE            
-003F D9FB           1078               DJNZ    R1,     CC1      
-                    1079       
-0041 7A0C           1080               MOV     R2,     #12     
-0043 7981           1081       CC2:    MOV     R1,     #129     
-0045 D9FE           1082               DJNZ    R1,     $        
-0047 DAFA           1083               DJNZ    R2,     CC2      
-0049 22             1084               RET
-                    1085       
-                    1086               
-004A 7915           1087       IRS1:   MOV     R1,     #21      
-004C 120000   F     1088       CC3:    LCALL   CYCLE            
-004F D9FB           1089               DJNZ    R1,     CC3      
-                    1090       
-0051 7A20           1091               MOV     R2,     #32      
-0053 7992           1092       CC4:    MOV     R1,     #146     
-0055 D9FE           1093               DJNZ    R1,     $        
-0057 DAFA           1094               DJNZ    R2,     CC4      
-0059 22             1095               RET
-                    1096     ; #pragma endasm
-                    1097     ; 
-                    1098     ; bit ir_send(unsigned char *key)
-                    1099     
-----                1100             RSEG  ?PR?_ir_send?IR
-0000                1101     _ir_send:
-                    1102                             ; SOURCE LINE # 268
-0000 8B00     F     1103             MOV     key?1156,R3
-0002 8A00     F     1104             MOV     key?1156+01H,R2
-0004 8900     F     1105             MOV     key?1156+02H,R1
-                    1106     ; {
-                    1107                             ; SOURCE LINE # 269
-                    1108     ; #pragma asm
-                    1109     ;         PUSH    ACC
-0006 C0E0           1110               PUSH    ACC
-                    1111     ;         MOV     ACC,    R0
-0008 88E0           1112               MOV     ACC,    R0
+                    1048                             ; SOURCE LINE # 229
+0018 8F00     F     1049             MOV     tim_type?1055+07H,R7
+                    1050     ;     tim_type.TIM_Isr = ir_send_isr;
+                    1051                             ; SOURCE LINE # 230
+001A 7500FF   F     1052             MOV     tim_type?1055+08H,#0FFH
+001D 750000   F     1053             MOV     tim_type?1055+09H,#HIGH (ir_send_isr)
+0020 750000   F     1054             MOV     tim_type?1055+0AH,#LOW (ir_send_isr)
+                    1055     ;     Timer_Inilize(Timer0, &tim_type);
+                    1056                             ; SOURCE LINE # 231
+0023 FB             1057             MOV     R3,A
+0024 7A00     F     1058             MOV     R2,#HIGH (tim_type?1055)
+0026 7900     F     1059             MOV     R1,#LOW (tim_type?1055)
+0028 FF             1060             MOV     R7,A
+0029 020000   F     1061             LJMP    _Timer_Inilize
+                    1062     ; END OF ir_send_t0_timer_cfg
+                    1063     
+                    1064     ; }
+                    1065     ; 
+                    1066     ; 
+                    1067     ; #pragma asm
+                    1068               
+002C D2B4           1069       CYCLE:  SETB    IR_SEND          
+002E 00             1070               NOP                      
+002F 7821           1071               MOV     R0,     #33      
+0031 D8FE           1072               DJNZ    R0,     $        
+                    1073       
+0033 C2B4           1074               CLR     IR_SEND          
+0035 7821           1075               MOV     R0,     #33      
+0037 D8FE           1076               DJNZ    R0,     $        
+0039 22             1077               RET                      
+                    1078       
+                    1079               
+003A 7915           1080       IRS0:   MOV     R1,     #21      
+003C 120000   F     1081       CC1:    LCALL   CYCLE            
+003F D9FB           1082               DJNZ    R1,     CC1      
+                    1083       
+0041 7A0C           1084               MOV     R2,     #12     
+0043 7981           1085       CC2:    MOV     R1,     #129     
+0045 D9FE           1086               DJNZ    R1,     $        
+0047 DAFA           1087               DJNZ    R2,     CC2      
+0049 22             1088               RET
+                    1089       
+                    1090               
+004A 7915           1091       IRS1:   MOV     R1,     #21      
+004C 120000   F     1092       CC3:    LCALL   CYCLE            
+004F D9FB           1093               DJNZ    R1,     CC3      
+                    1094       
+0051 7A20           1095               MOV     R2,     #32      
+0053 7992           1096       CC4:    MOV     R1,     #146     
+0055 D9FE           1097               DJNZ    R1,     $        
+0057 DAFA           1098               DJNZ    R2,     CC4      
+0059 22             1099               RET
+                    1100     ; #pragma endasm
+                    1101     ; 
+                    1102     ; bit ir_send(unsigned char *key)
+                    1103     
+----                1104             RSEG  ?PR?_ir_send?IR
+0000                1105     _ir_send:
+                    1106                             ; SOURCE LINE # 270
+0000 8B00     F     1107             MOV     key?1156,R3
+0002 8A00     F     1108             MOV     key?1156+01H,R2
+0004 8900     F     1109             MOV     key?1156+02H,R1
+                    1110     ; {
+                    1111                             ; SOURCE LINE # 271
+                    1112     ; #pragma asm
                     1113     ;         PUSH    ACC
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    18
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    18
 
-000A C0E0           1114               PUSH    ACC
-                    1115     ;         MOV     ACC,    R1
-000C 89E0           1116               MOV     ACC,    R1
+0006 C0E0           1114               PUSH    ACC
+                    1115     ;         MOV     ACC,    R0
+0008 88E0           1116               MOV     ACC,    R0
                     1117     ;         PUSH    ACC
-000E C0E0           1118               PUSH    ACC
-                    1119     ;         MOV     ACC,    R2
-0010 8AE0           1120               MOV     ACC,    R2
+000A C0E0           1118               PUSH    ACC
+                    1119     ;         MOV     ACC,    R1
+000C 89E0           1120               MOV     ACC,    R1
                     1121     ;         PUSH    ACC
-0012 C0E0           1122               PUSH    ACC
-                    1123     ;         MOV     ACC,    R3
-0014 8BE0           1124               MOV     ACC,    R3
+000E C0E0           1122               PUSH    ACC
+                    1123     ;         MOV     ACC,    R2
+0010 8AE0           1124               MOV     ACC,    R2
                     1125     ;         PUSH    ACC
-0016 C0E0           1126               PUSH    ACC
-                    1127     ;         MOV     ACC,    R4
-0018 8CE0           1128               MOV     ACC,    R4
+0012 C0E0           1126               PUSH    ACC
+                    1127     ;         MOV     ACC,    R3
+0014 8BE0           1128               MOV     ACC,    R3
                     1129     ;         PUSH    ACC
-001A C0E0           1130               PUSH    ACC
-                    1131     ;         MOV     ACC,    R5
-001C 8DE0           1132               MOV     ACC,    R5
+0016 C0E0           1130               PUSH    ACC
+                    1131     ;         MOV     ACC,    R4
+0018 8CE0           1132               MOV     ACC,    R4
                     1133     ;         PUSH    ACC
-001E C0E0           1134               PUSH    ACC
-                    1135     ; 
-                    1136               
-                    1137     ;         MOV     A,      R1
-0020 E9             1138               MOV     A,      R1
-                    1139     ;         MOV     R5,     A
-0021 FD             1140               MOV     R5,     A
-                    1141     ; 
-                    1142               
-                    1143     ;         // send start code: 0(9000us = 342 cycle = 171 + 171) + 1(4500us = 49767 clock = 
+001A C0E0           1134               PUSH    ACC
+                    1135     ;         MOV     ACC,    R5
+001C 8DE0           1136               MOV     ACC,    R5
+                    1137     ;         PUSH    ACC
+001E C0E0           1138               PUSH    ACC
+                    1139     ; 
+                    1140               
+                    1141     ;         MOV     A,      R1
+0020 E9             1142               MOV     A,      R1
+                    1143     ;         MOV     R5,     A
+0021 FD             1144               MOV     R5,     A
+                    1145     ; 
+                    1146               
+                    1147     ;         // send start code: 0(9000us = 342 cycle = 171 + 171) + 1(4500us = 49767 clock = 
                              4 * 49 * 255)
-                    1144               
-                    1145     ;         MOV     R1,     #170    // 2
-0022 79AA           1146               MOV     R1,     #170     
-                    1147     ;         MOV     R2,     #170    // 2
-0024 7AAA           1148               MOV     R2,     #170     
-                    1149     ; C1:     LCALL   CYCLE           // 6
-0026 120000   F     1150               C1:     LCALL   CYCLE            
-                    1151     ;         DJNZ    R1,     C1      // 4
-0029 D9FB           1152               DJNZ    R1,     C1       
-                    1153     ; C2:     LCALL   CYCLE           // 6
-002B 120000   F     1154               C2:     LCALL   CYCLE            
-                    1155     ;         DJNZ    R2,     C2      // 4
-002E DAFB           1156               DJNZ    R2,     C2       
-                    1157     ; 
-                    1158               
-                    1159     ;         MOV     R2,     #49     // 2
-0030 7A31           1160               MOV     R2,     #49      
-                    1161     ; C3:     MOV     R1,     #255    // 2
-0032 79FF           1162               C3:     MOV     R1,     #255     
-                    1163     ;         DJNZ    R1,     $       // 4
-0034 D9FE           1164               DJNZ    R1,     $        
-                    1165     ;         DJNZ    R2,     C3      // 4
-0036 DAFA           1166               DJNZ    R2,     C3       
-                    1167     ; 
-                    1168               
-                    1169     ;         // send byte
-                    1170               
-                    1171     ;         MOV     R4,     #4      //
-0038 7C04           1172               MOV     R4,     #4       
-                    1173     ; C7:     MOV     A,      R5
-003A ED             1174               C7:     MOV     A,      R5
-                    1175     ;         MOV     R0,     A
-003B F8             1176               MOV     R0,     A
-                    1177     ;         MOV     A,      @R0     //
-003C E6             1178               MOV     A,      @R0      
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    19
+                    1148               
+                    1149     ;         MOV     R1,     #170    // 2
+0022 79AA           1150               MOV     R1,     #170     
+                    1151     ;         MOV     R2,     #170    // 2
+0024 7AAA           1152               MOV     R2,     #170     
+                    1153     ; C1:     LCALL   CYCLE           // 6
+0026 120000   F     1154               C1:     LCALL   CYCLE            
+                    1155     ;         DJNZ    R1,     C1      // 4
+0029 D9FB           1156               DJNZ    R1,     C1       
+                    1157     ; C2:     LCALL   CYCLE           // 6
+002B 120000   F     1158               C2:     LCALL   CYCLE            
+                    1159     ;         DJNZ    R2,     C2      // 4
+002E DAFB           1160               DJNZ    R2,     C2       
+                    1161     ; 
+                    1162               
+                    1163     ;         MOV     R2,     #49     // 2
+0030 7A31           1164               MOV     R2,     #49      
+                    1165     ; C3:     MOV     R1,     #255    // 2
+0032 79FF           1166               C3:     MOV     R1,     #255     
+                    1167     ;         DJNZ    R1,     $       // 4
+0034 D9FE           1168               DJNZ    R1,     $        
+                    1169     ;         DJNZ    R2,     C3      // 4
+0036 DAFA           1170               DJNZ    R2,     C3       
+                    1171     ; 
+                    1172               
+                    1173     ;         // send byte
+                    1174               
+                    1175     ;         MOV     R4,     #4      //
+0038 7C04           1176               MOV     R4,     #4       
+                    1177     ; C7:     MOV     A,      R5
+003A ED             1178               C7:     MOV     A,      R5
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    19
 
-                    1179     ;         INC     R5
-003D 0D             1180               INC     R5
-                    1181     ;         MOV     R3,     #8      //
-003E 7B08           1182               MOV     R3,     #8       
-                    1183     ; C6:     RRC     A               // 1
-0040 13             1184               C6:     RRC     A                
-                    1185     ;         JC      C4              // 3
-0041 4006           1186               JC      C4               
-                    1187     ;         LCALL   IRS0            // 6
-0043 120000   F     1188               LCALL   IRS0             
-                    1189     ;         LJMP    C5
-0046 020000   F     1190               LJMP    C5
-                    1191     ; C4:     LCALL   IRS1            // 6
-0049 120000   F     1192               C4:     LCALL   IRS1             
-                    1193     ; C5:     DJNZ    R3,     C6      // 4
-004C DBF2           1194               C5:     DJNZ    R3,     C6       
-                    1195     ;         DJNZ    R4,     C7      // 4
-004E DCEA           1196               DJNZ    R4,     C7       
-                    1197     ; 
-                    1198               
-                    1199     ;         MOV     R0,     #0FFH
-0050 78FF           1200               MOV     R0,     #0FFH
-                    1201     ;         DJNZ    R0,     $
-0052 D8FE           1202               DJNZ    R0,     $
-                    1203     ; 
-                    1204               
-                    1205     ;         POP     ACC
-0054 D0E0           1206               POP     ACC
-                    1207     ;         MOV     R5,     ACC
-0056 ADE0           1208               MOV     R5,     ACC
+                    1179     ;         MOV     R0,     A
+003B F8             1180               MOV     R0,     A
+                    1181     ;         MOV     A,      @R0     //
+003C E6             1182               MOV     A,      @R0      
+                    1183     ;         INC     R5
+003D 0D             1184               INC     R5
+                    1185     ;         MOV     R3,     #8      //
+003E 7B08           1186               MOV     R3,     #8       
+                    1187     ; C6:     RRC     A               // 1
+0040 13             1188               C6:     RRC     A                
+                    1189     ;         JC      C4              // 3
+0041 4006           1190               JC      C4               
+                    1191     ;         LCALL   IRS0            // 6
+0043 120000   F     1192               LCALL   IRS0             
+                    1193     ;         LJMP    C5
+0046 020000   F     1194               LJMP    C5
+                    1195     ; C4:     LCALL   IRS1            // 6
+0049 120000   F     1196               C4:     LCALL   IRS1             
+                    1197     ; C5:     DJNZ    R3,     C6      // 4
+004C DBF2           1198               C5:     DJNZ    R3,     C6       
+                    1199     ;         DJNZ    R4,     C7      // 4
+004E DCEA           1200               DJNZ    R4,     C7       
+                    1201     ; 
+                    1202               
+                    1203     ;         MOV     R0,     #0FFH
+0050 78FF           1204               MOV     R0,     #0FFH
+                    1205     ;         DJNZ    R0,     $
+0052 D8FE           1206               DJNZ    R0,     $
+                    1207     ; 
+                    1208               
                     1209     ;         POP     ACC
-0058 D0E0           1210               POP     ACC
-                    1211     ;         MOV     R4,     ACC
-005A ACE0           1212               MOV     R4,     ACC
+0054 D0E0           1210               POP     ACC
+                    1211     ;         MOV     R5,     ACC
+0056 ADE0           1212               MOV     R5,     ACC
                     1213     ;         POP     ACC
-005C D0E0           1214               POP     ACC
-                    1215     ;         MOV     R3,     ACC
-005E ABE0           1216               MOV     R3,     ACC
+0058 D0E0           1214               POP     ACC
+                    1215     ;         MOV     R4,     ACC
+005A ACE0           1216               MOV     R4,     ACC
                     1217     ;         POP     ACC
-0060 D0E0           1218               POP     ACC
-                    1219     ;         MOV     R2,     ACC
-0062 AAE0           1220               MOV     R2,     ACC
+005C D0E0           1218               POP     ACC
+                    1219     ;         MOV     R3,     ACC
+005E ABE0           1220               MOV     R3,     ACC
                     1221     ;         POP     ACC
-0064 D0E0           1222               POP     ACC
-                    1223     ;         MOV     R1,     ACC
-0066 A9E0           1224               MOV     R1,     ACC
+0060 D0E0           1222               POP     ACC
+                    1223     ;         MOV     R2,     ACC
+0062 AAE0           1224               MOV     R2,     ACC
                     1225     ;         POP     ACC
-0068 D0E0           1226               POP     ACC
-                    1227     ;         MOV     R0,     ACC
-006A A8E0           1228               MOV     R0,     ACC
+0064 D0E0           1226               POP     ACC
+                    1227     ;         MOV     R1,     ACC
+0066 A9E0           1228               MOV     R1,     ACC
                     1229     ;         POP     ACC
-006C D0E0           1230               POP     ACC
-                    1231     ; #pragma endasm
-                    1232     ; 
-                    1233     ;     return 0;
-                    1234                             ; SOURCE LINE # 334
-006E C3             1235             CLR     C
-                    1236     ; }
-                    1237                             ; SOURCE LINE # 335
-006F                1238     ?C0033:
-006F 22             1239             RET     
-                    1240     ; END OF _ir_send
-                    1241     
-                    1242     ; 
-                    1243     ; void ir_send_init(void)
-                    1244     
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    20
+0068 D0E0           1230               POP     ACC
+                    1231     ;         MOV     R0,     ACC
+006A A8E0           1232               MOV     R0,     ACC
+                    1233     ;         POP     ACC
+006C D0E0           1234               POP     ACC
+                    1235     ; #pragma endasm
+                    1236     ; 
+                    1237     ;     return 0;
+                    1238                             ; SOURCE LINE # 336
+006E C3             1239             CLR     C
+                    1240     ; }
+                    1241                             ; SOURCE LINE # 337
+006F                1242     ?C0033:
+006F 22             1243             RET     
+                    1244     ; END OF _ir_send
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    20
 
-----                1245             RSEG  ?PR?ir_send_init?IR
-0000                1246     ir_send_init:
-                    1247             USING   0
-                    1248                             ; SOURCE LINE # 337
-                    1249     ; {
-                    1250                             ; SOURCE LINE # 338
-                    1251     ;     IR_SEND = 1;
+                    1245     
+                    1246     ; 
+                    1247     ; void ir_send_init(void)
+                    1248     
+----                1249             RSEG  ?PR?ir_send_init?IR
+0000                1250     ir_send_init:
+                    1251             USING   0
                     1252                             ; SOURCE LINE # 339
-0000 D2B4           1253             SETB    P34
-                    1254     ;     ir_out = 0;
-                    1255                             ; SOURCE LINE # 340
-0002 C200     F     1256             CLR     ir_out
-                    1257     ;     ir_cnt = 0;
-                    1258                             ; SOURCE LINE # 341
-0004 E4             1259             CLR     A
-0005 F500     F     1260             MOV     ir_cnt,A
-                    1261     ;     ir_send_t0_timer_cfg(ENABLE);
-                    1262                             ; SOURCE LINE # 342
-0007 D200     F     1263             SETB    ?ir_send_t0_timer_cfg?BIT
-0009 020000   F     1264             LJMP    ir_send_t0_timer_cfg
-                    1265     ; END OF ir_send_init
-                    1266     
-                    1267     ; }
-                    1268     ; 
-                    1269     ; void ir_send_deinit(void)
+                    1253     ; {
+                    1254                             ; SOURCE LINE # 340
+                    1255     ;     IR_SEND = 1;
+                    1256                             ; SOURCE LINE # 341
+0000 D2B4           1257             SETB    P34
+                    1258     ;     ir_out = 0;
+                    1259                             ; SOURCE LINE # 342
+0002 C200     F     1260             CLR     ir_out
+                    1261     ;     ir_cnt = 0;
+                    1262                             ; SOURCE LINE # 343
+0004 E4             1263             CLR     A
+0005 F500     F     1264             MOV     ir_cnt,A
+                    1265     ;     ir_send_t0_timer_cfg(ENABLE);
+                    1266                             ; SOURCE LINE # 344
+0007 D200     F     1267             SETB    ?ir_send_t0_timer_cfg?BIT
+0009 020000   F     1268             LJMP    ir_send_t0_timer_cfg
+                    1269     ; END OF ir_send_init
                     1270     
-----                1271             RSEG  ?PR?ir_send_deinit?IR
-0000                1272     ir_send_deinit:
-                    1273             USING   0
-                    1274                             ; SOURCE LINE # 345
-                    1275     ; {
-                    1276                             ; SOURCE LINE # 346
-                    1277     ;     ir_send_t0_timer_cfg(DISABLE);
+                    1271     ; }
+                    1272     ; 
+                    1273     ; void ir_send_deinit(void)
+                    1274     
+----                1275             RSEG  ?PR?ir_send_deinit?IR
+0000                1276     ir_send_deinit:
+                    1277             USING   0
                     1278                             ; SOURCE LINE # 347
-0000 C200     F     1279             CLR     ?ir_send_t0_timer_cfg?BIT
-0002 120000   F     1280             LCALL   ir_send_t0_timer_cfg
-                    1281     ;     IR_SEND = 1;
-                    1282                             ; SOURCE LINE # 348
-0005 D2B4           1283             SETB    P34
-                    1284     ;     ir_out = 0;
-                    1285                             ; SOURCE LINE # 349
-0007 C200     F     1286             CLR     ir_out
-                    1287     ;     ir_cnt = 0;
-                    1288                             ; SOURCE LINE # 350
-0009 E4             1289             CLR     A
-000A F500     F     1290             MOV     ir_cnt,A
-                    1291     ; }
-                    1292                             ; SOURCE LINE # 351
-000C 22             1293             RET     
-                    1294     ; END OF ir_send_deinit
-                    1295     
-                    1296     ; 
-                    1297     ; 
-                    1298     ; bit check_ir_loop(void)
+                    1279     ; {
+                    1280                             ; SOURCE LINE # 348
+                    1281     ;     ir_send_t0_timer_cfg(DISABLE);
+                    1282                             ; SOURCE LINE # 349
+0000 C200     F     1283             CLR     ?ir_send_t0_timer_cfg?BIT
+0002 120000   F     1284             LCALL   ir_send_t0_timer_cfg
+                    1285     ;     IR_SEND = 1;
+                    1286                             ; SOURCE LINE # 350
+0005 D2B4           1287             SETB    P34
+                    1288     ;     ir_out = 0;
+                    1289                             ; SOURCE LINE # 351
+0007 C200     F     1290             CLR     ir_out
+                    1291     ;     ir_cnt = 0;
+                    1292                             ; SOURCE LINE # 352
+0009 E4             1293             CLR     A
+000A F500     F     1294             MOV     ir_cnt,A
+                    1295     ; }
+                    1296                             ; SOURCE LINE # 353
+000C 22             1297             RET     
+                    1298     ; END OF ir_send_deinit
                     1299     
-----                1300             RSEG  ?PR?check_ir_loop?IR
-0000                1301     check_ir_loop:
-                    1302             USING   0
-                    1303                             ; SOURCE LINE # 354
-                    1304     ; {
-                    1305                             ; SOURCE LINE # 355
-                    1306     ;     unsigned char n = 2;
+                    1300     ; 
+                    1301     ; 
+                    1302     ; bit check_ir_loop(void)
+                    1303     
+----                1304             RSEG  ?PR?check_ir_loop?IR
+0000                1305     check_ir_loop:
+                    1306             USING   0
                     1307                             ; SOURCE LINE # 356
-0000 750002   F     1308             MOV     n?1457,#02H
-                    1309     ; 
-                    1310     ;     ir_send_init();
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    21
+                    1308     ; {
+                    1309                             ; SOURCE LINE # 357
+                    1310     ;     unsigned char n = 2;
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    21
 
                     1311                             ; SOURCE LINE # 358
-0003 120000   F     1312             LCALL   ir_send_init
-0006                1313     ?C0038:
-                    1314     ; 
-                    1315     ;     do {
-                    1316                             ; SOURCE LINE # 360
-                    1317     ;         if (ir_rcv_int) {
-                    1318                             ; SOURCE LINE # 361
-0006 20001C   F     1319             JB      ir_rcv_int,?C0037
-                    1320     ;             break;
-                    1321                             ; SOURCE LINE # 362
-                    1322     ;         }
-                    1323                             ; SOURCE LINE # 363
-0009                1324     ?C0039:
-                    1325     ;         ir_cnt = 10;
-                    1326                             ; SOURCE LINE # 364
-0009 75000A   F     1327             MOV     ir_cnt,#0AH
-                    1328     ;         ir_out = 1;
-                    1329                             ; SOURCE LINE # 365
-000C D200     F     1330             SETB    ir_out
-000E                1331     ?C0040:
-                    1332     ;         while (ir_cnt);
-                    1333                             ; SOURCE LINE # 366
-000E E500     F     1334             MOV     A,ir_cnt
-0010 70FC           1335             JNZ     ?C0040
-0012                1336     ?C0041:
-                    1337     ;         ir_out = 0;
-                    1338                             ; SOURCE LINE # 367
-0012 C200     F     1339             CLR     ir_out
-                    1340     ; 
-                    1341     ;         if (!ir_rcv_int) {
+0000 750002   F     1312             MOV     n?1457,#02H
+                    1313     ; 
+                    1314     ;     ir_send_init();
+                    1315                             ; SOURCE LINE # 360
+0003 120000   F     1316             LCALL   ir_send_init
+0006                1317     ?C0038:
+                    1318     ; 
+                    1319     ;     do {
+                    1320                             ; SOURCE LINE # 362
+                    1321     ;         if (ir_rcv_int) {
+                    1322                             ; SOURCE LINE # 363
+0006 20001C   F     1323             JB      ir_rcv_int,?C0037
+                    1324     ;             break;
+                    1325                             ; SOURCE LINE # 364
+                    1326     ;         }
+                    1327                             ; SOURCE LINE # 365
+0009                1328     ?C0039:
+                    1329     ;         ir_cnt = 10;
+                    1330                             ; SOURCE LINE # 366
+0009 75000A   F     1331             MOV     ir_cnt,#0AH
+                    1332     ;         ir_out = 1;
+                    1333                             ; SOURCE LINE # 367
+000C D200     F     1334             SETB    ir_out
+000E                1335     ?C0040:
+                    1336     ;         while (ir_cnt);
+                    1337                             ; SOURCE LINE # 368
+000E E500     F     1338             MOV     A,ir_cnt
+0010 70FC           1339             JNZ     ?C0040
+0012                1340     ?C0041:
+                    1341     ;         ir_out = 0;
                     1342                             ; SOURCE LINE # 369
-0014 30000E   F     1343             JNB     ir_rcv_int,?C0037
-                    1344     ;             break;
-                    1345                             ; SOURCE LINE # 370
-                    1346     ;         }
-                    1347                             ; SOURCE LINE # 371
-0017                1348     ?C0042:
-                    1349     ;         ir_rcv_int = 0;
-                    1350                             ; SOURCE LINE # 372
-0017 C200     F     1351             CLR     ir_rcv_int
-                    1352     ;         Timer1_InterruptEnable();
-                    1353                             ; SOURCE LINE # 373
-0019 D2AB           1354             SETB    ET1
-                    1355     ; 
-                    1356     ;         delay_ms(1);
+0012 C200     F     1343             CLR     ir_out
+                    1344     ; 
+                    1345     ;         if (!ir_rcv_int) {
+                    1346                             ; SOURCE LINE # 371
+0014 30000E   F     1347             JNB     ir_rcv_int,?C0037
+                    1348     ;             break;
+                    1349                             ; SOURCE LINE # 372
+                    1350     ;         }
+                    1351                             ; SOURCE LINE # 373
+0017                1352     ?C0042:
+                    1353     ;         ir_rcv_int = 0;
+                    1354                             ; SOURCE LINE # 374
+0017 C200     F     1355             CLR     ir_rcv_int
+                    1356     ;         Timer1_InterruptEnable();
                     1357                             ; SOURCE LINE # 375
-001B 7F01           1358             MOV     R7,#01H
-001D 7E00           1359             MOV     R6,#00H
-001F 120000   F     1360             LCALL   _delay_ms
-                    1361     ;     } while (--n);
-                    1362                             ; SOURCE LINE # 376
-0022 D500E1   F     1363             DJNZ    n?1457,?C0038
-0025                1364     ?C0037:
-                    1365     ; 
-                    1366     ;     ir_send_deinit();
-                    1367                             ; SOURCE LINE # 378
-0025 120000   F     1368             LCALL   ir_send_deinit
+0019 D2AB           1358             SETB    ET1
+                    1359     ; 
+                    1360     ;         delay_ms(1);
+                    1361                             ; SOURCE LINE # 377
+001B 7F01           1362             MOV     R7,#01H
+001D 7E00           1363             MOV     R6,#00H
+001F 120000   F     1364             LCALL   _delay_ms
+                    1365     ;     } while (--n);
+                    1366                             ; SOURCE LINE # 378
+0022 D500E1   F     1367             DJNZ    n?1457,?C0038
+0025                1368     ?C0037:
                     1369     ; 
-                    1370     ;     return (n == 0);
+                    1370     ;     ir_send_deinit();
                     1371                             ; SOURCE LINE # 380
-0028 E500     F     1372             MOV     A,n?1457
-002A 7003           1373             JNZ     ?C0043
-002C D3             1374             SETB    C
-002D 8001           1375             SJMP    ?C0044
-002F                1376     ?C0043:
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    22
+0025 120000   F     1372             LCALL   ir_send_deinit
+                    1373     ; 
+                    1374     ;     return (n == 0);
+                    1375                             ; SOURCE LINE # 382
+0028 E500     F     1376             MOV     A,n?1457
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    22
 
-002F C3             1377             CLR     C
-0030                1378     ?C0044:
-                    1379     ; }
-                    1380                             ; SOURCE LINE # 381
-0030                1381     ?C0045:
-0030 22             1382             RET     
-                    1383     ; END OF check_ir_loop
-                    1384     
-                    1385             END
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    23
+002A 7003           1377             JNZ     ?C0043
+002C D3             1378             SETB    C
+002D 8001           1379             SJMP    ?C0044
+002F                1380     ?C0043:
+002F C3             1381             CLR     C
+0030                1382     ?C0044:
+                    1383     ; }
+                    1384                             ; SOURCE LINE # 383
+0030                1385     ?C0045:
+0030 22             1386             RET     
+                    1387     ; END OF check_ir_loop
+                    1388     
+                    1389             END
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    23
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -1467,8 +1471,8 @@ N A M E                      T Y P E  V A L U E   ATTRIBUTES
 ?C0021. . . . . . . . . . .  C ADDR   0068H   R   SEG=?PR?_NEC_DECODE?IR
 ?C0022. . . . . . . . . . .  C ADDR   0066H   R   SEG=?PR?_NEC_DECODE?IR
 ?C0024. . . . . . . . . . .  C ADDR   000DH   R   SEG=?PR?_IR_RCV?IR
-?C0025. . . . . . . . . . .  C ADDR   0035H   R   SEG=?PR?_IR_RCV?IR
-?C0026. . . . . . . . . . .  C ADDR   002FH   R   SEG=?PR?_IR_RCV?IR
+?C0025. . . . . . . . . . .  C ADDR   0038H   R   SEG=?PR?_IR_RCV?IR
+?C0026. . . . . . . . . . .  C ADDR   0032H   R   SEG=?PR?_IR_RCV?IR
 ?C0029. . . . . . . . . . .  C ADDR   0005H   R   SEG=?PR?IR_SEND_ISR?IR
 ?C0031. . . . . . . . . . .  C ADDR   000BH   R   SEG=?PR?IR_SEND_ISR?IR
 ?C0033. . . . . . . . . . .  C ADDR   006FH   R   SEG=?PR?_IR_SEND?IR
@@ -1504,7 +1508,7 @@ N A M E                      T Y P E  V A L U E   ATTRIBUTES
 ?PR?IR_RCV_DEINIT?IR. . . .  C SEG    0008H       REL=UNIT
 ?PR?IR_RCV_INIT?IR. . . . .  C SEG    0008H       REL=UNIT
 ?PR?IR_RCV_ISR?IR . . . . .  C SEG    0005H       REL=UNIT
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    24
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    24
 
 ?PR?IR_RCV_T0_TIMER_CFG?IR.  C SEG    0022H       REL=UNIT
 ?PR?IR_RCV_T1_TIMER_CFG?IR.  C SEG    002CH       REL=UNIT
@@ -1512,7 +1516,7 @@ N A M E                      T Y P E  V A L U E   ATTRIBUTES
 ?PR?IR_SEND_INIT?IR . . . .  C SEG    000CH       REL=UNIT
 ?PR?IR_SEND_ISR?IR. . . . .  C SEG    000CH       REL=UNIT
 ?PR?IR_SEND_T0_TIMER_CFG?IR  C SEG    005AH       REL=UNIT
-?PR?_IR_RCV?IR. . . . . . .  C SEG    0036H       REL=UNIT
+?PR?_IR_RCV?IR. . . . . . .  C SEG    0039H       REL=UNIT
 ?PR?_IR_SEND?IR . . . . . .  C SEG    0070H       REL=UNIT
 ?PR?_NEC_DECODE?IR. . . . .  C SEG    00BCH       REL=UNIT
 ?_IR_RCV?BIT. . . . . . . .  B ADDR   0000H.0 R   SEG=?BI?_IR_RCV?IR
@@ -1572,7 +1576,7 @@ CCON. . . . . . . . . . . .  D ADDR   00D8H   A
 CCP0. . . . . . . . . . . .  B ADDR   0090H.1 A   
 CCP1. . . . . . . . . . . .  B ADDR   0090H.0 A   
 CCP2. . . . . . . . . . . .  B ADDR   00B0H.7 A   
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    25
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    25
 
 CF. . . . . . . . . . . . .  B ADDR   00D8H.7 A   
 CH. . . . . . . . . . . . .  D ADDR   00F9H   A   
@@ -1640,7 +1644,7 @@ ISP_ADDRL . . . . . . . . .  D ADDR   00C4H   A
 ISP_CMD . . . . . . . . . .  D ADDR   00C5H   A   
 ISP_CONTR . . . . . . . . .  D ADDR   00C7H   A   
 ISP_DATA. . . . . . . . . .  D ADDR   00C2H   A   
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    26
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    26
 
 ISP_TRIG. . . . . . . . . .  D ADDR   00C6H   A   
 IT0 . . . . . . . . . . . .  B ADDR   0088H.0 A   
@@ -1708,7 +1712,7 @@ P45 . . . . . . . . . . . .  B ADDR   00C0H.5 A
 P46 . . . . . . . . . . . .  B ADDR   00C0H.6 A   
 P47 . . . . . . . . . . . .  B ADDR   00C0H.7 A   
 P4M0. . . . . . . . . . . .  D ADDR   00B4H   A   
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    27
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    27
 
 P4M1. . . . . . . . . . . .  D ADDR   00B3H   A   
 P5. . . . . . . . . . . . .  D ADDR   00C8H   A   
@@ -1776,7 +1780,7 @@ SCON. . . . . . . . . . . .  D ADDR   0098H   A
 SM0 . . . . . . . . . . . .  B ADDR   0098H.7 A   
 SM1 . . . . . . . . . . . .  B ADDR   0098H.6 A   
 SM2 . . . . . . . . . . . .  B ADDR   0098H.5 A   
-A51 MACRO ASSEMBLER  IR                                                                   12/06/2015 18:14:15 PAGE    28
+A51 MACRO ASSEMBLER  IR                                                                   12/13/2015 17:07:06 PAGE    28
 
 SP. . . . . . . . . . . . .  D ADDR   0081H   A   
 SPCTL . . . . . . . . . . .  D ADDR   00CEH   A   

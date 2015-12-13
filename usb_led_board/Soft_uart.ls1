@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     1
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE     1
 
 
 MACRO ASSEMBLER A51 V7.08a
@@ -65,7 +65,7 @@ LOC  OBJ            LINE     SOURCE
   00AD                55     EADC    BIT     0A8H.5
   00A1                56     SPI_SCLK_2      BIT     0A0H.1
   00A8                57     IE      DATA    0A8H
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     2
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE     2
 
   00C3                58     SPI_SCLK_3      BIT     0C0H.3
   00E9                59     CL      DATA    0E9H
@@ -133,7 +133,7 @@ LOC  OBJ            LINE     SOURCE
   00C8               121     P50     BIT     0C8H.0
   00C1               122     P41     BIT     0C0H.1
   00B2               123     P32     BIT     0B0H.2
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     3
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE     3
 
   00A3               124     P23     BIT     0A0H.3
   0094               125     P14     BIT     090H.4
@@ -201,7 +201,7 @@ LOC  OBJ            LINE     SOURCE
   00D4               187     TH3     DATA    0D4H
   00D4               188     T3H     DATA    0D4H
   008A               189     RL_TL0  DATA    08AH
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     4
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE     4
 
   009F               190     SM0     BIT     098H.7
   00D2               191     TH4     DATA    0D2H
@@ -269,7 +269,7 @@ LOC  OBJ            LINE     SOURCE
   008F               253     INT_CLKO        DATA    08FH
   00F6               254     B6      BIT     0F0H.6
   00E0               255     ACC0    BIT     0E0H.0
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     5
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE     5
 
   00F7               256     B7      BIT     0F0H.7
   00E1               257     ACC1    BIT     0E0H.1
@@ -337,7 +337,7 @@ LOC  OBJ            LINE     SOURCE
                      319     ; /***************************************************************************/
                      320     ; 
                      321     ; 
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     6
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE     6
 
                      322     ; #define BaudRate              115200          //模拟串口波特率
                      323     ; 
@@ -405,7 +405,7 @@ LOC  OBJ            LINE     SOURCE
 000D 88E0            385               MOV     ACC,    R0
                      386     ;     PUSH    ACC
 000F C0E0            387               PUSH    ACC
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     7
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE     7
 
                      388     ;     MOV     ACC,    R1
 0011 89E0            389               MOV     ACC,    R1
@@ -473,7 +473,7 @@ LOC  OBJ            LINE     SOURCE
 0035 D8FE            451               DJNZ    R0,     $
                      452     ; 
                      453               
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     8
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE     8
 
                      454     ;     POP     ACC
 0037 D0E0            455               POP     ACC
@@ -541,7 +541,7 @@ LOC  OBJ            LINE     SOURCE
                      517     ; }
                      518     ; 
                      519     ; void uart_isr(void)
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE     9
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE     9
 
                      520     ; {
                      521     ;     if (RING) {
@@ -609,7 +609,7 @@ LOC  OBJ            LINE     SOURCE
                      575     ;     TING = 0;
                      576     ;     RING = 0;
                      577     ;     TCNT = 3;
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    10
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE    10
 
                      578     ;     RCNT = 0;
                      579     ;     init = 1;
@@ -677,7 +677,7 @@ LOC  OBJ            LINE     SOURCE
                      641     ;         uart_deinit();
                      642                             ; SOURCE LINE # 216
 0026 120000   F      643             LCALL   uart_deinit
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    11
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE    11
 
                      644     ;     }
                      645                             ; SOURCE LINE # 217
@@ -745,7 +745,7 @@ LOC  OBJ            LINE     SOURCE
 002F FF              707             MOV     R7,A
 0030 8006            708             SJMP    ?C0011
 0032                 709     ?C0010:
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    12
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE    12
 
 0032 EE              710             MOV     A,R6
 0033 540F            711             ANL     A,#0FH
@@ -813,7 +813,7 @@ LOC  OBJ            LINE     SOURCE
                      773     ;         uart_deinit();
                      774                             ; SOURCE LINE # 249
 0023 120000   F      775             LCALL   uart_deinit
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    13
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE    13
 
                      776     ;     }
                      777                             ; SOURCE LINE # 250
@@ -824,7 +824,7 @@ LOC  OBJ            LINE     SOURCE
                      782     ; END OF _print_dec
                      783     
                      784             END
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    14
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE    14
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -892,7 +892,7 @@ CCAP1H. . . . . . . . . .  D ADDR   00FBH   A
 CCAP1L. . . . . . . . . .  D ADDR   00EBH   A   
 CCAP2H. . . . . . . . . .  D ADDR   00FCH   A   
 CCAP2L. . . . . . . . . .  D ADDR   00ECH   A   
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    15
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE    15
 
 CCAPM0. . . . . . . . . .  D ADDR   00DAH   A   
 CCAPM1. . . . . . . . . .  D ADDR   00DBH   A   
@@ -960,7 +960,7 @@ P0. . . . . . . . . . . .  D ADDR   0080H   A
 P00 . . . . . . . . . . .  B ADDR   0080H.0 A   
 P01 . . . . . . . . . . .  B ADDR   0080H.1 A   
 P02 . . . . . . . . . . .  B ADDR   0080H.2 A   
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    16
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE    16
 
 P03 . . . . . . . . . . .  B ADDR   0080H.3 A   
 P04 . . . . . . . . . . .  B ADDR   0080H.4 A   
@@ -1028,7 +1028,7 @@ P5M1. . . . . . . . . . .  D ADDR   00C9H   A
 P6. . . . . . . . . . . .  D ADDR   00E8H   A   
 P6M0. . . . . . . . . . .  D ADDR   00CCH   A   
 P6M1. . . . . . . . . . .  D ADDR   00CBH   A   
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    17
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE    17
 
 P7. . . . . . . . . . . .  D ADDR   00F8H   A   
 P7M0. . . . . . . . . . .  D ADDR   00E2H   A   
@@ -1096,7 +1096,7 @@ SPI_SCLK_2. . . . . . . .  B ADDR   00A0H.1 A
 SPI_SCLK_3. . . . . . . .  B ADDR   00C0H.3 A   
 SPI_SS. . . . . . . . . .  B ADDR   0090H.2 A   
 SPI_SS_2. . . . . . . . .  B ADDR   00A0H.4 A   
-A51 MACRO ASSEMBLER  SOFT_UART                                                            12/06/2015 18:14:14 PAGE    18
+A51 MACRO ASSEMBLER  SOFT_UART                                                            12/13/2015 17:07:06 PAGE    18
 
 SPI_SS_3. . . . . . . . .  B ADDR   00C8H.4 A   
 SPSTAT. . . . . . . . . .  D ADDR   00CDH   A   

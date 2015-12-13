@@ -15,6 +15,7 @@ File 1,5,<.\include\soft_uart.h><soft_uart.h> 0x0
 File 1,5,<.\include\STC15Fxxxx.H><STC15Fxxxx.H> 0x0 
 File 1,5,<.\include\timer.h><timer.h> 0x0 
 File 1,5,<.\include\ir.h><ir.h> 0x0 
+File 1,5,<.\include\key_code.h><key_code.h> 0x0 
 File 2,1,<.\source\delay.c><delay.c> 0x0 
 File 2,1,<.\source\Exti.c><Exti.c> 0x0 
 File 2,1,<.\source\GPIO.c><GPIO.c> 0x0 
@@ -177,7 +178,26 @@ Options 1,2,0  // Group 'source'
  INCA5 ()
 EndOpt
 
-Options 1,2,12  // File 'Soft_uart.c'
+Options 1,2,13  // File 'Soft_uart.c'
+ PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=2
+ AlwaysBuild=2
+ GenAsm=1
+ AsmAsm=1
+ PublicsOnly=2
+ StopCode=11
+ CustArgs ()
+ LibMods ()
+ BankNo=65535
+ C51FL=177119914
+ C51VA=0
+ C51MSC ()
+ C51DEF ()
+ C51UDF ()
+ INCC5 ()
+EndOpt
+
+Options 1,2,16  // File 'ir.c'
  PropFld { 2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
  IncBld=2
  AlwaysBuild=2

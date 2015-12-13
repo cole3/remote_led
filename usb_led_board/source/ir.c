@@ -168,6 +168,8 @@ bit ir_rcv(unsigned char *key)
         return 0;
     }
 
+    SYSTEM_CLK_1T();
+
     ir_rcv_t0_timer_cfg();
 
     temp = Ir_Get_Low();

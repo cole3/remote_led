@@ -1,4 +1,4 @@
-C51 COMPILER V7.08   TIMER                        12/06/2015 14:16:05 PAGE 1   
+C51 COMPILER V7.08   TIMER                        12/08/2015 20:58:32 PAGE 1   
 
 
 C51 COMPILER V7.08, COMPILATION OF MODULE TIMER
@@ -64,7 +64,7 @@ line level    source
   50   2              else                                                                    ET0 = 0;        //Ω˚÷π÷–∂œ
   51   2              if(TIMx->TIM_Polity == PolityHigh)              PT0 = 1;        //∏ﬂ”≈œ»º∂÷–
              -∂œ
-C51 COMPILER V7.08   TIMER                        12/06/2015 14:16:05 PAGE 2   
+C51 COMPILER V7.08   TIMER                        12/08/2015 20:58:32 PAGE 2   
 
   52   2              else                                                                    PT0 = 0;        //µÕ”≈œ»º∂÷–∂œ
   53   2              if(TIMx->TIM_Mode >  TIM_16BitAutoReloadNoMask) return 2;
@@ -130,7 +130,7 @@ line level    source
   97   2              if(TIMx->TIM_ClkSource == TIM_CLOCK_Ext)        AUXR |=  (1<<3);
              -        //∂‘Õ‚º∆ ˝ªÚ∑÷∆µ
   98   2              else                                                                            AUXR &= ~(1<<3);        //∂® ±
-C51 COMPILER V7.08   TIMER                        12/06/2015 14:16:05 PAGE 3   
+C51 COMPILER V7.08   TIMER                        12/08/2015 20:58:32 PAGE 3   
 
   99   2              if(TIMx->TIM_ClkOut == ENABLE)  INT_CLKO |=  0x04;      // ‰≥ˆ 
              -±÷”

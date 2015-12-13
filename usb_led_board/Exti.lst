@@ -1,4 +1,4 @@
-C51 COMPILER V7.08   EXTI                         12/06/2015 14:16:05 PAGE 1   
+C51 COMPILER V7.08   EXTI                         12/08/2015 20:58:31 PAGE 1   
 
 
 C51 COMPILER V7.08, COMPILATION OF MODULE EXTI
@@ -64,7 +64,7 @@ line level    source
              -=========
   50          u8      Ext_Inilize(u8 EXT, EXTI_InitTypeDef *INTx)
   51          {
-C51 COMPILER V7.08   EXTI                         12/06/2015 14:16:05 PAGE 2   
+C51 COMPILER V7.08   EXTI                         12/08/2015 20:58:31 PAGE 2   
 
   52   1          if(EXT >  EXT_INT4) return 1;       //¿Õ²Ù×÷
   53   1      
